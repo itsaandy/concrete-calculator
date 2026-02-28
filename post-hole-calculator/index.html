@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate concrete for fence posts, deck posts, and pergola footings. Supports square and round posts with Australian standard sizes. Free instant estimates.">
+  <meta name="keywords" content="post hole concrete calculator, fence post concrete, deck post footing, pergola post concrete, Australia">
+  <meta name="author" content="Concrete Calculator Australia">
+  <meta name="robots" content="index, follow">
+
+  <title>Post Hole Concrete Calculator - Fence Posts, Deck Posts | Australia</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://concretecalc.com.au/post-hole-calculator/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Post Hole Concrete Calculator Australia">
+  <meta property="og:description" content="Calculate concrete for fence posts, deck posts, and pergola footings. Supports square and round posts with Australian standard sizes. Free instant estimates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://concretecalc.com.au/post-hole-calculator/">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:image" content="https://concretecalc.com.au/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='10' fill='%231e293b'/%3E%3Crect x='15' y='50' width='70' height='35' rx='3' fill='%23f59e0b'/%3E%3Crect x='20' y='25' width='25' height='30' fill='%2394a3b8'/%3E%3Crect x='55' y='35' width='25' height='20' fill='%2394a3b8'/%3E%3C/svg%3E">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Post Hole Concrete Calculator",
+    "description": "Calculate concrete for fence posts, deck posts, and pergola footings.",
+    "url": "https://concretecalc.com.au/post-hole-calculator/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "AUD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://concretecalc.com.au/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Post Hole Calculator",
+        "item": "https://concretecalc.com.au/post-hole-calculator/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How deep should fence post holes be?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The general rule is 1/3 of the post length should be in the ground. For a 1.8m fence (6ft): 600mm deep minimum. For a 2.1m fence (7ft): 700mm deep. For a 2.4m fence (8ft): 800mm deep. Minimum depth should never be less than 450mm for stability."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How wide should the hole be?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Hole diameter should be at least 3 times the post width. For a 90mm post: 270mm minimum (300mm recommended). For a 100mm post: 300mm minimum. For a 125mm post: 375mm minimum (400mm recommended). This provides enough concrete around the post for proper anchoring."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How many bags per fence post?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "For a typical 300mm diameter × 600mm deep hole: Quick-set post mix (20kg bag) needs 1-2 bags per post. Standard concrete (20kg bag) needs 2-3 bags per post. Use our calculator for exact quantities based on your hole size."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Should I use quick-set or standard concrete?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Quick-set post mix sets in 20-40 minutes and is best for fence posts and letterboxes. Standard concrete takes 24-48 hours to set, provides more working time for adjustments, and is better for structural posts like decks and pergolas due to its stronger final result."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="12" width="20" height="10" rx="1"/>
+            <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+            <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+          </svg>
+          <span>Concrete Calculator</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="/">Slab Calculator</a></li>
+            <li><a href="/post-hole-calculator/" class="is-active">Post Holes</a></li>
+            <li><a href="/footing-calculator/">Footings</a></li>
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                More
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <ul class="nav-dropdown-menu">
+                <li><a href="/column-calculator/">Column Calculator</a></li>
+                <li><a href="/circular-slab-calculator/">Circular Slab</a></li>
+              </ul>
+            </li>
+            <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="/">Slab Calculator</a></li>
+          <li><a href="/post-hole-calculator/" class="is-active">Post Hole Calculator</a></li>
+          <li><a href="/footing-calculator/">Footing Calculator</a></li>
+          <li><a href="/column-calculator/">Column Calculator</a></li>
+          <li><a href="/circular-slab-calculator/">Circular Slab Calculator</a></li>
+          <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li>Post Hole Calculator</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Post Hole Concrete Calculator</h1>
+        <p>Calculate concrete for fence posts, deck posts, pergola footings, and letterbox posts. Enter your hole dimensions and number of posts.</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+          <div class="calculator-card">
+            <div class="calculator-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="4"/>
+              </svg>
+              <h2>Post Hole Calculator</h2>
+            </div>
+
+            <div class="calculator-body">
+              <!-- Dimension Diagram -->
+              <div class="diagram-section">
+                <svg class="diagram-svg" viewBox="0 0 280 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="posthole-diagram-title">
+                  <title id="posthole-diagram-title">Post hole dimensions diagram showing hole diameter, depth, and post</title>
+
+                  <!-- Ground surface -->
+                  <rect x="20" y="50" width="240" height="8" fill="#8b7355"/>
+                  <line x1="20" y1="50" x2="260" y2="50" stroke="#6b5344" stroke-width="2"/>
+
+                  <!-- Hole (cross-section) -->
+                  <rect x="90" y="58" width="100" height="120" fill="#cbd5e1" stroke="#475569" stroke-width="1.5"/>
+
+                  <!-- Post in center -->
+                  <rect x="120" y="20" width="40" height="158" fill="#a3785d" stroke="#6b5344" stroke-width="1.5"/>
+
+                  <!-- Concrete around post -->
+                  <rect x="90" y="58" width="30" height="120" fill="#94a3b8" stroke="#475569" stroke-width="0"/>
+                  <rect x="160" y="58" width="30" height="120" fill="#94a3b8" stroke="#475569" stroke-width="0"/>
+
+                  <!-- Hole outline again for clean edges -->
+                  <rect x="90" y="58" width="100" height="120" fill="none" stroke="#475569" stroke-width="1.5"/>
+
+                  <!-- Ground texture lines -->
+                  <line x1="20" y1="54" x2="85" y2="54" stroke="#7a6548" stroke-width="1" stroke-dasharray="4,3"/>
+                  <line x1="195" y1="54" x2="260" y2="54" stroke="#7a6548" stroke-width="1" stroke-dasharray="4,3"/>
+
+                  <!-- Hole Diameter Arrow (below the hole) -->
+                  <line x1="90" y1="192" x2="190" y2="192" stroke="#f59e0b" stroke-width="2" marker-start="url(#arrowStartPH)" marker-end="url(#arrowEndPH)"/>
+                  <text x="140" y="208" text-anchor="middle" font-size="11" font-weight="600" fill="#d97706">Hole Diameter</text>
+
+                  <!-- Depth Arrow -->
+                  <line x1="70" y1="58" x2="70" y2="178" stroke="#f59e0b" stroke-width="2" marker-start="url(#arrowStartPH)" marker-end="url(#arrowEndPH)"/>
+                  <text x="50" y="120" text-anchor="middle" font-size="11" font-weight="600" fill="#d97706" transform="rotate(-90, 50, 120)">Depth</text>
+
+                  <!-- Post Width Arrow (same color, positioned clearly) -->
+                  <line x1="120" y1="12" x2="160" y2="12" stroke="#f59e0b" stroke-width="2" marker-start="url(#arrowStartPH)" marker-end="url(#arrowEndPH)"/>
+                  <text x="200" y="16" text-anchor="start" font-size="11" font-weight="600" fill="#d97706">Post Width</text>
+
+                  <!-- Labels outside shapes -->
+                  <text x="165" y="40" text-anchor="start" font-size="10" font-weight="500" fill="#6b5344">← Post</text>
+                  <text x="192" y="120" text-anchor="start" font-size="10" font-weight="500" fill="#475569">← Concrete</text>
+
+                  <!-- Arrow markers -->
+                  <defs>
+                    <marker id="arrowStartPH" markerWidth="5" markerHeight="5" refX="1" refY="2.5" orient="auto">
+                      <path d="M4,0.5 L1,2.5 L4,4.5" fill="none" stroke="#f59e0b" stroke-width="1"/>
+                    </marker>
+                    <marker id="arrowEndPH" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
+                      <path d="M1,0.5 L4,2.5 L1,4.5" fill="none" stroke="#f59e0b" stroke-width="1"/>
+                    </marker>
+                  </defs>
+                </svg>
+              </div>
+
+              <form id="posthole-form" autocomplete="off">
+                <!-- Unit Toggle -->
+                <div class="form-group form-group--full">
+                  <span class="form-label">Units</span>
+                  <div class="toggle-group" id="unit-toggle">
+                    <label class="toggle-option">
+                      <input type="radio" name="unit" value="metres">
+                      Metres
+                    </label>
+                    <label class="toggle-option is-active">
+                      <input type="radio" name="unit" value="mm" checked>
+                      Millimetres
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Post Shape Toggle -->
+                <div class="form-group form-group--full">
+                  <span class="form-label">Post Shape</span>
+                  <div class="toggle-group" id="shape-toggle">
+                    <label class="toggle-option is-active">
+                      <input type="radio" name="postShape" value="square" checked>
+                      Square Post
+                    </label>
+                    <label class="toggle-option">
+                      <input type="radio" name="postShape" value="round">
+                      Round Post
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Dimensions -->
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label class="form-label" for="holeDiameter">
+                      Hole Diameter
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="holeDiameter"
+                        name="holeDiameter"
+                        class="form-input form-input--with-suffix"
+                        placeholder="e.g. 300"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix" data-type="length">mm</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="holeDepth">
+                      Hole Depth
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="holeDepth"
+                        name="holeDepth"
+                        class="form-input form-input--with-suffix"
+                        placeholder="e.g. 600"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix" data-type="length">mm</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="postWidth">
+                      Post Width <span class="form-label-hint">(optional)</span>
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="postWidth"
+                        name="postWidth"
+                        class="form-input form-input--with-suffix"
+                        placeholder="e.g. 90"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix" data-type="length">mm</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="postCount">
+                      Number of Posts
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="postCount"
+                        name="postCount"
+                        class="form-input"
+                        placeholder="e.g. 10"
+                        step="1"
+                        min="1"
+                        value="1"
+                        inputmode="numeric"
+                      >
+                    </div>
+                  </div>
+
+                  <div class="form-group form-group--full">
+                    <div class="range-wrapper">
+                      <div class="range-header">
+                        <div style="display: flex; align-items: center; gap: var(--space-2);">
+                          <label class="form-label" for="wastage">Wastage</label>
+                          <button type="button" class="info-modal-trigger" data-modal="wastage-modal" aria-expanded="false">
+                            (what's this?)
+                          </button>
+                        </div>
+                        <span class="range-value" id="wastage-value">10%</span>
+                      </div>
+                      <input
+                        type="range"
+                        id="wastage"
+                        name="wastage"
+                        class="form-range"
+                        min="5"
+                        max="15"
+                        value="10"
+                        step="1"
+                      >
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <!-- Results Panel -->
+              <div class="results-panel" id="results-panel">
+                <div class="results-header">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  </svg>
+                  <h3>Results</h3>
+                </div>
+
+                <div class="results-grid">
+                  <div class="result-item result-item--primary">
+                    <span class="result-label">Total Volume</span>
+                    <span class="result-value result-value--placeholder" id="result-volume">--</span>
+                    <span class="result-subtext">Including wastage</span>
+                  </div>
+
+                  <div class="result-item result-item--primary">
+                    <span class="result-label">20kg Bags Needed</span>
+                    <span class="result-value result-value--placeholder" id="result-bags">--</span>
+                    <span class="result-subtext">Standard concrete bags</span>
+                  </div>
+
+                  <div class="result-item">
+                    <span class="result-label">Estimated Bag Cost</span>
+                    <div class="cost-range result-value result-value--small result-value--placeholder" id="result-bag-cost">--</div>
+                    <span class="result-subtext">Based on $8.50-$12.50/bag</span>
+                  </div>
+
+                  <div class="result-item">
+                    <span class="result-label">Per Post</span>
+                    <div class="result-value result-value--small result-value--placeholder" id="result-per-post">--</div>
+                    <span class="result-subtext">Concrete per hole</span>
+                  </div>
+                </div>
+
+                <div class="share-buttons">
+                  <button type="button" class="share-btn share-btn--copy">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    Copy Result
+                  </button>
+                  <button type="button" class="share-btn share-btn--share">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                    </svg>
+                    Share Link
+                  </button>
+                </div>
+              </div>
+
+              <!-- Formula Breakdown -->
+              <details class="formula-section">
+                <summary class="formula-toggle">
+                  <span>How is this calculated?</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </summary>
+                <div class="formula-content" id="formula-content">
+                  <div class="formula-box">
+                    <strong>Volume = (π × r² × depth) - post volume</strong>
+                  </div>
+                  <p>Enter your dimensions above to see the step-by-step calculation.</p>
+                </div>
+              </details>
+            </div>
+
+            <!-- Presets -->
+            <div class="presets-section" id="presets-section">
+              <span class="presets-label">Quick presets:</span>
+              <div class="presets-grid">
+                <button type="button" class="preset-btn" data-preset="fence">Fence Post (300mm hole)</button>
+                <button type="button" class="preset-btn" data-preset="deck">Deck Post (450mm hole)</button>
+                <button type="button" class="preset-btn" data-preset="pergola">Pergola Post (400mm hole)</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Info Box -->
+        <div class="info-box info-box--tip">
+          <div class="info-box-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            Tip: Post Hole Sizing
+          </div>
+          <div class="info-box-content">
+            <strong>Hole diameter:</strong> At least 3× the post width. <strong>Depth:</strong> 1/3 of total post length for fence posts (minimum 450mm), or 600mm for structural posts. Add 50mm gravel drainage at the bottom.
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <h2 class="section-title">Post Hole FAQ</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary class="faq-question">
+                How deep should fence post holes be?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>The general rule is <strong>1/3 of the post length should be in the ground</strong>:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>1.8m fence (6ft): 600mm deep minimum</li>
+                  <li>2.1m fence (7ft): 700mm deep</li>
+                  <li>2.4m fence (8ft): 800mm deep</li>
+                </ul>
+                <p>Minimum depth should never be less than 450mm for stability.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                How wide should the hole be?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Hole diameter should be <strong>at least 3 times the post width</strong>:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>90mm post: 270mm minimum (300mm recommended)</li>
+                  <li>100mm post: 300mm minimum</li>
+                  <li>125mm post: 375mm minimum (400mm recommended)</li>
+                </ul>
+                <p>This provides enough concrete around the post for proper anchoring.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                How many bags per fence post?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Typical requirements for a 300mm diameter × 600mm deep hole:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>Quick-set post mix (20kg bag): 1-2 bags per post</li>
+                  <li>Standard concrete (20kg bag): 2-3 bags per post</li>
+                </ul>
+                <p>Use our calculator above for exact quantities based on your hole size.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Should I use quick-set or standard concrete?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p><strong>Quick-set post mix:</strong></p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>Sets in 20-40 minutes</li>
+                  <li>Can attach fence panels same day</li>
+                  <li>Slightly more expensive</li>
+                  <li>Best for fence posts and letterboxes</li>
+                </ul>
+                <p><strong>Standard concrete:</strong></p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>24-48 hours to set</li>
+                  <li>More working time for adjustments</li>
+                  <li>Stronger final result</li>
+                  <li>Better for structural posts (decks, pergolas)</li>
+                </ul>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Related Calculators -->
+        <section class="related-section">
+          <h2 class="section-title">Related Calculators</h2>
+          <div class="related-grid">
+            <a href="/footing-calculator/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="14" width="18" height="8" rx="1"/>
+                <path d="M12 4v10"/>
+                <path d="M8 8h8"/>
+              </svg>
+              <h3>Footing Calculator</h3>
+              <p>For pier footings and strip footings.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+
+            <a href="/column-calculator/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="2" width="8" height="20" rx="1"/>
+              </svg>
+              <h3>Column Calculator</h3>
+              <p>Solid concrete columns and piers.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+
+            <a href="/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="12" width="20" height="10" rx="1"/>
+                <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+                <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+              </svg>
+              <h3>Slab Calculator</h3>
+              <p>Rectangular slabs for sheds and patios.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <article class="seo-content">
+          <h2>How Much Concrete for Fence Posts in Australia</h2>
+
+          <p>Setting fence posts in concrete is one of the most common DIY concreting jobs in Australia. Getting the right amount of concrete ensures your fence stands strong for years, whether you're building a standard timber paling fence or a more substantial boundary fence.</p>
+
+          <h3>Australian Fence Post Sizes</h3>
+          <p>The most common timber fence post sizes in Australia are 90×90mm and 100×100mm for standard residential fencing. Steel posts, popular for their durability and termite resistance, typically come in 65×65mm sizes. For heavier-duty applications like front fences or dividing fences that need to support gates, 125×125mm timber posts provide extra strength.</p>
+
+          <h3>Recommended Hole Dimensions</h3>
+          <p>A good rule of thumb is to dig your post hole at least three times the width of the post. For a 100mm post, this means a hole diameter of 300mm. The depth should be approximately one-third of the total post length that will be above ground. For a standard 2.4 metre fence post where 1.8 metres is above ground, you would bury 600mm in concrete. Most Australian councils and fencing contractors recommend a minimum depth of 450mm for standard fences and 600mm for structural posts.</p>
+
+          <h3>How the Calculation Works</h3>
+          <p>This calculator determines the concrete volume by calculating the cylindrical volume of each hole and subtracting the volume occupied by the post itself. The formula uses π × radius² × depth for the hole volume, minus the post dimensions multiplied by the depth it extends into the concrete. This gives you an accurate figure for the actual concrete needed, not just the hole size.</p>
+
+          <h3>Tips for Setting Posts in Concrete</h3>
+          <p>Rapid-set concrete is ideal for fence posts because it sets quickly and eliminates the need for temporary bracing overnight. Some products, like Rapid Set Concrete Post Mix, can be poured dry into the hole around the post and simply watered. This makes the job much easier for DIYers working alone. For best results, place about 50mm of gravel at the bottom of each hole for drainage before adding concrete.</p>
+
+          <h3>Council Regulations</h3>
+          <p>Australian fencing regulations vary by state and local council. Boundary fences between neighbours are typically covered by state fencing acts, which specify height limits and cost-sharing arrangements. Front fences often have stricter height restrictions, usually limited to 1.2 metres without council approval. Corner properties may have visibility requirements that affect fence placement. Always check with your local council before building, especially for fences over 2 metres high or within certain distances of property boundaries.</p>
+
+          <h3>Common Post Projects</h3>
+          <p>Beyond standard fence posts, this calculator works for deck posts that need substantial footings, pergola posts that may require deeper embedment for structural stability, and letterbox posts. For structural applications like decks and pergolas, consider using larger posts and deeper holes than you might for a simple fence, and always check if your project requires engineering certification or a building permit.</p>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="footer-logo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="12" width="20" height="10" rx="1"/>
+                <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+                <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+              </svg>
+              <span>Concrete Calculator</span>
+            </a>
+            <p>Free concrete calculators for Australian DIYers and tradies. Calculate volume, bags, and costs for all your concreting projects.</p>
+          </div>
+
+          <nav class="footer-nav">
+            <h4>Calculators</h4>
+            <ul>
+              <li><a href="/">Slab Calculator</a></li>
+              <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
+              <li><a href="/footing-calculator/">Footing Calculator</a></li>
+              <li><a href="/column-calculator/">Column Calculator</a></li>
+              <li><a href="/circular-slab-calculator/">Circular Slab</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-nav">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Concrete Calculator Australia</p>
+          <p class="disclaimer">
+            <strong>Disclaimer:</strong> These calculators provide estimates only. Actual concrete requirements may vary based on site conditions, mixing accuracy, and other factors. Always consult with a professional for structural projects.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Wastage Info Modal -->
+  <div class="info-modal-backdrop" id="wastage-modal-backdrop"></div>
+  <div class="info-modal" id="wastage-modal" role="dialog" aria-labelledby="wastage-modal-title" aria-modal="true">
+    <div class="info-modal-header">
+      <h3 class="info-modal-title" id="wastage-modal-title">Why add wastage?</h3>
+      <button type="button" class="info-modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="info-modal-body">
+      <p>Wastage accounts for concrete lost during your project:</p>
+      <ul class="info-modal-list">
+        <li>Uneven ground requiring more concrete in low spots</li>
+        <li>Spillage during pouring and spreading</li>
+        <li>Concrete sticking to mixing equipment</li>
+        <li>Minor measurement variations</li>
+      </ul>
+      <div class="info-modal-note">
+        <strong>10%</strong> is standard for most DIY projects.<br>
+        Use <strong>15%</strong> for uneven sites or complex shapes.
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/calculators.js"></script>
+  <script src="/js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const holeDiameterInput = $('holeDiameter');
+      const holeDepthInput = $('holeDepth');
+      const postWidthInput = $('postWidth');
+      const postCountInput = $('postCount');
+      const wastageSlider = $('wastage');
+
+      let currentUnit = 'mm';
+      let currentShape = 'square';
+
+      // Unit toggle
+      initUnitToggle('unit-toggle', function(newUnit) {
+        [holeDiameterInput, holeDepthInput, postWidthInput].forEach(input => {
+          convertInputUnit(input, currentUnit, newUnit);
+        });
+        updateInputSuffixes(newUnit);
+        if (newUnit === 'mm') {
+          holeDiameterInput.placeholder = 'e.g. 300';
+          holeDepthInput.placeholder = 'e.g. 600';
+          postWidthInput.placeholder = 'e.g. 90';
+        } else {
+          holeDiameterInput.placeholder = 'e.g. 0.3';
+          holeDepthInput.placeholder = 'e.g. 0.6';
+          postWidthInput.placeholder = 'e.g. 0.09';
+        }
+        currentUnit = newUnit;
+        calculate();
+      });
+
+      // Shape toggle
+      initShapeToggle('shape-toggle', {}, function(newShape) {
+        currentShape = newShape;
+        calculate();
+      });
+
+      // Wastage slider
+      initWastageSlider('wastage', 'wastage-value', calculate);
+
+      function calculate() {
+        const holeDiameter = getInputValueInMetres(holeDiameterInput, currentUnit);
+        const holeDepth = getInputValueInMetres(holeDepthInput, currentUnit);
+        const postWidth = getInputValueInMetres(postWidthInput, currentUnit);
+        const postCount = parseInt(postCountInput.value, 10) || 1;
+        const wastage = parseInt(wastageSlider.value, 10);
+
+        const result = calculatePostHole({
+          holeDiameter,
+          holeDepth,
+          postWidth,
+          postCount,
+          postShape: currentShape,
+          wastage
+        });
+
+        // Render results
+        renderResults(result, {
+          volume: 'result-volume',
+          bags: 'result-bags',
+          bagCost: 'result-bag-cost'
+        });
+
+        // Per post result
+        const perPostEl = $('result-per-post');
+        if (perPostEl) {
+          if (result.valid) {
+            perPostEl.textContent = formatNumber(result.results.concretePerHole, 4) + ' m³';
+            perPostEl.classList.remove('result-value--placeholder');
+          } else {
+            perPostEl.textContent = '--';
+            perPostEl.classList.add('result-value--placeholder');
+          }
+        }
+
+        // Render formula
+        renderFormula(result, 'formula-content');
+
+        return result;
+      }
+
+      // Set up input listeners
+      [holeDiameterInput, holeDepthInput, postWidthInput, postCountInput, wastageSlider].forEach(input => {
+        input.addEventListener('input', debounce(calculate, 200));
+      });
+
+      // Presets
+      const presets = PRESETS.postHole;
+      initPresets('presets-section', presets, function(preset) {
+        if (currentUnit === 'metres') {
+          holeDiameterInput.value = preset.holeDiameter;
+          holeDepthInput.value = preset.holeDepth;
+          postWidthInput.value = preset.postWidth;
+        } else {
+          holeDiameterInput.value = metresToMm(preset.holeDiameter);
+          holeDepthInput.value = metresToMm(preset.holeDepth);
+          postWidthInput.value = metresToMm(preset.postWidth);
+        }
+        calculate();
+      });
+
+      calculate();
+
+      // Share buttons
+      initShareButtons({
+        getValues: () => ({
+          hd: holeDiameterInput.value,
+          hh: holeDepthInput.value,
+          pw: postWidthInput.value,
+          n: postCountInput.value,
+          waste: wastageSlider.value
+        }),
+        getResultText: () => {
+          const result = calculate();
+          if (!result.valid) return null;
+          const hd = holeDiameterInput.value;
+          const hh = holeDepthInput.value;
+          const n = postCountInput.value;
+          const unit = currentUnit === 'mm' ? 'mm' : 'm';
+          return `Concrete Calculator Result
+Post Holes (${hd}${unit} dia × ${hh}${unit} deep) × ${n} posts
+Volume: ${formatNumber(result.results.totalVolume, 2)} m³ (incl. ${wastageSlider.value}% wastage)
+20kg bags needed: ${result.results.bags}
+Est. bag cost: ${formatCurrency(result.results.bagCost.min)} – ${formatCurrency(result.results.bagCost.max)}
+Calculate yours: https://concretecalc.com.au/post-hole-calculator/`;
+        },
+        paramMap: { hd: 'holeDiameter', hh: 'holeDepth', pw: 'postWidth', n: 'postCount', waste: 'wastage' }
+      });
+
+      // Trigger calculation if URL params present
+      const params = getUrlParams();
+      if (params.hd || params.hh) {
+        calculate();
+      }
+    });
+  </script>
+</body>
+</html>

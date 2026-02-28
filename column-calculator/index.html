@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Calculate concrete for round and square columns, piers, and stumps. Free Australian calculator with volume in m³, bag counts, and cost estimates.">
+  <meta name="keywords" content="concrete column calculator, round column concrete, square column concrete, pier calculator, Australia">
+  <meta name="author" content="Concrete Calculator Australia">
+  <meta name="robots" content="index, follow">
+
+  <title>Concrete Column Calculator - Round &amp; Square Columns | Australia</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://concretecalc.com.au/column-calculator/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Concrete Column Calculator Australia">
+  <meta property="og:description" content="Calculate concrete for round and square columns, piers, and stumps. Free Australian calculator with volume in m³, bag counts, and cost estimates.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://concretecalc.com.au/column-calculator/">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:image" content="https://concretecalc.com.au/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='10' fill='%231e293b'/%3E%3Crect x='15' y='50' width='70' height='35' rx='3' fill='%23f59e0b'/%3E%3Crect x='20' y='25' width='25' height='30' fill='%2394a3b8'/%3E%3Crect x='55' y='35' width='25' height='20' fill='%2394a3b8'/%3E%3C/svg%3E">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Concrete Column Calculator",
+    "description": "Calculate concrete for round or square columns and piers.",
+    "url": "https://concretecalc.com.au/column-calculator/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "AUD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://concretecalc.com.au/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Column Calculator",
+        "item": "https://concretecalc.com.au/column-calculator/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What size column do I need?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Column size depends on the load it needs to support. Veranda columns typically need 200-300mm diameter. Carport columns need 300-400mm diameter. Structural piers require engineering. Always consult a structural engineer for load-bearing columns."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do concrete columns need reinforcement?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most structural columns require reinforcement: vertical bars (typically 4× N12 or N16) running the full height, horizontal ties/ligatures spaced every 200-300mm, and adequate cover (40-50mm) from edge to steel. Requirements vary based on loads - check with an engineer for structural applications."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What concrete strength for columns?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Minimum 32MPa concrete is recommended for structural columns. This provides adequate strength for load-bearing applications. For exposed decorative columns, consider 40MPa for better durability and finish."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Round vs square columns - which is stronger?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Both can be equally strong when properly designed. Round columns offer more efficient use of concrete, are easier to pour, and better for exposed applications. Square columns are easier to form, have simpler connections to beams, and are more common in construction. Choose based on aesthetics, ease of construction, and connection requirements."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="12" width="20" height="10" rx="1"/>
+            <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+            <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+          </svg>
+          <span>Concrete Calculator</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="/">Slab Calculator</a></li>
+            <li><a href="/post-hole-calculator/">Post Holes</a></li>
+            <li><a href="/footing-calculator/">Footings</a></li>
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle is-active" aria-expanded="false" aria-haspopup="true">
+                More
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <ul class="nav-dropdown-menu">
+                <li><a href="/column-calculator/" class="is-active">Column Calculator</a></li>
+                <li><a href="/circular-slab-calculator/">Circular Slab</a></li>
+              </ul>
+            </li>
+            <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="/">Slab Calculator</a></li>
+          <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
+          <li><a href="/footing-calculator/">Footing Calculator</a></li>
+          <li><a href="/column-calculator/" class="is-active">Column Calculator</a></li>
+          <li><a href="/circular-slab-calculator/">Circular Slab Calculator</a></li>
+          <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li>Column Calculator</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Concrete Column Calculator</h1>
+        <p>Calculate concrete for round or square columns, piers, and pillars. Perfect for verandas, carports, and structural supports.</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+          <div class="calculator-card">
+            <div class="calculator-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="2" width="8" height="20" rx="1"/>
+              </svg>
+              <h2>Column Calculator</h2>
+            </div>
+
+            <div class="calculator-body">
+              <form id="column-form" autocomplete="off">
+                <!-- Unit Toggle -->
+                <div class="form-group form-group--full">
+                  <span class="form-label">Units</span>
+                  <div class="toggle-group" id="unit-toggle">
+                    <label class="toggle-option is-active">
+                      <input type="radio" name="unit" value="metres" checked>
+                      Metres
+                    </label>
+                    <label class="toggle-option">
+                      <input type="radio" name="unit" value="mm">
+                      Millimetres
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Shape Toggle -->
+                <div class="form-group form-group--full">
+                  <span class="form-label">Column Shape</span>
+                  <div class="toggle-group" id="shape-toggle">
+                    <label class="toggle-option is-active">
+                      <input type="radio" name="shape" value="round" checked>
+                      Round
+                    </label>
+                    <label class="toggle-option">
+                      <input type="radio" name="shape" value="square">
+                      Square/Rectangular
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Dimensions -->
+                <div class="form-grid">
+                  <!-- Round column fields -->
+                  <div class="form-group" id="field-diameter">
+                    <label class="form-label" for="diameter">
+                      Diameter
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="diameter"
+                        name="diameter"
+                        class="form-input form-input--with-suffix"
+                        placeholder="e.g. 0.3"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix" data-type="length">m</span>
+                    </div>
+                  </div>
+
+                  <!-- Square column fields -->
+                  <div class="form-group" id="field-width" style="display: none;">
+                    <label class="form-label" for="width">
+                      Width
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="width"
+                        name="width"
+                        class="form-input form-input--with-suffix"
+                        placeholder="e.g. 0.3"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix" data-type="length">m</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group" id="field-depth" style="display: none;">
+                    <label class="form-label" for="depth">
+                      Depth <span class="form-label-hint">(optional, defaults to width)</span>
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="depth"
+                        name="depth"
+                        class="form-input form-input--with-suffix"
+                        placeholder="Same as width"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix" data-type="length">m</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="height">
+                      Height
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="height"
+                        name="height"
+                        class="form-input form-input--with-suffix"
+                        placeholder="e.g. 2.4"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix" data-type="length">m</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="columnCount">
+                      Number of Columns
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="columnCount"
+                        name="columnCount"
+                        class="form-input"
+                        placeholder="e.g. 4"
+                        step="1"
+                        min="1"
+                        value="1"
+                        inputmode="numeric"
+                      >
+                    </div>
+                  </div>
+
+                  <div class="form-group form-group--full">
+                    <div class="range-wrapper">
+                      <div class="range-header">
+                        <div style="display: flex; align-items: center; gap: var(--space-2);">
+                          <label class="form-label" for="wastage">Wastage</label>
+                          <button type="button" class="info-modal-trigger" data-modal="wastage-modal" aria-expanded="false">
+                            (what's this?)
+                          </button>
+                        </div>
+                        <span class="range-value" id="wastage-value">10%</span>
+                      </div>
+                      <input
+                        type="range"
+                        id="wastage"
+                        name="wastage"
+                        class="form-range"
+                        min="5"
+                        max="15"
+                        value="10"
+                        step="1"
+                      >
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <!-- Results Panel -->
+              <div class="results-panel" id="results-panel">
+                <div class="results-header">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  </svg>
+                  <h3>Results</h3>
+                </div>
+
+                <div class="results-grid">
+                  <div class="result-item result-item--primary">
+                    <span class="result-label">Total Volume</span>
+                    <span class="result-value result-value--placeholder" id="result-volume">--</span>
+                    <span class="result-subtext">Including wastage</span>
+                  </div>
+
+                  <div class="result-item result-item--primary">
+                    <span class="result-label">20kg Bags Needed</span>
+                    <span class="result-value result-value--placeholder" id="result-bags">--</span>
+                    <span class="result-subtext">Standard concrete bags</span>
+                  </div>
+
+                  <div class="result-item">
+                    <span class="result-label">Estimated Bag Cost</span>
+                    <div class="cost-range result-value result-value--small result-value--placeholder" id="result-bag-cost">--</div>
+                    <span class="result-subtext">Based on $8.50-$12.50/bag</span>
+                  </div>
+
+                  <div class="result-item">
+                    <span class="result-label">Per Column</span>
+                    <div class="result-value result-value--small result-value--placeholder" id="result-per-column">--</div>
+                    <span class="result-subtext">Volume per column</span>
+                  </div>
+                </div>
+
+                <div class="share-buttons">
+                  <button type="button" class="share-btn share-btn--copy">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    Copy Result
+                  </button>
+                  <button type="button" class="share-btn share-btn--share">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                    </svg>
+                    Share Link
+                  </button>
+                </div>
+              </div>
+
+              <!-- Formula Breakdown -->
+              <details class="formula-section">
+                <summary class="formula-toggle">
+                  <span>How is this calculated?</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </summary>
+                <div class="formula-content" id="formula-content">
+                  <div class="formula-box">
+                    <strong>Round: Volume = π × r² × height</strong><br>
+                    <strong>Square: Volume = width × depth × height</strong>
+                  </div>
+                  <p>Enter your dimensions above to see the step-by-step calculation.</p>
+                </div>
+              </details>
+            </div>
+
+            <!-- Presets -->
+            <div class="presets-section" id="presets-section">
+              <span class="presets-label">Quick presets:</span>
+              <div class="presets-grid">
+                <button type="button" class="preset-btn" data-preset="veranda">Veranda Column (300mm)</button>
+                <button type="button" class="preset-btn" data-preset="carport">Carport Column (350mm)</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Info Box -->
+        <div class="info-box info-box--tip">
+          <div class="info-box-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            Tip: Column Formwork
+          </div>
+          <div class="info-box-content">
+            For round columns, use cardboard Sonotubes (available at Bunnings) which peel away after curing. For square columns, build plywood formwork or use steel forms for a smooth finish.
+          </div>
+        </div>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <h2 class="section-title">Column FAQ</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary class="faq-question">
+                What size column do I need?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Column size depends on the load it needs to support. General guidelines:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li><strong>Veranda columns:</strong> 200-300mm diameter</li>
+                  <li><strong>Carport columns:</strong> 300-400mm diameter</li>
+                  <li><strong>Structural piers:</strong> Engineering required</li>
+                </ul>
+                <p>For load-bearing columns, always consult a structural engineer.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Do concrete columns need reinforcement?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Most structural columns require reinforcement:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>Vertical bars (typically 4× N12 or N16) running the full height</li>
+                  <li>Horizontal ties/ligatures spaced every 200-300mm</li>
+                  <li>Adequate cover (40-50mm) from edge to steel</li>
+                </ul>
+                <p>Reinforcement requirements vary based on loads. Check with an engineer for structural applications.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                What concrete strength for columns?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Minimum <strong>32MPa concrete</strong> is recommended for structural columns. This provides adequate strength for load-bearing applications. For exposed decorative columns, consider 40MPa for better durability and finish.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Round vs square columns - which is stronger?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Both can be equally strong when properly designed. Differences include:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li><strong>Round:</strong> More efficient use of concrete, easier to pour, better for exposed applications</li>
+                  <li><strong>Square:</strong> Easier to form, simpler connections to beams, more common in construction</li>
+                </ul>
+                <p>Choose based on aesthetics, ease of construction, and how it connects to other elements.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Related Calculators -->
+        <section class="related-section">
+          <h2 class="section-title">Related Calculators</h2>
+          <div class="related-grid">
+            <a href="/footing-calculator/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="14" width="18" height="8" rx="1"/>
+                <path d="M12 4v10"/>
+                <path d="M8 8h8"/>
+              </svg>
+              <h3>Footing Calculator</h3>
+              <p>Calculate the footing base for your columns.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+
+            <a href="/post-hole-calculator/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="4"/>
+              </svg>
+              <h3>Post Hole Calculator</h3>
+              <p>For posts set in concrete holes.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+
+            <a href="/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="12" width="20" height="10" rx="1"/>
+                <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+                <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+              </svg>
+              <h3>Slab Calculator</h3>
+              <p>Calculate slabs that columns support.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <article class="seo-content">
+          <h2>Concrete Column and Pier Calculator for Australia</h2>
+
+          <p>Concrete columns and piers are essential structural elements that transfer loads from above-ground structures down to their footings. Whether you're building deck stumps, pergola supports, or verandah posts, calculating the right amount of concrete ensures your columns are solid and structurally sound.</p>
+
+          <h3>Round vs Square Columns</h3>
+          <p>Round columns are popular for their clean appearance and structural efficiency. They handle lateral loads well from all directions, making them ideal for exposed positions where wind or impact might come from any angle. Square columns are easier to form using standard timber and provide flat surfaces for attaching beams and brackets. The choice often comes down to aesthetics and practical considerations like what fixings you need to attach to the column.</p>
+
+          <h3>Common Uses in Australia</h3>
+          <p>Deck piers are perhaps the most common application, supporting the bearers and joists that make up the deck subframe. These typically range from 200mm to 450mm in diameter or width. Pergola supports need to be substantial enough to handle wind loads on the roof structure above. Verandah posts often need to match existing architectural features while providing adequate structural support. Carport columns must handle the weight of the roof and any wind or impact loads.</p>
+
+          <h3>Standard Sizes</h3>
+          <p>For lightweight deck piers supporting small residential decks, 200mm diameter round columns or 200×200mm square columns are common. Medium-duty applications like larger decks and pergolas typically use 300mm to 350mm diameter columns. For heavy-duty applications such as carports and large verandahs, columns of 400mm diameter or larger may be required. The exact size depends on the loads involved, the height of the column, and engineering requirements.</p>
+
+          <h3>Importance of Reinforcement</h3>
+          <p>While unreinforced concrete columns can work for short, low-load applications, structural columns almost always need steel reinforcement. Reinforcement helps the column handle bending forces and prevents catastrophic failure if the concrete cracks. For columns over 1.5 metres tall or those carrying significant loads, engineering specifications will typically call for vertical bars tied with horizontal ligatures. Never skip reinforcement if your plans require it.</p>
+
+          <h3>Using Sonotubes for Round Columns</h3>
+          <p>Cardboard Sonotubes, available at Bunnings and other building suppliers, make forming round columns straightforward. These tubes are set in the ground or on top of footings, filled with concrete, and then peeled away once the concrete has cured. They come in standard diameters and can be cut to length. For a smooth finish, some builders line the inside with plastic or apply a release agent before pouring.</p>
+
+          <h3>Planning Your Column Project</h3>
+          <p>Before starting any structural column work, check whether you need a building permit. In most Australian states, structures like decks, pergolas, and carports require permits if they exceed certain sizes or are attached to the house. Your local council can advise on requirements. For any load-bearing columns, having an engineer specify the size, reinforcement, and footing requirements ensures your structure is safe and compliant with the National Construction Code.</p>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="footer-logo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="12" width="20" height="10" rx="1"/>
+                <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+                <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+              </svg>
+              <span>Concrete Calculator</span>
+            </a>
+            <p>Free concrete calculators for Australian DIYers and tradies. Calculate volume, bags, and costs for all your concreting projects.</p>
+          </div>
+
+          <nav class="footer-nav">
+            <h4>Calculators</h4>
+            <ul>
+              <li><a href="/">Slab Calculator</a></li>
+              <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
+              <li><a href="/footing-calculator/">Footing Calculator</a></li>
+              <li><a href="/column-calculator/">Column Calculator</a></li>
+              <li><a href="/circular-slab-calculator/">Circular Slab</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-nav">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Concrete Calculator Australia</p>
+          <p class="disclaimer">
+            <strong>Disclaimer:</strong> These calculators provide estimates only. Structural columns require engineering design. Always consult with a qualified structural engineer for load-bearing applications.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Wastage Info Modal -->
+  <div class="info-modal-backdrop" id="wastage-modal-backdrop"></div>
+  <div class="info-modal" id="wastage-modal" role="dialog" aria-labelledby="wastage-modal-title" aria-modal="true">
+    <div class="info-modal-header">
+      <h3 class="info-modal-title" id="wastage-modal-title">Why add wastage?</h3>
+      <button type="button" class="info-modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="info-modal-body">
+      <p>Wastage accounts for concrete lost during your project:</p>
+      <ul class="info-modal-list">
+        <li>Uneven ground requiring more concrete in low spots</li>
+        <li>Spillage during pouring and spreading</li>
+        <li>Concrete sticking to mixing equipment</li>
+        <li>Minor measurement variations</li>
+      </ul>
+      <div class="info-modal-note">
+        <strong>10%</strong> is standard for most DIY projects.<br>
+        Use <strong>15%</strong> for uneven sites or complex shapes.
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/calculators.js"></script>
+  <script src="/js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const diameterInput = $('diameter');
+      const widthInput = $('width');
+      const depthInput = $('depth');
+      const heightInput = $('height');
+      const columnCountInput = $('columnCount');
+      const wastageSlider = $('wastage');
+
+      let currentUnit = 'metres';
+      let currentShape = 'round';
+
+      // Unit toggle
+      initUnitToggle('unit-toggle', function(newUnit) {
+        [diameterInput, widthInput, depthInput, heightInput].forEach(input => {
+          convertInputUnit(input, currentUnit, newUnit);
+        });
+        updateInputSuffixes(newUnit);
+        if (newUnit === 'mm') {
+          diameterInput.placeholder = 'e.g. 300';
+          widthInput.placeholder = 'e.g. 300';
+          depthInput.placeholder = 'Same as width';
+          heightInput.placeholder = 'e.g. 2400';
+        } else {
+          diameterInput.placeholder = 'e.g. 0.3';
+          widthInput.placeholder = 'e.g. 0.3';
+          depthInput.placeholder = 'Same as width';
+          heightInput.placeholder = 'e.g. 2.4';
+        }
+        currentUnit = newUnit;
+        calculate();
+      });
+
+      // Shape toggle
+      initShapeToggle('shape-toggle', {
+        round: ['field-diameter'],
+        square: ['field-width', 'field-depth']
+      }, function(newShape) {
+        currentShape = newShape;
+        calculate();
+      });
+
+      // Wastage slider
+      initWastageSlider('wastage', 'wastage-value', calculate);
+
+      function calculate() {
+        const diameter = getInputValueInMetres(diameterInput, currentUnit);
+        const width = getInputValueInMetres(widthInput, currentUnit);
+        const depth = getInputValueInMetres(depthInput, currentUnit);
+        const height = getInputValueInMetres(heightInput, currentUnit);
+        const columnCount = parseInt(columnCountInput.value, 10) || 1;
+        const wastage = parseInt(wastageSlider.value, 10);
+
+        const result = calculateColumn({
+          shape: currentShape,
+          diameter,
+          width,
+          depth,
+          height,
+          columnCount,
+          wastage
+        });
+
+        renderResults(result, {
+          volume: 'result-volume',
+          bags: 'result-bags',
+          bagCost: 'result-bag-cost'
+        });
+
+        // Per column result
+        const perColumnEl = $('result-per-column');
+        if (perColumnEl) {
+          if (result.valid) {
+            perColumnEl.textContent = formatNumber(result.results.volumePerColumn, 4) + ' m³';
+            perColumnEl.classList.remove('result-value--placeholder');
+          } else {
+            perColumnEl.textContent = '--';
+            perColumnEl.classList.add('result-value--placeholder');
+          }
+        }
+
+        renderFormula(result, 'formula-content');
+        return result;
+      }
+
+      // Set up input listeners
+      [diameterInput, widthInput, depthInput, heightInput, columnCountInput, wastageSlider].forEach(input => {
+        input.addEventListener('input', debounce(calculate, 200));
+      });
+
+      // Presets
+      const presets = PRESETS.column;
+      initPresets('presets-section', presets, function(preset) {
+        // Column presets are round
+        if (currentShape !== 'round') {
+          // Click the round toggle
+          qs('.toggle-option input[value="round"]').closest('.toggle-option').click();
+        }
+
+        if (currentUnit === 'mm') {
+          diameterInput.value = metresToMm(preset.diameter);
+          heightInput.value = metresToMm(preset.height);
+        } else {
+          diameterInput.value = preset.diameter;
+          heightInput.value = preset.height;
+        }
+        calculate();
+      });
+
+      calculate();
+
+      // Share buttons
+      initShareButtons({
+        getValues: () => ({
+          d: diameterInput.value,
+          w: widthInput.value,
+          dp: depthInput.value,
+          h: heightInput.value,
+          n: columnCountInput.value,
+          waste: wastageSlider.value
+        }),
+        getResultText: () => {
+          const result = calculate();
+          if (!result.valid) return null;
+          const h = heightInput.value;
+          const n = columnCountInput.value;
+          const unit = currentUnit === 'mm' ? 'mm' : 'm';
+          const shape = currentShape === 'round' ? `${diameterInput.value}${unit} dia` : `${widthInput.value}${unit} × ${depthInput.value}${unit}`;
+          return `Concrete Calculator Result
+Column (${shape} × ${h}${unit} high) × ${n}
+Volume: ${formatNumber(result.results.totalVolume, 2)} m³ (incl. ${wastageSlider.value}% wastage)
+20kg bags needed: ${result.results.bags}
+Est. bag cost: ${formatCurrency(result.results.bagCost.min)} – ${formatCurrency(result.results.bagCost.max)}
+Calculate yours: https://concretecalc.com.au/column-calculator/`;
+        },
+        paramMap: { d: 'diameter', w: 'width', dp: 'depth', h: 'height', n: 'columnCount', waste: 'wastage' }
+      });
+
+      // Trigger calculation if URL params present
+      const params = getUrlParams();
+      if (params.d || params.w || params.h) {
+        calculate();
+      }
+    });
+  </script>
+</body>
+</html>

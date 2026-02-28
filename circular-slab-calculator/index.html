@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Circular concrete slab calculator for fire pits, round patios, and tank pads. Calculate volume, bags, and costs in metric units for Australian projects.">
+  <meta name="keywords" content="circular slab calculator, round concrete slab, fire pit concrete, round patio calculator, Australia">
+  <meta name="author" content="Concrete Calculator Australia">
+  <meta name="robots" content="index, follow">
+
+  <title>Circular Slab Calculator - Fire Pits &amp; Round Patios | Australia</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://concretecalc.com.au/circular-slab-calculator/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Circular Slab Calculator Australia">
+  <meta property="og:description" content="Circular concrete slab calculator for fire pits, round patios, and tank pads. Calculate volume, bags, and costs in metric units for Australian projects.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://concretecalc.com.au/circular-slab-calculator/">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:image" content="https://concretecalc.com.au/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='10' fill='%231e293b'/%3E%3Crect x='15' y='50' width='70' height='35' rx='3' fill='%23f59e0b'/%3E%3Crect x='20' y='25' width='25' height='30' fill='%2394a3b8'/%3E%3Crect x='55' y='35' width='25' height='20' fill='%2394a3b8'/%3E%3C/svg%3E">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Circular Slab Calculator",
+    "description": "Calculate concrete for fire pits, round patios, and circular slabs.",
+    "url": "https://concretecalc.com.au/circular-slab-calculator/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "AUD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://concretecalc.com.au/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Circular Slab Calculator",
+        "item": "https://concretecalc.com.au/circular-slab-calculator/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "How do I make a perfect circle for my slab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use a string compass: Drive a stake at the center point, tie string to the stake with length equal to the radius (half the diameter), tie marking paint to the other end, and walk around keeping the string taut while spraying. For formwork, bend flexible hardboard (3-6mm) or use thin plywood with relief cuts on the back."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What thickness for a fire pit base?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "100mm thickness is recommended for fire pit bases. This provides adequate thermal mass and structural strength. Use SL72 reinforcement mesh, make the base 300-500mm wider than the fire pit, add expansion joints if over 2m diameter, and allow 28 days to cure before the first fire."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do I need reinforcement in a circular slab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "It depends on the application. Small bases under 1m usually don't require it. Fire pit bases should have reinforcement as thermal cycling can cause cracking. Patios over 2m should use SL72 mesh. Heavy loads like water tanks require SL82 mesh minimum. When in doubt, add mesh - it's inexpensive insurance against cracking."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use a circular slab for a water tank?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, but ensure adequate design: thickness of 100-150mm minimum, SL82 reinforcement mesh required, size 200-300mm wider than tank diameter, and compact the base well using 75-100mm road base. A full 22,500L tank weighs over 22 tonnes, so ensure ground bearing capacity is adequate."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="12" width="20" height="10" rx="1"/>
+            <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+            <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+          </svg>
+          <span>Concrete Calculator</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="/">Slab Calculator</a></li>
+            <li><a href="/post-hole-calculator/">Post Holes</a></li>
+            <li><a href="/footing-calculator/">Footings</a></li>
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle is-active" aria-expanded="false" aria-haspopup="true">
+                More
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <ul class="nav-dropdown-menu">
+                <li><a href="/column-calculator/">Column Calculator</a></li>
+                <li><a href="/circular-slab-calculator/" class="is-active">Circular Slab</a></li>
+              </ul>
+            </li>
+            <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="/">Slab Calculator</a></li>
+          <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
+          <li><a href="/footing-calculator/">Footing Calculator</a></li>
+          <li><a href="/column-calculator/">Column Calculator</a></li>
+          <li><a href="/circular-slab-calculator/" class="is-active">Circular Slab Calculator</a></li>
+          <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li>Circular Slab Calculator</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Circular Slab Calculator</h1>
+        <p>Calculate concrete for fire pit bases, round patios, birdbaths, and other circular slabs. Enter diameter and thickness for instant results.</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+          <div class="calculator-card">
+            <div class="calculator-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+              </svg>
+              <h2>Circular Slab Calculator</h2>
+            </div>
+
+            <div class="calculator-body">
+              <form id="circular-form" autocomplete="off">
+                <!-- Unit Toggle -->
+                <div class="form-group form-group--full">
+                  <span class="form-label">Units</span>
+                  <div class="toggle-group" id="unit-toggle">
+                    <label class="toggle-option is-active">
+                      <input type="radio" name="unit" value="metres" checked>
+                      Metres
+                    </label>
+                    <label class="toggle-option">
+                      <input type="radio" name="unit" value="mm">
+                      Millimetres
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Dimensions -->
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label class="form-label" for="diameter">
+                      Diameter
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="diameter"
+                        name="diameter"
+                        class="form-input form-input--with-suffix"
+                        placeholder="e.g. 1.2"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix" data-type="length">m</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="thickness">
+                      Thickness
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="thickness"
+                        name="thickness"
+                        class="form-input form-input--with-suffix"
+                        placeholder="e.g. 0.1"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix" data-type="length">m</span>
+                    </div>
+                  </div>
+
+                  <div class="form-group form-group--full">
+                    <div class="range-wrapper">
+                      <div class="range-header">
+                        <div style="display: flex; align-items: center; gap: var(--space-2);">
+                          <label class="form-label" for="wastage">Wastage</label>
+                          <button type="button" class="info-modal-trigger" data-modal="wastage-modal" aria-expanded="false">
+                            (what's this?)
+                          </button>
+                        </div>
+                        <span class="range-value" id="wastage-value">10%</span>
+                      </div>
+                      <input
+                        type="range"
+                        id="wastage"
+                        name="wastage"
+                        class="form-range"
+                        min="5"
+                        max="15"
+                        value="10"
+                        step="1"
+                      >
+                    </div>
+                  </div>
+                </div>
+              </form>
+
+              <!-- Results Panel -->
+              <div class="results-panel" id="results-panel">
+                <div class="results-header">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                  </svg>
+                  <h3>Results</h3>
+                </div>
+
+                <div class="results-grid">
+                  <div class="result-item result-item--primary">
+                    <span class="result-label">Total Volume</span>
+                    <span class="result-value result-value--placeholder" id="result-volume">--</span>
+                    <span class="result-subtext">Including wastage</span>
+                  </div>
+
+                  <div class="result-item result-item--primary">
+                    <span class="result-label">20kg Bags Needed</span>
+                    <span class="result-value result-value--placeholder" id="result-bags">--</span>
+                    <span class="result-subtext">Standard concrete bags</span>
+                  </div>
+
+                  <div class="result-item">
+                    <span class="result-label">Estimated Bag Cost</span>
+                    <div class="cost-range result-value result-value--small result-value--placeholder" id="result-bag-cost">--</div>
+                    <span class="result-subtext">Based on $8.50-$12.50/bag</span>
+                  </div>
+
+                  <div class="result-item">
+                    <span class="result-label">Ready-Mix Cost</span>
+                    <div class="cost-range result-value result-value--small result-value--placeholder" id="result-readymix-cost">--</div>
+                    <span class="result-subtext">Delivered, varies by region</span>
+                  </div>
+                </div>
+
+                <div class="share-buttons">
+                  <button type="button" class="share-btn share-btn--copy">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    Copy Result
+                  </button>
+                  <button type="button" class="share-btn share-btn--share">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                    </svg>
+                    Share Link
+                  </button>
+                </div>
+              </div>
+
+              <!-- Formula Breakdown -->
+              <details class="formula-section">
+                <summary class="formula-toggle">
+                  <span>How is this calculated?</span>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="6 9 12 15 18 9"/>
+                  </svg>
+                </summary>
+                <div class="formula-content" id="formula-content">
+                  <div class="formula-box">
+                    <strong>Volume = π × r² × thickness</strong>
+                  </div>
+                  <p>Enter your dimensions above to see the step-by-step calculation.</p>
+                </div>
+              </details>
+            </div>
+
+            <!-- Presets -->
+            <div class="presets-section" id="presets-section">
+              <span class="presets-label">Quick presets:</span>
+              <div class="presets-grid">
+                <button type="button" class="preset-btn" data-preset="firePit">Fire Pit Base (1.2m)</button>
+                <button type="button" class="preset-btn" data-preset="birdbath">Birdbath Base (600mm)</button>
+                <button type="button" class="preset-btn" data-preset="roundPatio">Round Patio (3m)</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Info Box -->
+        <div class="info-box info-box--tip">
+          <div class="info-box-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            Tip: Making Circular Forms
+          </div>
+          <div class="info-box-content">
+            Create circular formwork by bending flexible materials: <strong>Hardboard/Masonite</strong> (3-6mm) works great for curves up to 3m diameter. For larger circles, use thin plywood with relief cuts. Steel garden edging can work for smaller circles.
+          </div>
+        </div>
+
+        <!-- Common Uses -->
+        <section style="margin-top: var(--space-8);">
+          <h2 class="section-title">Common Circular Slab Projects</h2>
+          <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
+            <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--color-grey-200);">
+                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Project</th>
+                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Typical Diameter</th>
+                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Thickness</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3);">Fire pit base</td>
+                  <td style="padding: var(--space-3);">1.0 - 1.5m</td>
+                  <td style="padding: var(--space-3);">100mm</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3);">Birdbath/planter base</td>
+                  <td style="padding: var(--space-3);">0.5 - 0.8m</td>
+                  <td style="padding: var(--space-3);">75mm</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3);">Round patio</td>
+                  <td style="padding: var(--space-3);">2.5 - 4m</td>
+                  <td style="padding: var(--space-3);">100mm</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3);">Hot tub pad</td>
+                  <td style="padding: var(--space-3);">2.0 - 2.5m</td>
+                  <td style="padding: var(--space-3);">100-125mm</td>
+                </tr>
+                <tr>
+                  <td style="padding: var(--space-3);">Water tank base</td>
+                  <td style="padding: var(--space-3);">1.5 - 3m</td>
+                  <td style="padding: var(--space-3);">100-150mm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <h2 class="section-title">Circular Slab FAQ</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary class="faq-question">
+                How do I make a perfect circle for my slab?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>The easiest method is using a string compass:</p>
+                <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                  <li>Drive a stake or post at the center point</li>
+                  <li>Tie string to the stake, length = radius (half the diameter)</li>
+                  <li>Tie a can of marking paint to the other end</li>
+                  <li>Walk around keeping the string taut, spraying as you go</li>
+                </ol>
+                <p>For the formwork, bend flexible hardboard (3-6mm) or use thin plywood with relief cuts on the back.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                What thickness for a fire pit base?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p><strong>100mm thickness</strong> is recommended for fire pit bases. This provides adequate thermal mass and structural strength. Consider these tips:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>Use SL72 reinforcement mesh</li>
+                  <li>Make the base 300-500mm wider than the fire pit</li>
+                  <li>Add expansion joints if over 2m diameter</li>
+                  <li>Allow 28 days to cure before first fire</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Do I need reinforcement in a circular slab?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>It depends on the application:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li><strong>Small bases (under 1m):</strong> Usually not required</li>
+                  <li><strong>Fire pit bases:</strong> Recommended - thermal cycling can cause cracking</li>
+                  <li><strong>Patios (over 2m):</strong> Recommended - SL72 mesh</li>
+                  <li><strong>Heavy loads (water tanks):</strong> Required - SL82 mesh minimum</li>
+                </ul>
+                <p>When in doubt, add mesh. It's inexpensive insurance against cracking.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Can I use a circular slab for a water tank?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes, but ensure adequate design:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li><strong>Thickness:</strong> 100-150mm minimum</li>
+                  <li><strong>Reinforcement:</strong> SL82 mesh required</li>
+                  <li><strong>Size:</strong> 200-300mm wider than tank diameter</li>
+                  <li><strong>Site prep:</strong> Compact base well, use 75-100mm road base</li>
+                </ul>
+                <p>A full 22,500L tank weighs over 22 tonnes. Ensure ground bearing capacity is adequate.</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Related Calculators -->
+        <section class="related-section">
+          <h2 class="section-title">Related Calculators</h2>
+          <div class="related-grid">
+            <a href="/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="12" width="20" height="10" rx="1"/>
+                <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+                <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+              </svg>
+              <h3>Rectangular Slab Calculator</h3>
+              <p>For standard rectangular slabs and patios.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+
+            <a href="/column-calculator/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="2" width="8" height="20" rx="1"/>
+              </svg>
+              <h3>Column Calculator</h3>
+              <p>Round columns use the same formula.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+
+            <a href="/bags-vs-readymix/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 3v18h18"/>
+                <path d="M7 16l4-8 4 5 5-9"/>
+              </svg>
+              <h3>Bags vs Ready-Mix</h3>
+              <p>Compare costs for your circular slab.</p>
+              <span class="card-arrow">Compare →</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <article class="seo-content">
+          <h2>Circular Concrete Slab Calculator</h2>
+
+          <p>Circular concrete slabs add visual interest to outdoor spaces and are perfect for specific applications where a round shape makes practical or aesthetic sense. Calculating the volume for a circular slab is slightly different from rectangular slabs, using the formula for the area of a circle multiplied by the thickness.</p>
+
+          <h3>The Formula Explained</h3>
+          <p>The volume of a circular slab is calculated using π × radius² × depth. Pi (π) is approximately 3.14159, the radius is half the diameter of your circle, and depth is the thickness of the slab. For example, a circular slab with a 2 metre diameter (1 metre radius) and 100mm thickness would be π × 1² × 0.1 = 0.314 cubic metres. This calculator handles the maths automatically when you enter your diameter and thickness.</p>
+
+          <h3>Common Circular Slab Projects</h3>
+          <p>Fire pit bases are one of the most popular circular slab applications in Australian backyards. A fire pit pad typically ranges from 1.5 to 2.5 metres in diameter, providing a safe, fireproof base and surrounding area. Bird bath and fountain pads need solid, level bases and are usually quite small at 500mm to 1 metre diameter. Round patio areas create interesting outdoor entertaining spaces, often used as focal points in landscape designs. Water tank pads need to be sized to the tank diameter plus extra margin for access, typically ranging from 2 to 3 metres for residential rainwater tanks.</p>
+
+          <h3>Creating Circular Formwork</h3>
+          <p>The main challenge with circular slabs is creating the curved formwork. Flexible materials work best for bending around the circle. Hardboard or masonite in 3 to 6mm thickness bends easily and works well for circles up to about 3 metres in diameter. For larger circles, thin plywood with relief cuts on the back face allows it to bend smoothly. Steel garden edging can work for smaller circles and has the advantage of being reusable. Multiple stakes around the perimeter hold the formwork in place while you pour.</p>
+
+          <h3>Thickness Recommendations</h3>
+          <p>Circular slabs follow the same thickness guidelines as rectangular slabs. For decorative pads and light foot traffic areas, 75 to 100mm is usually sufficient. Fire pit bases should be at least 100mm thick to handle the heat and weight of the fire pit. Water tank pads may need to be thicker, particularly for larger tanks, with 100 to 150mm being common depending on the tank capacity and soil conditions.</p>
+
+          <h3>Finishing a Circular Slab</h3>
+          <p>Circular slabs offer interesting finishing options. A broom finish radiating from the centre creates an attractive sunburst pattern. Exposed aggregate finishes look particularly good on round slabs, with the circular shape highlighting the stone pattern. For fire pit bases, a simple smooth trowel finish is practical and easy to clean. Some people add decorative edges or stamped patterns to enhance the visual appeal of their circular slab.</p>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="footer-logo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="12" width="20" height="10" rx="1"/>
+                <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+                <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+              </svg>
+              <span>Concrete Calculator</span>
+            </a>
+            <p>Free concrete calculators for Australian DIYers and tradies. Calculate volume, bags, and costs for all your concreting projects.</p>
+          </div>
+
+          <nav class="footer-nav">
+            <h4>Calculators</h4>
+            <ul>
+              <li><a href="/">Slab Calculator</a></li>
+              <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
+              <li><a href="/footing-calculator/">Footing Calculator</a></li>
+              <li><a href="/column-calculator/">Column Calculator</a></li>
+              <li><a href="/circular-slab-calculator/">Circular Slab</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-nav">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Concrete Calculator Australia</p>
+          <p class="disclaimer">
+            <strong>Disclaimer:</strong> These calculators provide estimates only. Actual concrete requirements may vary based on site conditions and formwork accuracy. For heavy loads, consult with a professional.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Wastage Info Modal -->
+  <div class="info-modal-backdrop" id="wastage-modal-backdrop"></div>
+  <div class="info-modal" id="wastage-modal" role="dialog" aria-labelledby="wastage-modal-title" aria-modal="true">
+    <div class="info-modal-header">
+      <h3 class="info-modal-title" id="wastage-modal-title">Why add wastage?</h3>
+      <button type="button" class="info-modal-close" aria-label="Close">&times;</button>
+    </div>
+    <div class="info-modal-body">
+      <p>Wastage accounts for concrete lost during your project:</p>
+      <ul class="info-modal-list">
+        <li>Uneven ground requiring more concrete in low spots</li>
+        <li>Spillage during pouring and spreading</li>
+        <li>Concrete sticking to mixing equipment</li>
+        <li>Minor measurement variations</li>
+      </ul>
+      <div class="info-modal-note">
+        <strong>10%</strong> is standard for most DIY projects.<br>
+        Use <strong>15%</strong> for uneven sites or complex shapes.
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/calculators.js"></script>
+  <script src="/js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const diameterInput = $('diameter');
+      const thicknessInput = $('thickness');
+      const wastageSlider = $('wastage');
+
+      let currentUnit = 'metres';
+
+      // Unit toggle
+      initUnitToggle('unit-toggle', function(newUnit) {
+        [diameterInput, thicknessInput].forEach(input => {
+          convertInputUnit(input, currentUnit, newUnit);
+        });
+        updateInputSuffixes(newUnit);
+        if (newUnit === 'mm') {
+          diameterInput.placeholder = 'e.g. 1200';
+          thicknessInput.placeholder = 'e.g. 100';
+        } else {
+          diameterInput.placeholder = 'e.g. 1.2';
+          thicknessInput.placeholder = 'e.g. 0.1';
+        }
+        currentUnit = newUnit;
+        calculate();
+      });
+
+      // Wastage slider
+      initWastageSlider('wastage', 'wastage-value', calculate);
+
+      function calculate() {
+        const diameter = getInputValueInMetres(diameterInput, currentUnit);
+        const thickness = getInputValueInMetres(thicknessInput, currentUnit);
+        const wastage = parseInt(wastageSlider.value, 10);
+
+        const result = calculateCircularSlab({
+          diameter,
+          thickness,
+          wastage
+        });
+
+        renderResults(result, {
+          volume: 'result-volume',
+          bags: 'result-bags',
+          bagCost: 'result-bag-cost',
+          readymixCost: 'result-readymix-cost'
+        });
+
+        renderFormula(result, 'formula-content');
+        return result;
+      }
+
+      // Set up input listeners
+      [diameterInput, thicknessInput, wastageSlider].forEach(input => {
+        input.addEventListener('input', debounce(calculate, 200));
+      });
+
+      // Presets
+      const presets = PRESETS.circularSlab;
+      initPresets('presets-section', presets, function(preset) {
+        if (currentUnit === 'mm') {
+          diameterInput.value = metresToMm(preset.diameter);
+          thicknessInput.value = metresToMm(preset.thickness);
+        } else {
+          diameterInput.value = preset.diameter;
+          thicknessInput.value = preset.thickness;
+        }
+        calculate();
+      });
+
+      calculate();
+
+      // Share buttons
+      initShareButtons({
+        getValues: () => ({
+          d: diameterInput.value,
+          t: thicknessInput.value,
+          waste: wastageSlider.value
+        }),
+        getResultText: () => {
+          const result = calculate();
+          if (!result.valid) return null;
+          const d = diameterInput.value;
+          const t = thicknessInput.value;
+          const unit = currentUnit === 'mm' ? 'mm' : 'm';
+          return `Concrete Calculator Result
+Circular Slab (${d}${unit} dia × ${t}${unit} thick)
+Volume: ${formatNumber(result.results.totalVolume, 2)} m³ (incl. ${wastageSlider.value}% wastage)
+20kg bags needed: ${result.results.bags}
+Est. bag cost: ${formatCurrency(result.results.bagCost.min)} – ${formatCurrency(result.results.bagCost.max)}
+Est. ready-mix cost: ${formatCurrency(result.results.readymixCost.min)} – ${formatCurrency(result.results.readymixCost.max)}
+Calculate yours: https://concretecalc.com.au/circular-slab-calculator/`;
+        },
+        paramMap: { d: 'diameter', t: 'thickness', waste: 'wastage' }
+      });
+
+      // Trigger calculation if URL params present
+      const params = getUrlParams();
+      if (params.d || params.t) {
+        calculate();
+      }
+    });
+  </script>
+</body>
+</html>

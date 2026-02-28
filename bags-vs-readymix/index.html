@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Compare the cost of 20kg concrete bags vs ready-mix delivery in Australia. Side-by-side breakdown of price, effort, and hidden costs to help you choose.">
+  <meta name="keywords" content="bags vs ready mix concrete, concrete cost comparison, ready mix vs bags, concrete calculator Australia">
+  <meta name="author" content="Concrete Calculator Australia">
+  <meta name="robots" content="index, follow">
+
+  <title>Bags vs Ready-Mix Concrete - Cost Comparison Calculator | Australia</title>
+
+  <!-- Canonical -->
+  <link rel="canonical" href="https://concretecalc.com.au/bags-vs-readymix/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Bags vs Ready-Mix Concrete Calculator Australia">
+  <meta property="og:description" content="Compare the cost of 20kg concrete bags vs ready-mix delivery in Australia. Side-by-side breakdown of price, effort, and hidden costs to help you choose.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://concretecalc.com.au/bags-vs-readymix/">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:image" content="https://concretecalc.com.au/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='10' fill='%231e293b'/%3E%3Crect x='15' y='50' width='70' height='35' rx='3' fill='%23f59e0b'/%3E%3Crect x='20' y='25' width='25' height='30' fill='%2394a3b8'/%3E%3Crect x='55' y='35' width='25' height='20' fill='%2394a3b8'/%3E%3C/svg%3E">
+
+  <!-- Manifest -->
+  <link rel="manifest" href="/manifest.json">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="/css/styles.css">
+  <style>
+    .comparison-section {
+      margin-top: var(--space-5);
+    }
+    .recommendation {
+      text-align: center;
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      font-weight: var(--font-weight-bold);
+      font-size: var(--font-size-lg);
+      margin-bottom: var(--space-4);
+    }
+    .recommendation--bags {
+      background: var(--color-info-bg);
+      color: var(--color-info);
+      border: 2px solid var(--color-info);
+    }
+    .recommendation--readymix {
+      background: var(--color-success-bg);
+      color: var(--color-success);
+      border: 2px solid var(--color-success);
+    }
+    .recommendation--either {
+      background: var(--color-warning-bg);
+      color: var(--color-warning);
+      border: 2px solid var(--color-warning);
+    }
+    .reasons-list {
+      list-style: disc;
+      padding-left: var(--space-5);
+      margin-top: var(--space-3);
+    }
+    .reasons-list li {
+      margin-bottom: var(--space-2);
+      color: var(--color-grey-700);
+    }
+    .comparison-card--bags .comparison-header {
+      background: var(--color-grey-200);
+      color: var(--color-grey-800);
+    }
+    .comparison-card--readymix .comparison-header {
+      background: var(--color-grey-200);
+      color: var(--color-grey-800);
+    }
+  </style>
+
+  <!-- JSON-LD Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Bags vs Ready-Mix Concrete Calculator",
+    "description": "Compare bags vs ready-mix concrete costs and find the best option for your project.",
+    "url": "https://concretecalc.com.au/bags-vs-readymix/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "AUD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://concretecalc.com.au/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Bags vs Ready-Mix",
+        "item": "https://concretecalc.com.au/bags-vs-readymix/"
+      }
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "When should I use bags instead of ready-mix concrete?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Use bags for small projects under 0.3 cubic metres (about 30 bags). Bags are ideal for fence posts, small footings, repairs, and projects where you need to work at your own pace. No minimum order and you can mix as needed."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "When is ready-mix concrete worth it?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ready-mix becomes cost-effective for projects over 0.5 cubic metres. For anything over 1 cubic metre, ready-mix is strongly recommended - mixing 100+ bags by hand is exhausting and time-consuming. Ready-mix also provides more consistent concrete quality."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What is the minimum order for ready-mix concrete?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Most ready-mix suppliers in Australia have a minimum order of 0.5 cubic metres. Some suppliers charge extra for small loads under 1 cubic metre. Delivery fees are typically $100-200 depending on location."
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="12" width="20" height="10" rx="1"/>
+            <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+            <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+          </svg>
+          <span>Concrete Calculator</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="/">Slab Calculator</a></li>
+            <li><a href="/post-hole-calculator/">Post Holes</a></li>
+            <li><a href="/footing-calculator/">Footings</a></li>
+            <li class="nav-dropdown">
+              <button class="nav-dropdown-toggle" aria-expanded="false" aria-haspopup="true">
+                More
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <ul class="nav-dropdown-menu">
+                <li><a href="/column-calculator/">Column Calculator</a></li>
+                <li><a href="/circular-slab-calculator/">Circular Slab</a></li>
+              </ul>
+            </li>
+            <li><a href="/bags-vs-readymix/" class="is-active">Bags vs Ready-Mix</a></li>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="/">Slab Calculator</a></li>
+          <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
+          <li><a href="/footing-calculator/">Footing Calculator</a></li>
+          <li><a href="/column-calculator/">Column Calculator</a></li>
+          <li><a href="/circular-slab-calculator/">Circular Slab Calculator</a></li>
+          <li><a href="/bags-vs-readymix/" class="is-active">Bags vs Ready-Mix</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Breadcrumbs -->
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li>Bags vs Ready-Mix</li>
+        </ol>
+      </nav>
+    </div>
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="container">
+        <h1>Bags vs Ready-Mix Concrete</h1>
+        <p>Compare costs and find out which option is best for your project. Enter your volume to see a detailed breakdown.</p>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <!-- Calculator Section -->
+        <section class="calculator-section">
+          <div class="calculator-card">
+            <div class="calculator-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 3v18h18"/>
+                <path d="M7 16l4-8 4 5 5-9"/>
+              </svg>
+              <h2>Cost Comparison Calculator</h2>
+            </div>
+
+            <div class="calculator-body">
+              <form id="comparison-form" autocomplete="off">
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label class="form-label" for="volume">
+                      Concrete Volume <span class="form-label-hint">(m³)</span>
+                    </label>
+                    <div class="input-wrapper">
+                      <input
+                        type="number"
+                        id="volume"
+                        name="volume"
+                        class="form-input form-input--with-suffix"
+                        placeholder="e.g. 1.5"
+                        step="any"
+                        min="0"
+                        inputmode="decimal"
+                      >
+                      <span class="input-suffix">m³</span>
+                    </div>
+                    <p style="font-size: var(--font-size-xs); color: var(--color-grey-500); margin-top: var(--space-1);">
+                      Don't know your volume? Use our <a href="/" style="color: var(--color-primary-dark);">slab calculator</a> first.
+                    </p>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="form-label" for="state">
+                      State/Territory <span class="form-label-hint">(for pricing)</span>
+                    </label>
+                    <select id="state" name="state" class="form-input form-select">
+                      <option value="">Select state...</option>
+                      <option value="nsw">New South Wales</option>
+                      <option value="vic">Victoria</option>
+                      <option value="qld">Queensland</option>
+                      <option value="wa">Western Australia</option>
+                      <option value="sa">South Australia</option>
+                      <option value="tas">Tasmania</option>
+                      <option value="nt">Northern Territory</option>
+                      <option value="act">ACT</option>
+                    </select>
+                  </div>
+                </div>
+              </form>
+
+              <!-- Recommendation -->
+              <div id="recommendation-section" style="margin-top: var(--space-5); display: none;">
+                <div id="recommendation" class="recommendation">--</div>
+                <ul id="reasons" class="reasons-list"></ul>
+              </div>
+
+              <!-- Comparison Cards -->
+              <div class="comparison-section">
+                <div class="comparison-wrapper">
+                  <!-- Bags Card -->
+                  <div class="comparison-card comparison-card--bags">
+                    <div class="comparison-header">
+                      <div class="comparison-title">20kg Concrete Bags</div>
+                    </div>
+                    <div class="comparison-body">
+                      <div class="comparison-price">
+                        <div class="comparison-price-value" id="bags-cost-range">$-- - $--</div>
+                        <div class="comparison-price-label">Estimated material cost</div>
+                      </div>
+                      <div class="comparison-details">
+                        <div class="comparison-row">
+                          <span class="comparison-row-label">Bags needed</span>
+                          <span class="comparison-row-value" id="bags-quantity">--</span>
+                        </div>
+                        <div class="comparison-row">
+                          <span class="comparison-row-label">Total weight</span>
+                          <span class="comparison-row-value" id="bags-weight">--</span>
+                        </div>
+                        <div class="comparison-row">
+                          <span class="comparison-row-label">Est. mixing time</span>
+                          <span class="comparison-row-value" id="bags-labour">--</span>
+                        </div>
+                        <div class="comparison-row">
+                          <span class="comparison-row-label">Delivery</span>
+                          <span class="comparison-row-value">Pick up or delivery</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Ready-mix Card -->
+                  <div class="comparison-card comparison-card--readymix">
+                    <div class="comparison-header">
+                      <div class="comparison-title">Ready-Mix Concrete</div>
+                    </div>
+                    <div class="comparison-body">
+                      <div class="comparison-price">
+                        <div class="comparison-price-value" id="readymix-cost-range">$-- - $--</div>
+                        <div class="comparison-price-label">Estimated delivered cost</div>
+                      </div>
+                      <div class="comparison-details">
+                        <div class="comparison-row">
+                          <span class="comparison-row-label">Volume ordered</span>
+                          <span class="comparison-row-value" id="readymix-volume">--</span>
+                        </div>
+                        <div class="comparison-row">
+                          <span class="comparison-row-label">Min. order</span>
+                          <span class="comparison-row-value">0.5 m³</span>
+                        </div>
+                        <div class="comparison-row">
+                          <span class="comparison-row-label">Mixing time</span>
+                          <span class="comparison-row-value">None - pre-mixed</span>
+                        </div>
+                        <div class="comparison-row">
+                          <span class="comparison-row-label">Delivery</span>
+                          <span class="comparison-row-value">Included in price</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="share-buttons" style="justify-content: center; border-top: 1px solid var(--color-grey-200); padding-top: var(--space-4); margin-top: var(--space-4);">
+                  <button type="button" class="share-btn share-btn--copy" style="color: var(--color-grey-600); border-color: var(--color-grey-300);">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                    </svg>
+                    Copy Result
+                  </button>
+                  <button type="button" class="share-btn share-btn--share" style="color: var(--color-grey-600); border-color: var(--color-grey-300);">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
+                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+                    </svg>
+                    Share Link
+                  </button>
+                </div>
+              </div>
+
+              <!-- Quick Volume Examples -->
+              <div class="presets-section" style="margin-top: var(--space-5);">
+                <span class="presets-label">Quick examples:</span>
+                <div class="presets-grid">
+                  <button type="button" class="preset-btn" data-volume="0.2">0.2 m³ (small job)</button>
+                  <button type="button" class="preset-btn" data-volume="0.5">0.5 m³ (shed slab)</button>
+                  <button type="button" class="preset-btn" data-volume="1.0">1.0 m³ (patio)</button>
+                  <button type="button" class="preset-btn" data-volume="2.0">2.0 m³ (driveway)</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Info Section -->
+        <div class="info-box info-box--tip" style="margin-top: var(--space-6);">
+          <div class="info-box-header">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/>
+              <line x1="12" y1="16" x2="12" y2="12"/>
+              <line x1="12" y1="8" x2="12.01" y2="8"/>
+            </svg>
+            Tip: Hidden Costs to Consider
+          </div>
+          <div class="info-box-content">
+            <strong>Bags:</strong> Consider delivery fees, mixer hire ($50-80/day), and your time mixing. <strong>Ready-mix:</strong> May have small load fees ($50-100 for under 1m³), weekend surcharges, and pump hire for hard-to-reach areas ($300-500).
+          </div>
+        </div>
+
+        <!-- Detailed Comparison Table -->
+        <section style="margin-top: var(--space-8);">
+          <h2 class="section-title">Bags vs Ready-Mix: Detailed Comparison</h2>
+          <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200); overflow-x: auto;">
+            <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm); min-width: 500px;">
+              <thead>
+                <tr style="border-bottom: 2px solid var(--color-grey-200);">
+                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Factor</th>
+                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Bags (20kg)</th>
+                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Ready-Mix</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3); font-weight: var(--font-weight-medium);">Best for volume</td>
+                  <td style="padding: var(--space-3);">Under 0.5 m³</td>
+                  <td style="padding: var(--space-3);">Over 0.5 m³</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3); font-weight: var(--font-weight-medium);">Cost per m³</td>
+                  <td style="padding: var(--space-3);">$900 - $1,350</td>
+                  <td style="padding: var(--space-3);">$200 - $420</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3); font-weight: var(--font-weight-medium);">Minimum order</td>
+                  <td style="padding: var(--space-3);">1 bag</td>
+                  <td style="padding: var(--space-3);">0.5 m³ (typical)</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3); font-weight: var(--font-weight-medium);">Labour required</td>
+                  <td style="padding: var(--space-3);">High - manual mixing</td>
+                  <td style="padding: var(--space-3);">Low - delivered ready</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3); font-weight: var(--font-weight-medium);">Working time</td>
+                  <td style="padding: var(--space-3);">Flexible - mix as needed</td>
+                  <td style="padding: var(--space-3);">Limited - 90 mins max</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3); font-weight: var(--font-weight-medium);">Consistency</td>
+                  <td style="padding: var(--space-3);">Variable - depends on mixing</td>
+                  <td style="padding: var(--space-3);">Excellent - factory mixed</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3); font-weight: var(--font-weight-medium);">Storage</td>
+                  <td style="padding: var(--space-3);">Keep dry, 3-6 months shelf life</td>
+                  <td style="padding: var(--space-3);">N/A - use immediately</td>
+                </tr>
+                <tr>
+                  <td style="padding: var(--space-3); font-weight: var(--font-weight-medium);">Ideal projects</td>
+                  <td style="padding: var(--space-3);">Posts, repairs, small footings</td>
+                  <td style="padding: var(--space-3);">Slabs, driveways, large pours</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="faq-section">
+          <h2 class="section-title">Frequently Asked Questions</h2>
+          <div class="faq-list">
+            <details class="faq-item">
+              <summary class="faq-question">
+                When should I use bags instead of ready-mix?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Bags are the better choice when:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>Volume is under 0.3m³ (about 30 bags)</li>
+                  <li>You're doing multiple small pours over time</li>
+                  <li>Access is difficult for a concrete truck</li>
+                  <li>You need to work at your own pace</li>
+                  <li>Project is fence posts, letterbox, or repairs</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                When is ready-mix concrete worth it?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Ready-mix makes sense when:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>Volume exceeds 0.5m³</li>
+                  <li>You need consistent quality (structural work)</li>
+                  <li>Time is limited - pour must be done quickly</li>
+                  <li>Labour cost matters - mixing 100+ bags is hard work</li>
+                  <li>Project is a slab, driveway, or large footing</li>
+                </ul>
+                <p>For anything over 1m³, ready-mix is almost always the better choice.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                What's the minimum order for ready-mix?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Most suppliers have a minimum of <strong>0.5 cubic metres</strong>. Some things to know:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>Small load fees often apply for orders under 1m³ ($50-100)</li>
+                  <li>Delivery fees are usually included but vary by distance</li>
+                  <li>Weekend and after-hours surcharges may apply</li>
+                  <li>Book at least 1-2 days ahead, especially in busy periods</li>
+                </ul>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                How long does ready-mix stay workable?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Ready-mix typically stays workable for <strong>60-90 minutes</strong> after mixing, depending on:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>Temperature - sets faster in hot weather</li>
+                  <li>Concrete type - some mixes set faster</li>
+                  <li>Additives - retarders can extend working time</li>
+                </ul>
+                <p>Plan to have everything ready (formwork, tools, helpers) before the truck arrives.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Can I mix bags and ready-mix for one project?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Yes, this can work well for some projects:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li>Use ready-mix for the main pour (slab, driveway)</li>
+                  <li>Keep a few bags on hand for touch-ups and edges</li>
+                  <li>Bags are handy if you run slightly short</li>
+                </ul>
+                <p>Just ensure you're using compatible concrete grades (check MPa rating).</p>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <!-- Related Calculators -->
+        <section class="related-section">
+          <h2 class="section-title">Calculate Your Concrete Volume</h2>
+          <div class="related-grid">
+            <a href="/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="12" width="20" height="10" rx="1"/>
+                <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+                <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+              </svg>
+              <h3>Slab Calculator</h3>
+              <p>Calculate volume for sheds, patios, and driveways.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+
+            <a href="/post-hole-calculator/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <circle cx="12" cy="12" r="4"/>
+              </svg>
+              <h3>Post Hole Calculator</h3>
+              <p>Calculate concrete for fence and deck posts.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+
+            <a href="/footing-calculator/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="14" width="18" height="8" rx="1"/>
+                <path d="M12 4v10"/>
+                <path d="M8 8h8"/>
+              </svg>
+              <h3>Footing Calculator</h3>
+              <p>Strip and pad footing calculations.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+          </div>
+        </section>
+
+        <!-- SEO Content Section -->
+        <article class="seo-content">
+          <h2>Bags vs Ready-Mix Concrete: Which Should You Choose in Australia?</h2>
+
+          <p>One of the first decisions for any concreting project is whether to mix your own concrete from bags or have ready-mix delivered by truck. Both options have their place, and the right choice depends on your project size, timeline, budget, and physical capabilities.</p>
+
+          <h3>The Breakeven Point</h3>
+          <p>As a general rule, bagged concrete is usually the cheaper option for projects under 0.3 cubic metres. For volumes over 0.8 cubic metres, ready-mix almost always wins on cost and practicality. The zone between 0.3 and 0.8 cubic metres is where the decision becomes less clear-cut and depends on your specific circumstances, including access for a concrete truck, how quickly you need to complete the pour, and how much physical labour you want to do.</p>
+
+          <h3>Advantages of Bagged Concrete</h3>
+          <p>Bagged concrete offers flexibility that ready-mix cannot match. You can buy bags from Bunnings or any hardware store without booking in advance, and you work at your own pace. There is no minimum order quantity, so you only buy what you need. For sites where a concrete truck cannot access, bags are often the only option. You can also do the work over multiple sessions if needed, which is not possible with ready-mix that must be placed within a limited time window.</p>
+
+          <h3>Advantages of Ready-Mix</h3>
+          <p>Ready-mix concrete arrives fully mixed to precise specifications, ensuring consistent quality throughout your pour. The time savings are enormous. Placing 1 cubic metre of ready-mix takes perhaps 30 minutes to an hour, while mixing the equivalent 108 bags by hand could take an entire weekend. There is no physical strain of lifting and mixing 20kg bags repeatedly. The concrete is also fresher and more workable than what you can achieve with bags, giving you a better finish.</p>
+
+          <h3>Hidden Costs of Bagged Concrete</h3>
+          <p>The per-bag price at the hardware store does not tell the full story. Unless you have a concrete mixer, you will need to hire one at $50 to $80 per day. Your time has value, and mixing bags is slow, hard work. Each bag weighs 20kg, and for a 1 cubic metre job, you will lift over 2 tonnes of material. There is also delivery to consider if you cannot fit enough bags in your vehicle, though most hardware stores offer delivery for a fee.</p>
+
+          <h3>Hidden Costs of Ready-Mix</h3>
+          <p>Ready-mix suppliers typically have minimum order quantities, often 0.5 cubic metres, and may charge small load fees of $50 to $100 for orders under 1 cubic metre. Weekend and after-hours deliveries usually attract surcharges. If the truck cannot get close to your pour location, you may need a concrete pump at $300 to $500 or more. Delays in placing the concrete can result in the load going off, leaving you with hardened concrete and a wasted delivery.</p>
+
+          <h3>Current Australian Pricing</h3>
+          <p>At the time of writing, 20kg bags of concrete mix retail for approximately $8.50 to $12.50 at major hardware stores like Bunnings, with prices varying by brand and location. Ready-mix concrete is typically priced at $280 to $420 per cubic metre delivered, depending on the concrete strength, your location, and the supplier. Metropolitan areas generally have more competitive pricing than regional areas. Always get quotes from multiple suppliers for larger jobs.</p>
+        </article>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="footer-logo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="2" y="12" width="20" height="10" rx="1"/>
+                <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+                <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+              </svg>
+              <span>Concrete Calculator</span>
+            </a>
+            <p>Free concrete calculators for Australian DIYers and tradies. Calculate volume, bags, and costs for all your concreting projects.</p>
+          </div>
+
+          <nav class="footer-nav">
+            <h4>Calculators</h4>
+            <ul>
+              <li><a href="/">Slab Calculator</a></li>
+              <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
+              <li><a href="/footing-calculator/">Footing Calculator</a></li>
+              <li><a href="/column-calculator/">Column Calculator</a></li>
+              <li><a href="/circular-slab-calculator/">Circular Slab</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-nav">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Concrete Calculator Australia</p>
+          <p class="disclaimer">
+            <strong>Disclaimer:</strong> Prices are estimates based on typical Australian pricing and may vary by location, supplier, and market conditions. Always get quotes from local suppliers for accurate pricing.
+          </p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="/js/calculators.js"></script>
+  <script src="/js/ui.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const volumeInput = $('volume');
+      const stateSelect = $('state');
+
+      function calculate() {
+        const volume = parseFloat(volumeInput.value);
+        const state = stateSelect.value || null;
+
+        if (!volume || volume <= 0) {
+          // Reset display
+          $('bags-quantity').textContent = '--';
+          $('bags-weight').textContent = '--';
+          $('bags-labour').textContent = '--';
+          $('bags-cost-range').textContent = '$-- - $--';
+          $('readymix-volume').textContent = '--';
+          $('readymix-cost-range').textContent = '$-- - $--';
+          $('recommendation-section').style.display = 'none';
+
+          // Remove recommended styling
+          qs('.comparison-card--bags').classList.remove('comparison-card--recommended');
+          qs('.comparison-card--readymix').classList.remove('comparison-card--recommended');
+          return;
+        }
+
+        const result = compareBagsVsReadymix({ volume, state });
+
+        if (result.valid) {
+          const { bags, readymix, comparison } = result.results;
+
+          // Update bags card
+          $('bags-quantity').textContent = bags.quantity + ' bags';
+          $('bags-weight').textContent = bags.weight + ' kg';
+          $('bags-labour').textContent = formatNumber(bags.labourHours, 1) + ' hours';
+          $('bags-cost-range').textContent = formatCurrency(bags.cost.min) + ' - ' + formatCurrency(bags.cost.max);
+
+          // Update ready-mix card
+          let volumeText = formatNumber(readymix.volume, 2) + ' m³';
+          if (readymix.hasMinimumApplied) {
+            volumeText += ' (min order)';
+          }
+          $('readymix-volume').textContent = volumeText;
+          $('readymix-cost-range').textContent = formatCurrency(readymix.cost.min) + ' - ' + formatCurrency(readymix.cost.max);
+
+          // Update recommendation
+          const recSection = $('recommendation-section');
+          const recEl = $('recommendation');
+          const reasonsEl = $('reasons');
+
+          recSection.style.display = 'block';
+
+          let recText = '';
+          let recClass = '';
+
+          switch (comparison.recommendation) {
+            case 'bags':
+              recText = 'Bags Recommended';
+              recClass = 'recommendation--bags';
+              break;
+            case 'readymix':
+              recText = 'Ready-Mix Recommended';
+              recClass = 'recommendation--readymix';
+              break;
+            default:
+              recText = 'Either Option Works';
+              recClass = 'recommendation--either';
+          }
+
+          recEl.textContent = recText;
+          recEl.className = 'recommendation ' + recClass;
+          reasonsEl.innerHTML = comparison.reasons.map(r => '<li>' + r + '</li>').join('');
+
+          // Update card styling
+          const bagsCard = qs('.comparison-card--bags');
+          const readymixCard = qs('.comparison-card--readymix');
+
+          bagsCard.classList.remove('comparison-card--recommended');
+          readymixCard.classList.remove('comparison-card--recommended');
+
+          if (comparison.recommendation === 'bags') {
+            bagsCard.classList.add('comparison-card--recommended');
+          } else if (comparison.recommendation === 'readymix') {
+            readymixCard.classList.add('comparison-card--recommended');
+          }
+        }
+      }
+
+      // Set up input listeners
+      volumeInput.addEventListener('input', debounce(calculate, 200));
+      stateSelect.addEventListener('change', calculate);
+
+      // Quick volume presets
+      qsa('.preset-btn[data-volume]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          volumeInput.value = btn.dataset.volume;
+          calculate();
+        });
+      });
+
+      // Initial state
+      calculate();
+
+      // Share buttons
+      initShareButtons({
+        getValues: () => ({
+          v: volumeInput.value
+        }),
+        getResultText: () => {
+          const result = calculate();
+          if (!result.valid) return null;
+          const v = volumeInput.value;
+          const rec = result.results.comparison.recommendation;
+          const recText = rec === 'bags' ? 'Bags Recommended' : rec === 'readymix' ? 'Ready-Mix Recommended' : 'Either Option Works';
+          return `Concrete Calculator - Bags vs Ready-Mix
+Volume: ${v} m³
+${recText}
+Bags: ${result.results.bags.quantity} bags (${formatCurrency(result.results.bags.cost.min)} – ${formatCurrency(result.results.bags.cost.max)})
+Ready-Mix: ${formatCurrency(result.results.readymix.cost.min)} – ${formatCurrency(result.results.readymix.cost.max)}
+Compare yours: https://concretecalc.com.au/bags-vs-readymix/`;
+        },
+        paramMap: { v: 'volume' }
+      });
+
+      // Trigger calculation if URL params present
+      const params = getUrlParams();
+      if (params.v) {
+        calculate();
+      }
+    });
+  </script>
+</body>
+</html>
