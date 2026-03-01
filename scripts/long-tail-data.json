@@ -1,0 +1,232 @@
+{
+  "slabPages": [
+    {
+      "slug": "concrete-for-3x3-slab",
+      "titleKeyword": "3x3 Slab",
+      "length": 3,
+      "width": 3,
+      "depth": 0.1,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-shed-slab",
+      "titleKeyword": "Shed Slab (3x3m)",
+      "length": 3,
+      "width": 3,
+      "depth": 0.1,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-4x3-shed-slab",
+      "titleKeyword": "4x3 Shed Slab",
+      "length": 4,
+      "width": 3,
+      "depth": 0.1,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-6x3-shed-slab",
+      "titleKeyword": "6x3 Shed Slab",
+      "length": 6,
+      "width": 3,
+      "depth": 0.1,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-6x4-shed-slab",
+      "titleKeyword": "6x4 Shed Slab",
+      "length": 6,
+      "width": 4,
+      "depth": 0.1,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-6x6-shed-slab",
+      "titleKeyword": "6x6 Shed Slab",
+      "length": 6,
+      "width": 6,
+      "depth": 0.1,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-driveway",
+      "titleKeyword": "Driveway (6x3m)",
+      "length": 6,
+      "width": 3,
+      "depth": 0.125,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-10x3-driveway",
+      "titleKeyword": "10x3 Driveway",
+      "length": 10,
+      "width": 3,
+      "depth": 0.125,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-single-garage-slab",
+      "titleKeyword": "Single Garage (6x3m)",
+      "length": 6,
+      "width": 3,
+      "depth": 0.125,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-double-garage-slab",
+      "titleKeyword": "Double Garage (6x6m)",
+      "length": 6,
+      "width": 6,
+      "depth": 0.125,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-patio",
+      "titleKeyword": "Patio (4x4m)",
+      "length": 4,
+      "width": 4,
+      "depth": 0.1,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-garden-path",
+      "titleKeyword": "Garden Path (6x1m)",
+      "length": 6,
+      "width": 1,
+      "depth": 0.075,
+      "wastage": 10
+    }
+  ],
+  "postHolePages": [
+    {
+      "slug": "concrete-for-a-fence-post",
+      "titleKeyword": "a Fence Post",
+      "holeDiameter": 250,
+      "holeDepth": 600,
+      "postWidth": 90,
+      "postShape": "square",
+      "count": 1
+    },
+    {
+      "slug": "concrete-for-10-fence-posts",
+      "titleKeyword": "10 Fence Posts",
+      "holeDiameter": 250,
+      "holeDepth": 600,
+      "postWidth": 90,
+      "postShape": "square",
+      "count": 10
+    },
+    {
+      "slug": "concrete-for-20-fence-posts",
+      "titleKeyword": "20 Fence Posts",
+      "holeDiameter": 250,
+      "holeDepth": 600,
+      "postWidth": 90,
+      "postShape": "square",
+      "count": 20
+    },
+    {
+      "slug": "concrete-for-a-post-hole",
+      "titleKeyword": "a Post Hole",
+      "holeDiameter": 300,
+      "holeDepth": 600,
+      "postWidth": 100,
+      "postShape": "square",
+      "count": 1
+    },
+    {
+      "slug": "concrete-for-600mm-hole",
+      "titleKeyword": "a 600mm Post Hole",
+      "holeDiameter": 600,
+      "holeDepth": 600,
+      "postWidth": 100,
+      "postShape": "square",
+      "count": 1
+    },
+    {
+      "slug": "concrete-for-shade-sail-post",
+      "titleKeyword": "a Shade Sail Post",
+      "holeDiameter": 400,
+      "holeDepth": 800,
+      "postWidth": 100,
+      "postShape": "square",
+      "count": 1
+    },
+    {
+      "slug": "concrete-for-pergola-posts",
+      "titleKeyword": "4 Pergola Posts",
+      "holeDiameter": 350,
+      "holeDepth": 700,
+      "postWidth": 100,
+      "postShape": "square",
+      "count": 4
+    },
+    {
+      "slug": "concrete-for-deck-posts",
+      "titleKeyword": "4 Deck Posts",
+      "holeDiameter": 300,
+      "holeDepth": 600,
+      "postWidth": 100,
+      "postShape": "square",
+      "count": 4
+    }
+  ],
+  "volumePages": [
+    {
+      "slug": "how-many-bags-of-concrete-for-1-cubic-metre",
+      "titleKeyword": "1 Cubic Metre (1m³)",
+      "volume": 1.0,
+      "bags": 108
+    },
+    {
+      "slug": "how-many-bags-of-concrete-for-half-cubic-metre",
+      "titleKeyword": "Half a Cubic Metre (0.5m³)",
+      "volume": 0.5,
+      "bags": 54
+    },
+    {
+      "slug": "how-many-bags-of-concrete-for-0.3-cubic-metres",
+      "titleKeyword": "0.3 Cubic Metres",
+      "volume": 0.3,
+      "bags": 33
+    },
+    {
+      "slug": "how-many-bags-of-concrete-for-0.2-cubic-metres",
+      "titleKeyword": "0.2 Cubic Metres",
+      "volume": 0.2,
+      "bags": 22
+    },
+    {
+      "slug": "how-many-bags-of-concrete-for-0.1-cubic-metres",
+      "titleKeyword": "0.1 Cubic Metres",
+      "volume": 0.1,
+      "bags": 11
+    },
+    {
+      "slug": "how-many-bags-of-concrete-for-1-square-metre",
+      "titleKeyword": "1 Square Metre (at 100mm thick)",
+      "volume": 0.1,
+      "bags": 11
+    }
+  ],
+  "footingPages": [
+    {
+      "slug": "concrete-for-shed-footings",
+      "titleKeyword": "Shed Footings (4 pads)",
+      "length": 0.4,
+      "width": 0.4,
+      "depth": 0.3,
+      "count": 4,
+      "wastage": 10
+    },
+    {
+      "slug": "concrete-for-deck-footings",
+      "titleKeyword": "Deck Footings (6 pads)",
+      "length": 0.45,
+      "width": 0.45,
+      "depth": 0.4,
+      "count": 6,
+      "wastage": 10
+    }
+  ]
+}
