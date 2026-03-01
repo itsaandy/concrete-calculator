@@ -75,6 +75,18 @@ function formatNumber(num, decimals = 2) {
   return num.toFixed(decimals);
 }
 
+function capitalizeFirst(str) {
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+// Parent page mappings for breadcrumbs
+const PARENT_PAGES = {
+  slab: { name: 'Slab Calculator', url: '/' },
+  postHole: { name: 'Post Hole Calculator', url: '/post-hole-calculator/' },
+  volume: { name: 'Bags vs Ready-Mix', url: '/bags-vs-readymix/' },
+  footing: { name: 'Footing Calculator', url: '/footing-calculator/' }
+};
+
 // ============================================================================
 // TEMPLATE COMPONENTS
 // ============================================================================
@@ -117,7 +129,9 @@ const headTemplate = (page) => `<!DOCTYPE html>
   <link rel="canonical" href="${DOMAIN}/${page.slug}/">
 
   <!-- Favicon -->
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='10' fill='%231e293b'/%3E%3Crect x='15' y='50' width='70' height='35' rx='3' fill='%23f59e0b'/%3E%3Crect x='20' y='25' width='25' height='30' fill='%2394a3b8'/%3E%3Crect x='55' y='35' width='25' height='20' fill='%2394a3b8'/%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 
   <!-- Manifest -->
   <link rel="manifest" href="/manifest.json">
@@ -155,6 +169,31 @@ ${page.faqs.map(faq => `      {
           "text": "${faq.answer}"
         }
       }`).join(',\n')}
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "${DOMAIN}/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "${page.breadcrumb.parentName}",
+        "item": "${DOMAIN}${page.breadcrumb.parentUrl}"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "${page.breadcrumb.currentName}"
+      }
     ]
   }
   </script>
@@ -214,6 +253,18 @@ const headerTemplate = `
         </ul>
       </nav>
     </header>`;
+
+const breadcrumbTemplate = (page) => `
+    <!-- Breadcrumbs -->
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li><a href="${page.breadcrumb.parentUrl}">${page.breadcrumb.parentName}</a></li>
+          <li>${page.breadcrumb.currentName}</li>
+        </ol>
+      </nav>
+    </div>`;
 
 const footerTemplate = `
     <!-- Footer -->
@@ -945,7 +996,12 @@ function generateSlabPage(pageData) {
     title: `How Much Concrete for a ${pageData.titleKeyword}? | Concrete Calculator Australia`,
     ogTitle: `Concrete for ${pageData.titleKeyword} - Calculator`,
     metaDescription: `A ${pageData.length}m × ${pageData.width}m ${pageData.titleKeyword.toLowerCase()} needs ${formatNumber(volume, 2)}m³ of concrete (${bags} bags). Free Australian calculator with instant cost estimates.`,
-    faqs
+    faqs,
+    breadcrumb: {
+      parentName: PARENT_PAGES.slab.name,
+      parentUrl: PARENT_PAGES.slab.url,
+      currentName: `Concrete for ${pageData.titleKeyword}`
+    }
   };
 
   const seoContent = slabContent[pageData.slug] || `
@@ -959,6 +1015,7 @@ function generateSlabPage(pageData) {
 
   return `${headTemplate(page)}
 ${headerTemplate}
+${breadcrumbTemplate(page)}
 
     <!-- Hero -->
     <section class="hero">
@@ -1100,8 +1157,13 @@ function generatePostHolePage(pageData) {
     slug: pageData.slug,
     title: `How Much Concrete for ${pageData.titleKeyword}? | Concrete Calculator Australia`,
     ogTitle: `Concrete for ${pageData.titleKeyword} - Calculator`,
-    metaDescription: `${pageData.titleKeyword} (${pageData.holeDiameter}mm × ${pageData.holeDepth}mm hole) needs ${formatNumber(volume, 3)}m³ of concrete (${bags} bags). Free Australian calculator.`,
-    faqs
+    metaDescription: `${capitalizeFirst(pageData.titleKeyword)} (${pageData.holeDiameter}mm × ${pageData.holeDepth}mm hole) needs ${formatNumber(volume, 3)}m³ of concrete (${bags} bags). Free Australian calculator.`,
+    faqs,
+    breadcrumb: {
+      parentName: PARENT_PAGES.postHole.name,
+      parentUrl: PARENT_PAGES.postHole.url,
+      currentName: `Concrete for ${pageData.titleKeyword}`
+    }
   };
 
   const seoContent = postHoleContent[pageData.slug] || `
@@ -1115,6 +1177,7 @@ function generatePostHolePage(pageData) {
 
   return `${headTemplate(page)}
 ${headerTemplate}
+${breadcrumbTemplate(page)}
 
     <!-- Hero -->
     <section class="hero">
@@ -1247,7 +1310,12 @@ function generateVolumePage(pageData) {
     title: `How Many Bags of Concrete for ${pageData.titleKeyword}? | Calculator`,
     ogTitle: `Bags of Concrete for ${pageData.titleKeyword}`,
     metaDescription: `${pageData.titleKeyword} of concrete needs ${pageData.bags} bags of 20kg premix. Cost: ${formatCurrency(bagCostMin)}-${formatCurrency(bagCostMax)}. Free Australian concrete calculator.`,
-    faqs
+    faqs,
+    breadcrumb: {
+      parentName: PARENT_PAGES.volume.name,
+      parentUrl: PARENT_PAGES.volume.url,
+      currentName: `${pageData.bags} Bags for ${pageData.titleKeyword}`
+    }
   };
 
   const seoContent = volumeContent[pageData.slug] || `
@@ -1256,6 +1324,7 @@ function generateVolumePage(pageData) {
 
   return `${headTemplate(page)}
 ${headerTemplate}
+${breadcrumbTemplate(page)}
 
     <!-- Hero -->
     <section class="hero">
@@ -1393,7 +1462,12 @@ function generateFootingPage(pageData) {
     title: `How Much Concrete for ${pageData.titleKeyword}? | Concrete Calculator Australia`,
     ogTitle: `Concrete for ${pageData.titleKeyword}`,
     metaDescription: `${pageData.titleKeyword} (${pageData.count}× ${lengthMm}×${widthMm}×${depthMm}mm pads) need ${formatNumber(volume, 2)}m³ of concrete (${bags} bags). Free Australian calculator.`,
-    faqs
+    faqs,
+    breadcrumb: {
+      parentName: PARENT_PAGES.footing.name,
+      parentUrl: PARENT_PAGES.footing.url,
+      currentName: `Concrete for ${pageData.titleKeyword}`
+    }
   };
 
   const seoContent = footingContent[pageData.slug] || `
@@ -1402,6 +1476,7 @@ function generateFootingPage(pageData) {
 
   return `${headTemplate(page)}
 ${headerTemplate}
+${breadcrumbTemplate(page)}
 
     <!-- Hero -->
     <section class="hero">
