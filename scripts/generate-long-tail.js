@@ -81,11 +81,23 @@ function capitalizeFirst(str) {
 
 // Parent page mappings for breadcrumbs
 const PARENT_PAGES = {
-  slab: { name: 'Slab Calculator', url: '/' },
+  slab: { name: 'Slab Calculator', url: '/concrete-slab-calculator/' },
   postHole: { name: 'Post Hole Calculator', url: '/post-hole-calculator/' },
   volume: { name: 'Bags vs Ready-Mix', url: '/bags-vs-readymix/' },
   footing: { name: 'Footing Calculator', url: '/footing-calculator/' }
 };
+
+// Helper: pick 3 related pages, rotating based on current page index so all pages get inbound links
+function getRelatedPages(allPages, currentSlug, mapFn) {
+  const others = allPages.filter(p => p.slug !== currentSlug);
+  const currentIndex = allPages.findIndex(p => p.slug === currentSlug);
+  const start = (currentIndex * 3) % others.length;
+  const picked = [];
+  for (let i = 0; i < 3 && i < others.length; i++) {
+    picked.push(others[(start + i) % others.length]);
+  }
+  return picked.map(mapFn);
+}
 
 // ============================================================================
 // TEMPLATE COMPONENTS
@@ -1008,10 +1020,7 @@ function generateSlabPage(pageData) {
           <h2>Calculating Concrete for a ${pageData.titleKeyword}</h2>
           <p>This ${pageData.length}m × ${pageData.width}m slab at ${thicknessMm}mm thickness requires ${formatNumber(volume, 2)} cubic metres of concrete. Use our calculator above to adjust dimensions for your specific project.</p>`;
 
-  const relatedPages = data.slabPages
-    .filter(p => p.slug !== pageData.slug)
-    .slice(0, 3)
-    .map(p => ({ slug: p.slug, title: p.titleKeyword, type: 'slab' }));
+  const relatedPages = getRelatedPages(data.slabPages, pageData.slug, p => ({ slug: p.slug, title: p.titleKeyword, type: 'slab' }));
 
   return `${headTemplate(page)}
 ${headerTemplate}
@@ -1170,10 +1179,7 @@ function generatePostHolePage(pageData) {
           <h2>Calculating Concrete for ${pageData.titleKeyword}</h2>
           <p>For ${pageData.count === 1 ? 'a' : pageData.count} ${pageData.holeDiameter}mm diameter hole${pageData.count > 1 ? 's' : ''} at ${pageData.holeDepth}mm deep, you need ${formatNumber(volume, 3)} cubic metres of concrete. Use our calculator to adjust for your specific requirements.</p>`;
 
-  const relatedPages = data.postHolePages
-    .filter(p => p.slug !== pageData.slug)
-    .slice(0, 3)
-    .map(p => ({ slug: p.slug, title: p.titleKeyword }));
+  const relatedPages = getRelatedPages(data.postHolePages, pageData.slug, p => ({ slug: p.slug, title: p.titleKeyword }));
 
   return `${headTemplate(page)}
 ${headerTemplate}
@@ -1322,6 +1328,8 @@ function generateVolumePage(pageData) {
           <h2>Bags of Concrete for ${pageData.titleKeyword}</h2>
           <p>${pageData.titleKeyword} requires ${pageData.bags} bags of 20kg premix concrete. Use our calculators to determine the volume needed for your specific project dimensions.</p>`;
 
+  const relatedVolumePages = getRelatedPages(data.volumePages, pageData.slug, p => ({ slug: p.slug, title: p.titleKeyword, bags: p.bags }));
+
   return `${headTemplate(page)}
 ${headerTemplate}
 ${breadcrumbTemplate(page)}
@@ -1426,6 +1434,24 @@ ${seoContent}
               <p>Compare costs for your volume.</p>
               <span class="card-arrow">Compare →</span>
             </a>
+          </div>
+        </section>
+
+        <!-- Other Volume Calculations -->
+        <section class="related-section">
+          <h2 class="section-title">Other Volume Calculations</h2>
+          <div class="related-grid">
+${relatedVolumePages.map(p => `
+            <a href="/${p.slug}/" class="related-card">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4" y="2" width="16" height="20" rx="2"/>
+                <line x1="8" y1="6" x2="16" y2="6"/>
+                <line x1="8" y1="10" x2="16" y2="10"/>
+              </svg>
+              <h3>${p.bags} Bags for ${p.title}</h3>
+              <p>Pre-calculated for ${p.title}.</p>
+              <span class="card-arrow">View →</span>
+            </a>`).join('')}
           </div>
         </section>
       </div>
