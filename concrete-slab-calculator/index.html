@@ -24,7 +24,7 @@
   <title>Concrete Slab Calculator - How Much Concrete for a Slab | Australia</title>
 
   <!-- Canonical -->
-  <link rel="canonical" href="https://concretecalc.com.au/">
+  <link rel="canonical" href="https://concretecalc.com.au/concrete-slab-calculator/">
 
   <!-- Open Graph -->
   <meta property="og:title" content="Concrete Slab Calculator Australia">
@@ -91,26 +91,42 @@
     "mainEntity": [
       {
         "@type": "Question",
-        "name": "How much concrete do I need for a 3x3 metre shed slab?",
+        "name": "How long does a concrete slab take to cure?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For a 3m x 3m shed slab at 100mm thick, you need 0.9 cubic metres of concrete. With 10% wastage, that's approximately 1.0m³ or 108 bags of 20kg concrete mix."
+          "text": "Concrete cures in stages: 24-48 hours for initial set (light foot traffic), 7 days for 65-70% strength, and 28 days for full design strength. Keep the slab moist for the first 7 days by covering with plastic or damp hessian. Avoid driving on it for at least 28 days."
         }
       },
       {
         "@type": "Question",
-        "name": "How thick should a driveway slab be?",
+        "name": "What is the minimum thickness for a concrete slab?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "A residential driveway should be 100-150mm thick. 125mm is the most common recommendation for standard vehicle traffic. Use reinforcement mesh (SL72 or SL82) for added strength."
+          "text": "Minimum 75mm for pedestrian paths, 100mm for shed bases and patios, and 125-150mm for driveways and garages. Going thinner than 75mm makes concrete too brittle. Most Australian councils require at least 100mm for any slab attached to a dwelling."
         }
       },
       {
         "@type": "Question",
-        "name": "How do I calculate concrete for a slab?",
+        "name": "Do I need reinforcement mesh in my concrete slab?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Multiply Length × Width × Thickness (all in metres) to get cubic metres. For example, a 4m × 4m × 0.1m slab = 1.6m³. Add 10% for wastage = 1.76m³. Multiply by 108 to get bags needed = 190 bags."
+          "text": "Yes for most slabs. Use SL72 mesh for standard residential slabs like shed bases and patios. Use SL82 mesh for driveways and garages where vehicle loads apply. Mesh prevents cracks from widening and holds the slab together if ground shifts. Place on bar chairs at 40mm from the base."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "How deep do I need to dig for a concrete slab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Dig deep enough for sub-base plus slab thickness: 175mm for a 75mm path (100mm road base + 75mm concrete), 200mm for a 100mm shed slab (100mm road base + 100mm concrete), or 275mm for a 125mm driveway (150mm road base + 125mm concrete). Always remove topsoil and compact with a plate compactor."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "What concrete strength (MPa) do I need for a slab?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "20 MPa for garden paths and non-structural slabs, 25 MPa for patios and shed bases (most common residential grade), 32 MPa for driveways and garages carrying vehicle loads. Most bagged concrete from hardware stores is 20-25 MPa. For 32 MPa driveways, ready-mix is usually the best option."
         }
       }
     ]
@@ -421,46 +437,357 @@
           </div>
         </section>
 
-        <!-- Guide Section -->
+        <!-- Common Slab Examples -->
         <section class="info-section" style="margin-top: var(--space-8);">
-          <h2 class="section-title">Recommended Slab Thickness Guide</h2>
+          <h2 class="section-title">Common Slab Sizes at a Glance</h2>
+          <p style="text-align: center; color: var(--color-grey-600); margin-bottom: var(--space-5); font-size: var(--font-size-sm);">Pre-calculated results for popular Australian slab projects. Click any example to load it into the calculator above.</p>
+          <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-4);">
+
+            <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
+              <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-3); color: var(--color-grey-800);">Shed Slabs</h3>
+              <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--color-grey-200);">
+                    <th style="text-align: left; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Size</th>
+                    <th style="text-align: left; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Thickness</th>
+                    <th style="text-align: right; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Volume</th>
+                    <th style="text-align: right; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">20kg Bags</th>
+                    <th style="text-align: right; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Est. Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--color-grey-100);">
+                    <td style="padding: var(--space-2) var(--space-3);"><a href="/concrete-slab-calculator/?l=3&w=3&d=0.1&waste=10" style="color: var(--color-primary-dark); text-decoration: underline;">3m × 3m</a></td>
+                    <td style="padding: var(--space-2) var(--space-3);">100mm</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">0.99 m³</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">107</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">$910 - $1,338</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-100);">
+                    <td style="padding: var(--space-2) var(--space-3);"><a href="/concrete-slab-calculator/?l=4&w=3&d=0.1&waste=10" style="color: var(--color-primary-dark); text-decoration: underline;">4m × 3m</a></td>
+                    <td style="padding: var(--space-2) var(--space-3);">100mm</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">1.32 m³</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">143</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">$1,216 - $1,788</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: var(--space-2) var(--space-3);"><a href="/concrete-slab-calculator/?l=6&w=3&d=0.1&waste=10" style="color: var(--color-primary-dark); text-decoration: underline;">6m × 3m</a></td>
+                    <td style="padding: var(--space-2) var(--space-3);">100mm</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">1.98 m³</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">214</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">$1,819 - $2,675</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
+              <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-3); color: var(--color-grey-800);">Garage Slabs</h3>
+              <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--color-grey-200);">
+                    <th style="text-align: left; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Size</th>
+                    <th style="text-align: left; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Thickness</th>
+                    <th style="text-align: right; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Volume</th>
+                    <th style="text-align: right; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">20kg Bags</th>
+                    <th style="text-align: right; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Est. Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--color-grey-100);">
+                    <td style="padding: var(--space-2) var(--space-3);"><a href="/concrete-slab-calculator/?l=6&w=3&d=0.1&waste=10" style="color: var(--color-primary-dark); text-decoration: underline;">Single (6m × 3m)</a></td>
+                    <td style="padding: var(--space-2) var(--space-3);">100mm</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">1.98 m³</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">214</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">$1,819 - $2,675</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: var(--space-2) var(--space-3);"><a href="/concrete-slab-calculator/?l=6&w=6&d=0.1&waste=10" style="color: var(--color-primary-dark); text-decoration: underline;">Double (6m × 6m)</a></td>
+                    <td style="padding: var(--space-2) var(--space-3);">100mm</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">3.96 m³</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">428</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">$3,638 - $5,350</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
+              <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-3); color: var(--color-grey-800);">Driveways &amp; Patios</h3>
+              <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--color-grey-200);">
+                    <th style="text-align: left; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Project</th>
+                    <th style="text-align: left; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Thickness</th>
+                    <th style="text-align: right; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Volume</th>
+                    <th style="text-align: right; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">20kg Bags</th>
+                    <th style="text-align: right; padding: var(--space-2) var(--space-3); color: var(--color-grey-700);">Est. Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--color-grey-100);">
+                    <td style="padding: var(--space-2) var(--space-3);"><a href="/concrete-slab-calculator/?l=10&w=3&d=0.125&waste=10" style="color: var(--color-primary-dark); text-decoration: underline;">Driveway (10m × 3m)</a></td>
+                    <td style="padding: var(--space-2) var(--space-3);">125mm</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">4.13 m³</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">446</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">$3,791 - $5,575</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-100);">
+                    <td style="padding: var(--space-2) var(--space-3);"><a href="/concrete-slab-calculator/?l=5&w=3&d=0.125&waste=10" style="color: var(--color-primary-dark); text-decoration: underline;">Short driveway (5m × 3m)</a></td>
+                    <td style="padding: var(--space-2) var(--space-3);">125mm</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">2.06 m³</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">223</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">$1,896 - $2,788</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: var(--space-2) var(--space-3);"><a href="/concrete-slab-calculator/?l=4&w=4&d=0.1&waste=10" style="color: var(--color-primary-dark); text-decoration: underline;">Patio (4m × 4m)</a></td>
+                    <td style="padding: var(--space-2) var(--space-3);">100mm</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">1.76 m³</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">190</td>
+                    <td style="padding: var(--space-2) var(--space-3); text-align: right;">$1,615 - $2,375</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p style="text-align: center; color: var(--color-grey-500); margin-top: var(--space-3); font-size: var(--font-size-xs);">All estimates include 10% wastage. Bag costs based on $8.50-$12.50 per 20kg bag.</p>
+        </section>
+
+        <!-- Slab Thickness Guide -->
+        <section class="info-section" style="margin-top: var(--space-8);">
+          <h2 class="section-title">Slab Thickness Recommendations by Project Type</h2>
+          <p style="text-align: center; color: var(--color-grey-600); margin-bottom: var(--space-5); font-size: var(--font-size-sm);">Choosing the right thickness is critical for slab longevity. Under-spec your slab and you risk cracking under load.</p>
           <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
             <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
               <thead>
                 <tr style="border-bottom: 2px solid var(--color-grey-200);">
                   <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Application</th>
                   <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Thickness</th>
+                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Concrete Strength</th>
                   <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Reinforcement</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Garden path</td>
+                  <td style="padding: var(--space-3);">Garden path / stepping stones</td>
                   <td style="padding: var(--space-3);">75-100mm</td>
-                  <td style="padding: var(--space-3);">Optional</td>
+                  <td style="padding: var(--space-3);">20 MPa</td>
+                  <td style="padding: var(--space-3);">Optional (fibre mesh OK)</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Patio / Entertainment area</td>
+                  <td style="padding: var(--space-3);">Patio / entertainment area</td>
                   <td style="padding: var(--space-3);">100mm</td>
+                  <td style="padding: var(--space-3);">25 MPa</td>
                   <td style="padding: var(--space-3);">SL72 mesh recommended</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Shed base</td>
-                  <td style="padding: var(--space-3);">100mm</td>
+                  <td style="padding: var(--space-3);">Shed base (small, up to 3×3m)</td>
+                  <td style="padding: var(--space-3);">75-100mm</td>
+                  <td style="padding: var(--space-3);">20-25 MPa</td>
                   <td style="padding: var(--space-3);">SL72 mesh recommended</td>
                 </tr>
                 <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Driveway (cars)</td>
+                  <td style="padding: var(--space-3);">Shed base (large / workshop)</td>
+                  <td style="padding: var(--space-3);">100mm</td>
+                  <td style="padding: var(--space-3);">25 MPa</td>
+                  <td style="padding: var(--space-3);">SL72 mesh required</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3);">Driveway (cars only)</td>
                   <td style="padding: var(--space-3);">100-150mm</td>
+                  <td style="padding: var(--space-3);">32 MPa</td>
                   <td style="padding: var(--space-3);">SL82 mesh required</td>
                 </tr>
-                <tr>
-                  <td style="padding: var(--space-3);">Garage floor</td>
-                  <td style="padding: var(--space-3);">100-125mm</td>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3);">Driveway (heavy vehicles)</td>
+                  <td style="padding: var(--space-3);">150mm</td>
+                  <td style="padding: var(--space-3);">32 MPa</td>
+                  <td style="padding: var(--space-3);">SL82 mesh + edge thickening</td>
+                </tr>
+                <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                  <td style="padding: var(--space-3);">Single garage floor</td>
+                  <td style="padding: var(--space-3);">100mm</td>
+                  <td style="padding: var(--space-3);">25-32 MPa</td>
                   <td style="padding: var(--space-3);">SL72 or SL82 mesh</td>
+                </tr>
+                <tr>
+                  <td style="padding: var(--space-3);">Double garage floor</td>
+                  <td style="padding: var(--space-3);">100-125mm</td>
+                  <td style="padding: var(--space-3);">32 MPa</td>
+                  <td style="padding: var(--space-3);">SL82 mesh required</td>
                 </tr>
               </tbody>
             </table>
+          </div>
+        </section>
+
+        <!-- Rebar & Mesh Guidance -->
+        <section class="info-section" style="margin-top: var(--space-8);">
+          <h2 class="section-title">Reinforcement Mesh &amp; Rebar Guide for Slabs</h2>
+          <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-4);">
+            <div class="info-box info-box--tip">
+              <div class="info-box-header">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" y1="16" x2="12" y2="12"/>
+                  <line x1="12" y1="8" x2="12.01" y2="8"/>
+                </svg>
+                When to use mesh vs rebar
+              </div>
+              <div class="info-box-content">
+                <p><strong>Steel mesh</strong> (SL-series) is the standard for residential slabs in Australia. It comes in flat sheets (typically 6m × 2.4m) and provides uniform crack control. <strong>Rebar</strong> (deformed bar) is used for structural applications like thickened edges, footings tied into the slab, or slabs that span over fill.</p>
+              </div>
+            </div>
+
+            <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
+              <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-4); color: var(--color-grey-800);">Common Mesh Types for Residential Slabs</h3>
+              <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--color-grey-200);">
+                    <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Mesh Type</th>
+                    <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Wire Size</th>
+                    <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Spacing</th>
+                    <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Best For</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);"><strong>SL62</strong></td>
+                    <td style="padding: var(--space-3);">6mm wire</td>
+                    <td style="padding: var(--space-3);">200mm × 200mm</td>
+                    <td style="padding: var(--space-3);">Light paths, garden slabs</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);"><strong>SL72</strong></td>
+                    <td style="padding: var(--space-3);">7mm wire</td>
+                    <td style="padding: var(--space-3);">200mm × 200mm</td>
+                    <td style="padding: var(--space-3);">Shed bases, patios, light driveways</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);"><strong>SL82</strong></td>
+                    <td style="padding: var(--space-3);">8mm wire</td>
+                    <td style="padding: var(--space-3);">200mm × 200mm</td>
+                    <td style="padding: var(--space-3);">Driveways, garages, heavy-duty slabs</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: var(--space-3);"><strong>SL92</strong></td>
+                    <td style="padding: var(--space-3);">9mm wire</td>
+                    <td style="padding: var(--space-3);">200mm × 200mm</td>
+                    <td style="padding: var(--space-3);">Commercial, heavy vehicle areas</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
+              <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-3); color: var(--color-grey-800);">Mesh Placement Tips</h3>
+              <ul style="margin: 0; padding-left: 1.5rem; list-style: disc; font-size: var(--font-size-sm); color: var(--color-grey-700); line-height: 1.8;">
+                <li>Place mesh in the <strong>bottom third</strong> of the slab, not the middle or top</li>
+                <li>Use <strong>bar chairs</strong> (plastic stools) to hold mesh at 40mm from the base</li>
+                <li>Overlap sheets by at least <strong>one full square</strong> (200mm) and tie with wire</li>
+                <li>Keep mesh at least <strong>50mm from edges</strong> of formwork to prevent rust exposure</li>
+                <li>Never lay mesh directly on the ground or plastic membrane</li>
+                <li>For thickened edges (driveways), add <strong>N12 rebar</strong> at top and bottom of the thickening</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <!-- Slab Cost Estimator -->
+        <section class="info-section" style="margin-top: var(--space-8);">
+          <h2 class="section-title">Concrete Slab Cost Guide (Australia)</h2>
+          <p style="text-align: center; color: var(--color-grey-600); margin-bottom: var(--space-5); font-size: var(--font-size-sm);">Typical 2025-2026 pricing for residential concrete slab work in Australia. Costs vary by location, access, and finish.</p>
+          <div style="display: grid; grid-template-columns: 1fr; gap: var(--space-4);">
+
+            <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
+              <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-4); color: var(--color-grey-800);">DIY Concrete Costs (Materials Only)</h3>
+              <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--color-grey-200);">
+                    <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Item</th>
+                    <th style="text-align: right; padding: var(--space-3); color: var(--color-grey-700);">Cost</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">20kg concrete bags (Boral, Cement Aus.)</td>
+                    <td style="padding: var(--space-3); text-align: right;">$8.50 - $12.50 per bag</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">Ready-mix concrete (delivered)</td>
+                    <td style="padding: var(--space-3); text-align: right;">$200 - $420 per m³</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">SL72 reinforcement mesh (6m × 2.4m sheet)</td>
+                    <td style="padding: var(--space-3); text-align: right;">$55 - $80 per sheet</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">SL82 reinforcement mesh (6m × 2.4m sheet)</td>
+                    <td style="padding: var(--space-3); text-align: right;">$75 - $110 per sheet</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">Bar chairs (pack of 50)</td>
+                    <td style="padding: var(--space-3); text-align: right;">$15 - $25</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">Formwork timber (90 × 45mm, per metre)</td>
+                    <td style="padding: var(--space-3); text-align: right;">$5 - $10</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: var(--space-3);">Road base / compacted fill (per m³)</td>
+                    <td style="padding: var(--space-3); text-align: right;">$50 - $80</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
+              <h3 style="font-size: var(--font-size-base); margin-bottom: var(--space-4); color: var(--color-grey-800);">Professional Installation (Labour + Materials)</h3>
+              <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
+                <thead>
+                  <tr style="border-bottom: 2px solid var(--color-grey-200);">
+                    <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Slab Type</th>
+                    <th style="text-align: right; padding: var(--space-3); color: var(--color-grey-700);">Cost per m²</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">Plain concrete slab (broom finish)</td>
+                    <td style="padding: var(--space-3); text-align: right;">$65 - $110 per m²</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">Coloured concrete slab</td>
+                    <td style="padding: var(--space-3); text-align: right;">$80 - $130 per m²</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">Exposed aggregate</td>
+                    <td style="padding: var(--space-3); text-align: right;">$100 - $170 per m²</td>
+                  </tr>
+                  <tr style="border-bottom: 1px solid var(--color-grey-200);">
+                    <td style="padding: var(--space-3);">Stenciled / stamped concrete</td>
+                    <td style="padding: var(--space-3); text-align: right;">$100 - $180 per m²</td>
+                  </tr>
+                  <tr>
+                    <td style="padding: var(--space-3);">Polished concrete</td>
+                    <td style="padding: var(--space-3); text-align: right;">$120 - $200 per m²</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="info-box info-box--warning" style="margin-top: var(--space-4);">
+            <div class="info-box-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                <line x1="12" y1="9" x2="12" y2="13"/>
+                <line x1="12" y1="17" x2="12.01" y2="17"/>
+              </svg>
+              Pricing note
+            </div>
+            <div class="info-box-content">
+              Prices are indicative only and vary significantly by state, site access, excavation required, and whether the site is flat or sloping. Always get at least 3 quotes from local concreters. Ready-mix suppliers typically require a minimum order of 0.5 m³.
+            </div>
           </div>
         </section>
 
@@ -470,95 +797,128 @@
           <div class="faq-list">
             <details class="faq-item">
               <summary class="faq-question">
-                How much concrete do I need for a 3x3 metre shed slab?
+                How long does a concrete slab take to cure?
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </summary>
               <div class="faq-answer">
-                <p>For a 3m × 3m shed slab at the recommended 100mm thickness:</p>
+                <p>Concrete curing happens in stages:</p>
                 <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>Base volume: 3 × 3 × 0.1 = 0.9m³</li>
-                  <li>With 10% wastage: 0.99m³ (round to 1.0m³)</li>
-                  <li>Bags needed: 108 × 20kg bags</li>
-                  <li>Estimated cost: $918 - $1,350 in bags</li>
+                  <li><strong>24-48 hours:</strong> Initial set - you can walk on it carefully</li>
+                  <li><strong>7 days:</strong> Reaches roughly 65-70% of its final strength - light foot traffic OK</li>
+                  <li><strong>28 days:</strong> Reaches full design strength - safe for vehicles and heavy loads</li>
                 </ul>
-                <p>For a slab this size, ready-mix is worth considering as it saves significant labour.</p>
+                <p>During the first 7 days, keep the slab moist by covering with plastic sheeting or damp hessian, or spray with a curing compound. Avoid placing heavy loads or driving on the slab for at least 28 days. In hot weather, cure for longer as rapid drying causes surface cracking.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                How thick should a driveway slab be?
+                What is the minimum thickness for a concrete slab?
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </summary>
               <div class="faq-answer">
-                <p>A residential driveway should be <strong>100-150mm thick</strong>, with 125mm being the most common recommendation for standard vehicle traffic.</p>
-                <p>Key considerations:</p>
+                <p>The minimum practical thickness depends on the application:</p>
                 <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>Light vehicles (cars): 100mm minimum, 125mm recommended</li>
-                  <li>Heavy vehicles (trucks, caravans): 150mm minimum</li>
-                  <li>Always use reinforcement mesh (SL72 or SL82)</li>
-                  <li>Ensure proper compacted base (100mm road base)</li>
+                  <li><strong>75mm:</strong> Absolute minimum for pedestrian-only slabs like garden paths</li>
+                  <li><strong>100mm:</strong> Minimum for any slab that supports structures (sheds, patios) or receives any wheel loads</li>
+                  <li><strong>125-150mm:</strong> Minimum for vehicle slabs like driveways and garage floors</li>
                 </ul>
+                <p>Going thinner than 75mm is not recommended as the concrete becomes too brittle and prone to cracking. Most councils in Australia require a minimum of 100mm for any slab attached to a dwelling.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                How do I calculate concrete for a slab?
+                Do I need reinforcement mesh in my concrete slab?
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </summary>
               <div class="faq-answer">
-                <p>The formula is simple: <strong>Volume = Length × Width × Thickness</strong></p>
-                <p>Example for a 4m × 4m patio at 100mm thick:</p>
-                <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
-                  <li>Convert thickness to metres: 100mm = 0.1m</li>
-                  <li>Calculate volume: 4 × 4 × 0.1 = 1.6m³</li>
-                  <li>Add 10% wastage: 1.6 × 1.1 = 1.76m³</li>
-                  <li>Calculate bags: 1.76 × 108 = 190 bags (rounded up)</li>
-                </ol>
+                <p>For most slabs, yes. Mesh prevents cracks from widening and holds the slab together if the ground shifts. Here's when you need it:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li><strong>Always required:</strong> Driveways, garages, carports, any vehicle-bearing slab</li>
+                  <li><strong>Strongly recommended:</strong> Shed bases, patios, entertainment areas, pool surrounds</li>
+                  <li><strong>Optional:</strong> Small garden paths, stepping stones, non-structural garden edging</li>
+                </ul>
+                <p>Use <strong>SL72 mesh</strong> for standard residential slabs (sheds, patios). Use <strong>SL82 mesh</strong> for driveways and garages where vehicle loads apply. Place mesh on bar chairs at 40mm from the base of the slab, overlapping sheets by at least 200mm.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                Do I need reinforcement mesh in my slab?
+                How deep do I need to dig for a concrete slab?
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </summary>
               <div class="faq-answer">
-                <p>Reinforcement mesh is recommended for most slabs to prevent cracking:</p>
+                <p>You need to dig deep enough for your sub-base plus the slab thickness. A typical setup:</p>
                 <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li><strong>SL62:</strong> Light duty - paths, small patios</li>
-                  <li><strong>SL72:</strong> Standard - shed bases, patios, light driveways</li>
-                  <li><strong>SL82:</strong> Heavy duty - driveways, garage floors</li>
+                  <li><strong>Path slab (75mm):</strong> Dig 175mm total (100mm road base + 75mm concrete)</li>
+                  <li><strong>Shed/patio slab (100mm):</strong> Dig 200mm total (100mm road base + 100mm concrete)</li>
+                  <li><strong>Driveway slab (125mm):</strong> Dig 275mm total (150mm road base + 125mm concrete)</li>
                 </ul>
-                <p>Place mesh in the bottom third of the slab, supported on bar chairs (typically 40mm from the base).</p>
+                <p>Remove all topsoil, organic matter, and soft clay. The sub-base (compacted road base or crushed rock) must be compacted with a plate compactor in layers of no more than 100mm. Lay a plastic vapour barrier (200µm poly) on top of the sub-base before pouring.</p>
               </div>
             </details>
 
             <details class="faq-item">
               <summary class="faq-question">
-                What concrete strength do I need?
+                Should I use bags or ready-mix for my slab?
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <polyline points="6 9 12 15 18 9"/>
                 </svg>
               </summary>
               <div class="faq-answer">
-                <p>Concrete strength is measured in MPa (megapascals):</p>
+                <p>This depends on slab volume and your physical capacity:</p>
                 <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li><strong>20MPa:</strong> Paths, garden edging, non-structural</li>
-                  <li><strong>25MPa:</strong> Standard residential - patios, shed bases</li>
-                  <li><strong>32MPa:</strong> Driveways, garage floors, structural footings</li>
-                  <li><strong>40MPa:</strong> Heavy commercial use</li>
+                  <li><strong>Under 0.5 m³ (~54 bags):</strong> DIY bags are feasible. Budget half a day for mixing and pouring.</li>
+                  <li><strong>0.5 - 1.0 m³ (54-108 bags):</strong> Borderline. Ready-mix saves massive labour - that's over a tonne of material to mix by hand.</li>
+                  <li><strong>Over 1.0 m³ (108+ bags):</strong> Ready-mix is strongly recommended. The concrete arrives mixed and consistent, you pour in one go, and finish quality is much better.</li>
                 </ul>
-                <p>Most pre-mixed bags from Bunnings or hardware stores are 20-25MPa, suitable for general DIY projects.</p>
+                <p>Ready-mix suppliers typically have a minimum order of 0.5 m³ and may charge a short-load fee for orders under 2-3 m³. Use our <a href="/bags-vs-readymix/" style="color: var(--color-primary-dark);">bags vs ready-mix comparison tool</a> for a detailed cost breakdown.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                Do I need council approval to pour a concrete slab?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>It depends on the slab's purpose and your local council:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li><strong>Usually exempt:</strong> Garden paths, small patios under 10m², shed bases for sheds under 10m² (varies by state)</li>
+                  <li><strong>May need approval:</strong> Driveways (especially if crossing a footpath/council verge), large patios, slabs for structures over 10m²</li>
+                  <li><strong>Always needs approval:</strong> House slabs, granny flat slabs, commercial slabs, anything affecting stormwater drainage</li>
+                </ul>
+                <p>Check with your local council before starting. In most Australian states, sheds under 10m² with no plumbing or electrical are exempt development, but the rules vary by council area.</p>
+              </div>
+            </details>
+
+            <details class="faq-item">
+              <summary class="faq-question">
+                What concrete strength (MPa) do I need for a slab?
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="faq-answer">
+                <p>Concrete strength is measured in megapascals (MPa). For residential slabs in Australia:</p>
+                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
+                  <li><strong>20 MPa:</strong> Garden paths, edging, non-structural slabs with foot traffic only</li>
+                  <li><strong>25 MPa:</strong> Standard for patios, shed bases, pool surrounds - suitable for most residential DIY projects</li>
+                  <li><strong>32 MPa:</strong> Driveways, garages, carports - required for any slab carrying vehicle loads</li>
+                  <li><strong>40 MPa:</strong> Commercial and industrial applications - overkill for residential use</li>
+                </ul>
+                <p>Most bagged concrete from Bunnings and hardware stores is 20-25 MPa. If you need 32 MPa for a driveway, ready-mix is usually the best option as you can specify the exact strength grade.</p>
               </div>
             </details>
           </div>
@@ -602,33 +962,33 @@
 
         <!-- SEO Content Section -->
         <article class="seo-content">
-          <h2>How to Calculate Concrete for a Slab in Australia</h2>
+          <h2>The Complete Guide to Concrete Slabs in Australia</h2>
 
-          <p>Calculating the right amount of concrete for your slab ensures you have enough material to complete the job without excessive waste or costly shortfalls. Whether you're pouring a shed base, driveway, patio, or garage floor, understanding the calculation process helps you plan and budget your project accurately.</p>
+          <p>Pouring a concrete slab is one of the most common DIY projects for Australian homeowners. Whether you need a solid base for a garden shed, a new driveway, or an outdoor entertainment area, getting the concrete quantity right saves you money and avoids the frustration of running short mid-pour. This guide covers everything you need to know about planning, sizing, and costing a concrete slab.</p>
 
-          <h3>The Basic Formula</h3>
-          <p>The volume of a rectangular slab is calculated using a simple formula: Length × Width × Thickness, with all measurements in metres. For example, a 4m × 3m slab at 100mm (0.1m) thickness equals 4 × 3 × 0.1 = 1.2 cubic metres. This gives you the base volume before accounting for wastage.</p>
+          <h3>How to Size Your Concrete Slab</h3>
+          <p>Before calculating concrete volume, you need to determine the right slab dimensions for your project. Shed slabs should extend 100-200mm beyond the shed walls on each side to provide a stable edge. Driveway slabs need to be wide enough for comfortable vehicle access - a minimum of 3 metres for a single car, or 5.5-6 metres for a double driveway. Patios should be large enough for your furniture layout with room to move, typically starting at 3m × 3m for a small setting.</p>
 
-          <h3>Standard Slab Thickness in Australia</h3>
-          <p>The most common residential slab thickness is 100mm, which suits most applications including shed bases, patios, and light-duty areas. Driveways typically require 100 to 150mm thickness depending on expected vehicle loads, with 125mm being a popular choice for standard residential driveways. Garage floors follow similar guidelines, usually 100 to 125mm with appropriate reinforcement mesh.</p>
+          <h3>Site Preparation for Slab Pouring</h3>
+          <p>Proper site prep is just as important as the concrete itself. Strip all topsoil and organic material from the area, digging down to stable natural ground. Compact the sub-grade with a plate compactor, then add 100-150mm of road base (crushed rock) as a sub-base. Compact this in layers of no more than 100mm at a time. Level the surface accurately using a string line and spirit level - any unevenness in the base translates directly to uneven concrete thickness and wasted material.</p>
 
-          <h3>Thickness Guide by Application</h3>
-          <p>Garden paths and stepping stones can be as thin as 75mm since they only support foot traffic. Patios and entertainment areas should be 100mm minimum with SL72 reinforcement mesh. Shed bases at 100mm thickness provide adequate support for most garden sheds and workshops. Driveways need 100mm for light vehicles, increasing to 150mm if you're parking caravans, boats, or heavy vehicles regularly.</p>
+          <h3>Setting Up Formwork</h3>
+          <p>Formwork creates the mould for your slab. Use straight, sturdy timber (typically 90mm × 45mm or 100mm × 50mm for a 100mm slab) pegged firmly into the ground. The top of the formwork sets your finished slab height. Include a slight fall of 1-2% away from buildings for drainage - that's a 10-20mm drop per metre of length. For driveways, the fall should direct water toward the street or a drainage point. Oil the inside of formwork with mould release or even diesel to make stripping easier.</p>
 
-          <h3>Why Add 10% Wastage</h3>
-          <p>Adding 10% wastage to your calculations accounts for several unavoidable factors. Uneven ground often requires extra concrete in low spots. Spillage occurs during mixing, transporting, and pouring. Some concrete inevitably sticks to wheelbarrows, mixers, and tools. Minor variations in formwork and measurements also consume concrete. For complex shapes or sloping sites, consider increasing wastage to 15%.</p>
+          <h3>Understanding Concrete Volume for Slabs</h3>
+          <p>Concrete volume for a rectangular slab is calculated as Length × Width × Thickness, with all measurements in metres. The result gives you cubic metres (m³). For example, a standard 3m × 3m shed slab at 100mm (0.1m) thickness needs 3 × 3 × 0.1 = 0.9 m³ of concrete. Always add 10% for wastage to account for spillage, uneven ground, and mixing losses, bringing the total to 0.99 m³ or approximately 1.0 m³.</p>
 
-          <h3>Converting to Bags</h3>
-          <p>Boral's guideline of approximately 108 bags per cubic metre provides a reliable estimate for 20kg pre-mixed concrete bags. This accounts for typical mixing conditions and the yield you can expect from bagged concrete. For a 1m³ slab, you'd need roughly 108 bags, which translates to about 2.16 tonnes of material to handle and mix.</p>
+          <h3>Control Joints and Crack Prevention</h3>
+          <p>Concrete shrinks as it cures, and without control joints it will crack randomly. Cut control joints (or tool them into the wet concrete) at intervals of no more than 25-30 times the slab thickness. For a 100mm slab, that means joints every 2.5-3 metres in each direction. Joints should be cut to a depth of one-quarter to one-third of the slab thickness. For a shed slab, this might mean a single cross-shaped joint dividing it into four panels.</p>
 
-          <h3>Bags vs Ready-Mix Decision</h3>
-          <p>For small slabs under 0.5m³, bagged concrete is often practical and cost-effective. Between 0.5m³ and 1m³, the decision depends on your physical capability and timeline, as mixing over 50 bags is significant labour. Above 1m³, ready-mix delivery usually makes more sense, offering consistent quality, faster placement, and often competitive pricing when you factor in the labour saved.</p>
+          <h3>Finishing Options for Your Slab</h3>
+          <p>The surface finish you choose affects both appearance and cost. A basic broom finish provides good grip and is the cheapest option, ideal for sheds and driveways. Exposed aggregate involves washing away the top layer of cement paste to reveal the stones underneath, giving a decorative textured surface popular for driveways and paths. Coloured concrete uses oxide pigments mixed through the batch or applied as a surface hardener. Stamped concrete can mimic brick, stone, or tile patterns but adds significant cost.</p>
 
-          <h3>Common Slab Projects and Volumes</h3>
-          <p>A standard 3m × 3m shed slab at 100mm needs approximately 0.9m³ or 97 bags. A single car driveway of 5m × 3m at 125mm requires around 1.9m³. A 4m × 4m patio at 100mm comes to 1.6m³. A double garage measuring 6m × 6m at 100mm needs 3.6m³, a volume that strongly favours ready-mix delivery over bagged concrete.</p>
+          <h3>Weather Considerations for Slab Pouring</h3>
+          <p>In Australia's varied climate, timing your pour matters. Avoid pouring in temperatures above 35°C as rapid drying causes surface cracking and reduces strength. Similarly, avoid pouring if overnight temperatures will drop below 5°C, as cold slows curing dramatically. Ideal pouring conditions are 15-25°C with overcast skies. If pouring in summer, consider starting early morning and have enough help to pour and finish quickly before the concrete sets too fast.</p>
 
-          <h3>Popular Concrete Calculations</h3>
-          <p>Use our pre-calculated guides for common Australian projects:</p>
+          <h3>Pre-Calculated Slab Guides</h3>
+          <p>View detailed calculations for popular Australian slab projects:</p>
           <ul style="margin: 0.5rem 0 1rem; padding-left: 1.5rem; list-style: disc;">
             <li><a href="/concrete-for-shed-slab/">Concrete for a Shed Slab (3×3m)</a></li>
             <li><a href="/concrete-for-4x3-shed-slab/">Concrete for a 4×3 Shed Slab</a></li>
