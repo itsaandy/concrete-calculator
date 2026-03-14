@@ -1289,7 +1289,7 @@ details[open] .formula-toggle svg {
 }
 
 /* ===== SEO CONTENT SECTION ===== */
-.seo-content {
+.content-article {
   margin-top: var(--space-10);
   padding-top: var(--space-8);
   border-top: 1px solid var(--color-grey-200);
@@ -1297,14 +1297,14 @@ details[open] .formula-toggle svg {
   line-height: var(--line-height-relaxed);
 }
 
-.seo-content h2 {
+.content-article h2 {
   font-size: var(--font-size-2xl);
   font-weight: var(--font-weight-bold);
   color: var(--color-grey-800);
   margin-bottom: var(--space-6);
 }
 
-.seo-content h3 {
+.content-article h3 {
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-semibold);
   color: var(--color-grey-700);
@@ -1312,12 +1312,12 @@ details[open] .formula-toggle svg {
   margin-bottom: var(--space-3);
 }
 
-.seo-content p {
+.content-article p {
   margin-bottom: var(--space-4);
   font-size: var(--font-size-base);
 }
 
-.seo-content p:last-child {
+.content-article p:last-child {
   margin-bottom: 0;
 }
 

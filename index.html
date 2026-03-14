@@ -35,6 +35,8 @@
 
   <!-- Canonical -->
   <link rel="canonical" href="https://concretecalc.com.au/">
+  <link rel="alternate" hreflang="en-AU" href="https://concretecalc.com.au/">
+  <link rel="alternate" hreflang="x-default" href="https://concretecalc.com.au/">
 
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
@@ -51,17 +53,10 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
+    "@type": "WebSite",
     "name": "Concrete Calculator Australia",
-    "description": "Free concrete calculator for Australian DIYers. Calculate volume, bags needed, and costs.",
-    "url": "https://concretecalc.com.au/",
-    "applicationCategory": "UtilityApplication",
-    "operatingSystem": "Any",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "AUD"
-    }
+    "description": "Free concrete calculators for Australian DIYers. Calculate volume, bags needed, and costs for slabs, post holes, footings, and columns.",
+    "url": "https://concretecalc.com.au/"
   }
   </script>
   <script type="application/ld+json">
@@ -74,7 +69,7 @@
         "name": "How many bags of concrete do I need?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "For a standard 20kg concrete bag, you need approximately 108 bags per cubic metre. Our calculator automatically works this out based on your slab dimensions, plus adds 10% for wastage."
+          "text": "For a standard 20kg concrete bag, you need approximately 108 bags per cubic metre. Our calculators automatically work this out based on your project dimensions, plus add 10% for wastage."
         }
       },
       {
@@ -106,12 +101,12 @@
       {
         "@type": "HowToStep",
         "name": "Choose your project type",
-        "text": "Select the right calculator for your project: rectangular slab for sheds, driveways, and patios; post hole for fences and decks; footing for retaining walls; or column for piers and supports."
+        "text": "Select the right calculator for your project type: post hole for fences and decks; footing for retaining walls; slab for sheds, driveways, and patios; or column for piers and supports."
       },
       {
         "@type": "HowToStep",
         "name": "Measure your dimensions",
-        "text": "Measure all dimensions in metres. For slabs: length, width, and thickness. For post holes: diameter and depth. For footings: length, width, and depth. For columns: diameter or side length and height."
+        "text": "Measure all dimensions in metres. For post holes: diameter and depth. For footings: length, width, and depth. For slabs: length, width, and thickness. For columns: diameter or side length and height."
       },
       {
         "@type": "HowToStep",
@@ -153,7 +148,7 @@
 
         <nav class="main-nav" aria-label="Main navigation">
           <ul class="nav-list">
-            <li><a href="/" class="is-active">Slab Calculator</a></li>
+            <li><a href="/" class="is-active">Concrete Calculator</a></li>
             <li><a href="/post-hole-calculator/">Post Holes</a></li>
             <li><a href="/footing-calculator/">Footings</a></li>
             <li class="nav-dropdown">
@@ -181,7 +176,7 @@
 
       <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
         <ul class="mobile-nav-list">
-          <li><a href="/" class="is-active">Slab Calculator</a></li>
+          <li><a href="/" class="is-active">Concrete Calculator</a></li>
           <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
           <li><a href="/footing-calculator/">Footing Calculator</a></li>
           <li><a href="/column-calculator/">Column Calculator</a></li>
@@ -202,257 +197,9 @@
     <!-- Main Content -->
     <main class="main-content">
       <div class="container">
-        <!-- Calculator Section -->
-        <section class="calculator-section">
-          <div class="calculator-card">
-            <div class="calculator-header">
-              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <rect x="4" y="2" width="16" height="20" rx="2"/>
-                <line x1="8" y1="6" x2="16" y2="6"/>
-                <line x1="8" y1="10" x2="16" y2="10"/>
-                <line x1="8" y1="14" x2="12" y2="14"/>
-                <line x1="8" y1="18" x2="12" y2="18"/>
-              </svg>
-              <h2>Rectangular Slab Calculator</h2>
-            </div>
-
-            <div class="calculator-body">
-              <!-- Dimension Diagram -->
-              <div class="diagram-section">
-                <svg class="diagram-svg" viewBox="0 0 320 180" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="slab-diagram-title">
-                  <title id="slab-diagram-title">Concrete slab dimensions diagram showing length, width, and thickness</title>
-                  <!-- 3D Slab Shape -->
-                  <polygon points="40,100 140,140 240,100 240,80 140,120 40,80" fill="#94a3b8" stroke="#475569" stroke-width="1.5"/>
-                  <polygon points="40,80 140,40 240,80 140,120" fill="#cbd5e1" stroke="#475569" stroke-width="1.5"/>
-                  <polygon points="140,120 140,140 240,100 240,80" fill="#64748b" stroke="#475569" stroke-width="1.5"/>
-
-                  <!-- Length Arrow (parallel to left edge: 40,80 to 140,40) -->
-                  <line x1="28" y1="72" x2="128" y2="32" stroke="#f59e0b" stroke-width="2" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
-                  <text x="58" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#d97706">Length</text>
-
-                  <!-- Width Arrow (parallel to right edge: 140,40 to 240,80) -->
-                  <line x1="152" y1="32" x2="252" y2="72" stroke="#f59e0b" stroke-width="2" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
-                  <text x="222" y="42" text-anchor="middle" font-size="12" font-weight="600" fill="#d97706">Width</text>
-
-                  <!-- Thickness Arrow (side) -->
-                  <line x1="250" y1="82" x2="250" y2="98" stroke="#f59e0b" stroke-width="2" marker-start="url(#arrowStart)" marker-end="url(#arrowEnd)"/>
-                  <text x="255" y="95" text-anchor="start" font-size="11" font-weight="600" fill="#d97706">Thickness</text>
-
-                  <!-- Arrow markers -->
-                  <defs>
-                    <marker id="arrowStart" markerWidth="5" markerHeight="5" refX="1" refY="2.5" orient="auto">
-                      <path d="M4,0.5 L1,2.5 L4,4.5" fill="none" stroke="#f59e0b" stroke-width="1"/>
-                    </marker>
-                    <marker id="arrowEnd" markerWidth="5" markerHeight="5" refX="4" refY="2.5" orient="auto">
-                      <path d="M1,0.5 L4,2.5 L1,4.5" fill="none" stroke="#f59e0b" stroke-width="1"/>
-                    </marker>
-                  </defs>
-                </svg>
-              </div>
-
-              <form id="slab-form" autocomplete="off">
-                <!-- Unit Toggle -->
-                <div class="form-group form-group--full">
-                  <span class="form-label">Units</span>
-                  <div class="toggle-group" id="unit-toggle">
-                    <label class="toggle-option is-active">
-                      <input type="radio" name="unit" value="metres" checked>
-                      Metres
-                    </label>
-                    <label class="toggle-option">
-                      <input type="radio" name="unit" value="mm">
-                      Millimetres
-                    </label>
-                  </div>
-                </div>
-
-                <!-- Dimensions -->
-                <div class="form-grid">
-                  <div class="form-group">
-                    <label class="form-label" for="length">
-                      Length
-                    </label>
-                    <div class="input-wrapper">
-                      <input
-                        type="number"
-                        id="length"
-                        name="length"
-                        class="form-input form-input--with-suffix"
-                        placeholder="e.g. 3"
-                        step="any"
-                        min="0"
-                        inputmode="decimal"
-                      >
-                      <span class="input-suffix" data-type="length">m</span>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="form-label" for="width">
-                      Width
-                    </label>
-                    <div class="input-wrapper">
-                      <input
-                        type="number"
-                        id="width"
-                        name="width"
-                        class="form-input form-input--with-suffix"
-                        placeholder="e.g. 3"
-                        step="any"
-                        min="0"
-                        inputmode="decimal"
-                      >
-                      <span class="input-suffix" data-type="length">m</span>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <label class="form-label" for="depth">
-                      Thickness <span class="form-label-hint">(depth)</span>
-                    </label>
-                    <div class="input-wrapper">
-                      <input
-                        type="number"
-                        id="depth"
-                        name="depth"
-                        class="form-input form-input--with-suffix"
-                        placeholder="e.g. 0.1"
-                        step="any"
-                        min="0"
-                        inputmode="decimal"
-                      >
-                      <span class="input-suffix" data-type="length">m</span>
-                    </div>
-                  </div>
-
-                  <div class="form-group">
-                    <div class="range-wrapper">
-                      <div class="range-header">
-                        <div style="display: flex; align-items: center; gap: var(--space-2);">
-                          <label class="form-label" for="wastage">Wastage</label>
-                          <button type="button" class="info-modal-trigger" data-modal="wastage-modal" aria-expanded="false">
-                            (what's this?)
-                          </button>
-                        </div>
-                        <span class="range-value" id="wastage-value">10%</span>
-                      </div>
-                      <input
-                        type="range"
-                        id="wastage"
-                        name="wastage"
-                        class="form-range"
-                        min="5"
-                        max="15"
-                        value="10"
-                        step="1"
-                      >
-                    </div>
-                  </div>
-                </div>
-              </form>
-
-              <!-- Results Panel -->
-              <div class="results-panel" id="results-panel">
-                <div class="results-header">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
-                  </svg>
-                  <h3>Results</h3>
-                </div>
-
-                <div class="results-grid">
-                  <div class="result-item result-item--primary">
-                    <span class="result-label">Total Volume</span>
-                    <span class="result-value result-value--placeholder" id="result-volume">--</span>
-                    <span class="result-subtext">Including wastage</span>
-                  </div>
-
-                  <div class="result-item result-item--primary">
-                    <span class="result-label">20kg Bags Needed</span>
-                    <span class="result-value result-value--placeholder" id="result-bags">--</span>
-                    <span class="result-subtext">Standard concrete bags</span>
-                  </div>
-
-                  <div class="result-item">
-                    <span class="result-label">Estimated Bag Cost</span>
-                    <div class="cost-range result-value result-value--small result-value--placeholder" id="result-bag-cost">--</div>
-                    <span class="result-subtext">Based on $8.50-$12.50/bag</span>
-                  </div>
-
-                  <div class="result-item">
-                    <span class="result-label">Ready-Mix Cost</span>
-                    <div class="cost-range result-value result-value--small result-value--placeholder" id="result-readymix-cost">--</div>
-                    <span class="result-subtext">Delivered, varies by region</span>
-                  </div>
-                </div>
-
-                <div class="share-buttons">
-                  <button type="button" class="share-btn share-btn--copy">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-                      <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-                    </svg>
-                    Copy Result
-                  </button>
-                  <button type="button" class="share-btn share-btn--share">
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                      <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/>
-                      <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
-                    </svg>
-                    Share Link
-                  </button>
-                </div>
-              </div>
-
-              <!-- Formula Breakdown -->
-              <details class="formula-section">
-                <summary class="formula-toggle">
-                  <span>How is this calculated?</span>
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="6 9 12 15 18 9"/>
-                  </svg>
-                </summary>
-                <div class="formula-content" id="formula-content">
-                  <div class="formula-box">
-                    <strong>Volume = Length × Width × Depth</strong>
-                  </div>
-                  <p>Enter your dimensions above to see the step-by-step calculation.</p>
-                </div>
-              </details>
-            </div>
-
-            <!-- Presets -->
-            <div class="presets-section" id="presets-section">
-              <span class="presets-label">Quick presets:</span>
-              <div class="presets-grid">
-                <button type="button" class="preset-btn" data-preset="shed">Shed Base (3×3m)</button>
-                <button type="button" class="preset-btn" data-preset="driveway">Driveway (5×3m)</button>
-                <button type="button" class="preset-btn" data-preset="patio">Patio (4×4m)</button>
-                <button type="button" class="preset-btn" data-preset="path">Garden Path (6×1m)</button>
-                <button type="button" class="preset-btn" data-preset="garage">Single Garage (6×3m)</button>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <!-- Info Box -->
-        <div class="info-box info-box--tip">
-          <div class="info-box-header">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="16" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12.01" y2="8"/>
-            </svg>
-            Tip: Recommended Slab Thickness
-          </div>
-          <div class="info-box-content">
-            <strong>Paths:</strong> 75-100mm | <strong>Patios & Shed Bases:</strong> 100mm | <strong>Driveways:</strong> 100-150mm | <strong>Garages:</strong> 100-125mm
-          </div>
-        </div>
-
-        <!-- Related Calculators -->
+        <!-- Calculator Hub -->
         <section class="related-section">
-          <h2 class="section-title">Other Concrete Calculators</h2>
+          <h2 class="section-title">Choose Your Calculator</h2>
           <div class="related-grid">
             <a href="/concrete-slab-calculator/" class="related-card">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -460,8 +207,8 @@
                 <line x1="8" y1="6" x2="16" y2="6"/>
                 <line x1="8" y1="10" x2="16" y2="10"/>
               </svg>
-              <h3>Slab Calculator</h3>
-              <p>Dedicated calculator for concrete slabs with pre-calculated common sizes.</p>
+              <h3>Concrete Slab Calculator</h3>
+              <p>Calculate concrete for sheds, driveways, patios, and garages with pre-calculated common sizes.</p>
               <span class="card-arrow">Calculate →</span>
             </a>
 
@@ -517,7 +264,7 @@
         </section>
 
         <!-- SEO Content Section -->
-        <article class="seo-content">
+        <article class="content-article">
           <h2>How to Calculate Concrete for Any Project in Australia</h2>
 
           <p>Whether you're pouring a slab, setting fence posts, building footings, or casting columns, getting the right amount of concrete is the first step to a successful project. Each project type uses a different volume formula, but the principle is the same: calculate the shape's volume in cubic metres, add wastage, and convert to bags or ready-mix.</p>
@@ -566,7 +313,7 @@
                 </svg>
               </summary>
               <div class="faq-answer">
-                <p>For a standard 20kg concrete bag (like Boral or Cement Australia), you need approximately <strong>108 bags per cubic metre</strong>. Our calculator automatically works this out based on your slab dimensions, plus adds 10% for wastage to ensure you don't run short.</p>
+                <p>For a standard 20kg concrete bag (like Boral or Cement Australia), you need approximately <strong>108 bags per cubic metre</strong>. Our calculators automatically work this out based on your project dimensions, plus add 10% for wastage to ensure you don't run short.</p>
               </div>
             </details>
 
@@ -649,7 +396,7 @@
           <nav class="footer-nav">
             <h4>Calculators</h4>
             <ul>
-              <li><a href="/">Slab Calculator</a></li>
+              <li><a href="/">Concrete Calculator</a></li>
               <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
               <li><a href="/footing-calculator/">Footing Calculator</a></li>
               <li><a href="/column-calculator/">Column Calculator</a></li>
@@ -675,154 +422,7 @@
     </footer>
   </div>
 
-  <!-- Wastage Info Modal -->
-  <div class="info-modal-backdrop" id="wastage-modal-backdrop"></div>
-  <div class="info-modal" id="wastage-modal" role="dialog" aria-labelledby="wastage-modal-title" aria-modal="true">
-    <div class="info-modal-header">
-      <h3 class="info-modal-title" id="wastage-modal-title">Why add wastage?</h3>
-      <button type="button" class="info-modal-close" aria-label="Close">&times;</button>
-    </div>
-    <div class="info-modal-body">
-      <p>Wastage accounts for concrete lost during your project:</p>
-      <ul class="info-modal-list">
-        <li>Uneven ground requiring more concrete in low spots</li>
-        <li>Spillage during pouring and spreading</li>
-        <li>Concrete sticking to mixing equipment</li>
-        <li>Minor measurement variations</li>
-      </ul>
-      <div class="info-modal-note">
-        <strong>10%</strong> is standard for most DIY projects.<br>
-        Use <strong>15%</strong> for uneven sites or complex shapes.
-      </div>
-    </div>
-  </div>
-
   <!-- Scripts -->
-  <script src="/js/calculators.js"></script>
   <script src="/js/ui.js"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      // Elements
-      const lengthInput = $('length');
-      const widthInput = $('width');
-      const depthInput = $('depth');
-      const wastageSlider = $('wastage');
-
-      // Current unit state
-      let currentUnit = 'metres';
-
-      // Unit toggle
-      const unitToggle = initUnitToggle('unit-toggle', function(newUnit) {
-        // Convert existing values
-        [lengthInput, widthInput, depthInput].forEach(input => {
-          convertInputUnit(input, currentUnit, newUnit);
-        });
-
-        // Update suffixes
-        updateInputSuffixes(newUnit);
-
-        // Update placeholders
-        if (newUnit === 'mm') {
-          lengthInput.placeholder = 'e.g. 3000';
-          widthInput.placeholder = 'e.g. 3000';
-          depthInput.placeholder = 'e.g. 100';
-        } else {
-          lengthInput.placeholder = 'e.g. 3';
-          widthInput.placeholder = 'e.g. 3';
-          depthInput.placeholder = 'e.g. 0.1';
-        }
-
-        currentUnit = newUnit;
-        calculate();
-      });
-
-      // Wastage slider
-      initWastageSlider('wastage', 'wastage-value', calculate);
-
-      // Calculate function
-      function calculate() {
-        const length = getInputValueInMetres(lengthInput, currentUnit);
-        const width = getInputValueInMetres(widthInput, currentUnit);
-        const depth = getInputValueInMetres(depthInput, currentUnit);
-        const wastage = parseInt(wastageSlider.value, 10);
-
-        const result = calculateRectangularSlab({
-          length,
-          width,
-          depth,
-          wastage
-        });
-
-        // Render results
-        renderResults(result, {
-          volume: 'result-volume',
-          bags: 'result-bags',
-          bagCost: 'result-bag-cost',
-          readymixCost: 'result-readymix-cost'
-        });
-
-        // Render formula
-        renderFormula(result, 'formula-content');
-
-        return result;
-      }
-
-      // Set up input listeners
-      [lengthInput, widthInput, depthInput, wastageSlider].forEach(input => {
-        input.addEventListener('input', debounce(calculate, 200));
-      });
-
-      // Presets
-      const presets = PRESETS.slab;
-      initPresets('presets-section', presets, function(preset) {
-        // Always set in metres
-        if (currentUnit === 'mm') {
-          lengthInput.value = metresToMm(preset.length);
-          widthInput.value = metresToMm(preset.width);
-          depthInput.value = metresToMm(preset.depth);
-        } else {
-          lengthInput.value = preset.length;
-          widthInput.value = preset.width;
-          depthInput.value = preset.depth;
-        }
-        calculate();
-      });
-
-      // Initial calculation (empty state)
-      calculate();
-
-      // Share buttons
-      initShareButtons({
-        getValues: () => ({
-          l: lengthInput.value,
-          w: widthInput.value,
-          d: depthInput.value,
-          waste: wastageSlider.value
-        }),
-        getResultText: () => {
-          const result = calculate();
-          if (!result.valid) return null;
-          const l = lengthInput.value;
-          const w = widthInput.value;
-          const d = depthInput.value;
-          const unit = currentUnit === 'mm' ? 'mm' : 'm';
-          return `Concrete Calculator Result
-Slab (${l}${unit} × ${w}${unit} × ${d}${unit})
-Volume: ${formatNumber(result.results.totalVolume, 2)} m³ (incl. ${wastageSlider.value}% wastage)
-20kg bags needed: ${result.results.bags}
-Est. bag cost: ${formatCurrency(result.results.bagCost.min)} – ${formatCurrency(result.results.bagCost.max)}
-Est. ready-mix cost: ${formatCurrency(result.results.readymixCost.min)} – ${formatCurrency(result.results.readymixCost.max)}
-Calculate yours: https://concretecalc.com.au`;
-        },
-        paramMap: { l: 'length', w: 'width', d: 'depth', waste: 'wastage' }
-      });
-
-      // Trigger calculation if URL params present
-      const params = getUrlParams();
-      if (params.l || params.w || params.d) {
-        calculate();
-      }
-    });
-  </script>
 </body>
 </html>
