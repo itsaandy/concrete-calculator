@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manage ConcreteCalc Growth"
+  short_description: "Evidence-led SEO operations for ConcreteCalc"
+  default_prompt: "Use $manage-concretecalc-growth to analyse current search performance and make validated improvements."
