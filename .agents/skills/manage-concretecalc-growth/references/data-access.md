@@ -30,6 +30,14 @@ Use the Analytics account-summary tool to confirm the mapping if it ever differs
 
 Use two named date ranges in the same report where practical. Do not infer search-query performance from Analytics; join the two sources conceptually at the landing-page level.
 
+## Google AdSense
+
+- Read-only helper: `/root/.local/bin/adsense-direct`
+- Publisher account: `accounts/pub-2538773959178920`
+- Site: `concretecalc.com.au`
+
+Use `adsense-direct sites`, `alerts`, and `policy-issues` on every monetisation review. Before the site is `READY`, report readiness and any required action; empty earnings reports are expected. Once ready, use `adsense-direct report` with `OWNED_SITE_DOMAIN_NAME` and comparable date windows to review page views, impressions, clicks, RPM, viewability, and estimated earnings. Never use the read/write AdSense scope or expose payment or credential details.
+
 ## Decision standard
 
 - Record exact date ranges and whether GSC rows are final.
