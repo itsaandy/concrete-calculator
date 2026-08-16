@@ -16,6 +16,13 @@ DOMAIN = "https://concretecalc.com.au"
 HOST = "concretecalc.com.au"
 GA_ID = "G-XNWWCK3HP0"
 ADSENSE_ID = "ca-pub-2538773959178920"
+PRIVACY_PAGE = "privacy/index.html"
+PRIVACY_FORBIDDEN_MARKERS = (
+    "pagead2.googlesyndication.com",
+    "googletagmanager.com",
+    "googlefc",
+    "fundingchoicesmessages.google.com",
+)
 
 
 class PageParser(HTMLParser):
@@ -160,10 +167,17 @@ def main() -> int:
             if canonical != expected:
                 errors.append(f"{relative}: canonical {canonical!r} should be {expected!r}")
 
-        if GA_ID not in source:
-            errors.append(f"{relative}: missing GA measurement ID {GA_ID}")
-        if ADSENSE_ID not in source:
-            errors.append(f"{relative}: missing AdSense publisher ID {ADSENSE_ID}")
+        if relative == PRIVACY_PAGE:
+            for marker in PRIVACY_FORBIDDEN_MARKERS:
+                if marker in source.lower():
+                    errors.append(
+                        f"{relative}: privacy page contains consent-dependent marker {marker!r}"
+                    )
+        else:
+            if GA_ID not in source:
+                errors.append(f"{relative}: missing GA measurement ID {GA_ID}")
+            if ADSENSE_ID not in source:
+                errors.append(f"{relative}: missing AdSense publisher ID {ADSENSE_ID}")
 
         for index, payload in enumerate(parser.json_ld, start=1):
             try:
@@ -202,7 +216,7 @@ def main() -> int:
 
     print(
         f"PASS: {len(pages)} pages; titles, descriptions, H1s, canonicals, "
-        "JSON-LD, tracking IDs, internal targets, and sitemap parity are valid."
+        "JSON-LD, tracking/privacy rules, internal targets, and sitemap parity are valid."
     )
     return 0
 

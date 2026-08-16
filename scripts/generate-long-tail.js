@@ -310,6 +310,7 @@ const footerTemplate = `
             <h4>Resources</h4>
             <ul>
               <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+              <li><a href="/privacy/">Privacy Policy</a></li>
             </ul>
           </nav>
         </div>

@@ -1321,6 +1321,22 @@ details[open] .formula-toggle svg {
   margin-bottom: 0;
 }
 
+.privacy-content {
+  max-width: 780px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.privacy-content a {
+  color: var(--color-primary-dark);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.privacy-content a:hover {
+  color: var(--color-primary);
+}
+
 /* ===== FAQ SECTION ===== */
 .faq-section {
   margin-top: var(--space-10);
