@@ -23,6 +23,13 @@ Use `$manage-concretecalc-growth` for Search Console or Analytics reviews, SEO w
 
 Do not alter tracking IDs or credentials unless the owner explicitly requests it.
 
+## Privacy and consent invariant
+
+- Keep `/privacy/` free of AdSense, Google Analytics/Tag Manager, Google CMP or Funding Choices, and any other script, font, image, or remote asset that requires consent. It may contain ordinary external links, but loading the page must request only same-origin assets until a visitor chooses a link.
+- Tracking and ad tags remain required on the calculator and content pages; `/privacy/` is the deliberate exception. Never blanket-inject tracking across every HTML file without preserving that exception.
+- Preserve the privacy-specific assertions in `validate_site.py`. If tracking, consent messaging, shared templates, or the long-tail generator changes, verify both that ordinary pages retain their required tags and that `/privacy/` remains tag-free.
+- Browser-test `/privacy/` on desktop and mobile, inspect its network requests and console, and verify the live production route after deployment. Do not treat a source-only string check as sufficient.
+
 ## Content and product invariants
 
 - Use Australian English, metric measurements, cubic metres, kilograms, and AUD.
