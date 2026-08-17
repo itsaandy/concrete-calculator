@@ -778,6 +778,7 @@ function initFeedbackForm() {
   const responderUrl = new URL(triggerLinks[0].href);
   const sourceWebsite = responderUrl.searchParams.get('entry.364081786');
   if (!sourceWebsite) return;
+  const sourcePage = qs('link[rel="canonical"]')?.href || `${window.location.origin}${window.location.pathname}`;
 
   const formAction = new URL(responderUrl.href);
   formAction.pathname = formAction.pathname.replace(/\/viewform$/, '/formResponse');
@@ -833,7 +834,7 @@ function initFeedbackForm() {
   let lastTrigger = null;
   let completed = false;
 
-  sourceInput.value = sourceWebsite;
+  sourceInput.value = sourcePage;
 
   const clearEmailValidation = () => {
     emailInput.classList.remove('is-valid', 'is-invalid');
@@ -880,7 +881,7 @@ function initFeedbackForm() {
     if (completed) {
       form.reset();
       clearEmailValidation();
-      sourceInput.value = sourceWebsite;
+      sourceInput.value = sourcePage;
       form.hidden = false;
       success.hidden = true;
       completed = false;
