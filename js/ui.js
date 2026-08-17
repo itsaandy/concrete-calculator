@@ -765,6 +765,182 @@ function initShareButtons(config) {
   }
 }
 
+// ===== FEEDBACK FORM =====
+
+/**
+ * Turn the public Google Form links into an in-page feedback dialog while
+ * preserving the links as a no-JavaScript fallback.
+ */
+function initFeedbackForm() {
+  const triggerLinks = qsa('a[href*="1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw"]');
+  if (!triggerLinks.length) return;
+
+  const responderUrl = new URL(triggerLinks[0].href);
+  const sourceWebsite = responderUrl.searchParams.get('entry.364081786');
+  if (!sourceWebsite) return;
+
+  const formAction = new URL(responderUrl.href);
+  formAction.pathname = formAction.pathname.replace(/\/viewform$/, '/formResponse');
+  formAction.search = '';
+
+  const backdrop = document.createElement('div');
+  backdrop.className = 'feedback-dialog-backdrop';
+  backdrop.hidden = true;
+  backdrop.innerHTML = `
+    <section id="feedback-dialog" class="feedback-dialog" role="dialog" aria-modal="true" aria-labelledby="feedback-dialog-title" aria-describedby="feedback-dialog-description" tabindex="-1">
+      <div class="feedback-dialog__header">
+        <div>
+          <h2 id="feedback-dialog-title">Send feedback</h2>
+          <p id="feedback-dialog-description">Tell us what worked or what we could improve.</p>
+        </div>
+        <button class="feedback-dialog__close" type="button" aria-label="Close feedback form">&times;</button>
+      </div>
+      <form class="feedback-form">
+        <input type="hidden" name="entry.364081786">
+        <div class="feedback-form__field">
+          <label for="feedback-email">Email</label>
+          <input id="feedback-email" name="entry.1318552341" type="email" autocomplete="email" inputmode="email" required>
+        </div>
+        <div class="feedback-form__field">
+          <label for="feedback-message">Feedback</label>
+          <textarea id="feedback-message" name="entry.170703208" rows="5" maxlength="3000" required></textarea>
+        </div>
+        <p class="feedback-form__status" role="status" aria-live="polite"></p>
+        <a class="feedback-form__fallback" href="${responderUrl.href}" target="_blank" rel="noopener noreferrer" hidden>Open the Google Form instead</a>
+        <button class="feedback-form__submit" type="submit">Send feedback</button>
+      </form>
+      <div class="feedback-form__success" hidden>
+        <h3>Thanks for your feedback</h3>
+        <p>Your response has been sent.</p>
+        <button class="feedback-form__done" type="button">Done</button>
+      </div>
+    </section>`;
+
+  document.body.appendChild(backdrop);
+
+  const dialog = qs('.feedback-dialog', backdrop);
+  const form = qs('.feedback-form', backdrop);
+  const sourceInput = qs('input[name="entry.364081786"]', form);
+  const closeButton = qs('.feedback-dialog__close', backdrop);
+  const submitButton = qs('.feedback-form__submit', form);
+  const status = qs('.feedback-form__status', form);
+  const fallback = qs('.feedback-form__fallback', form);
+  const success = qs('.feedback-form__success', backdrop);
+  const doneButton = qs('.feedback-form__done', success);
+  let lastTrigger = null;
+  let completed = false;
+
+  sourceInput.value = sourceWebsite;
+
+  const focusableElements = () => Array.from(qsa(
+    'button:not([disabled]), input:not([disabled]):not([type="hidden"]), textarea:not([disabled]), a[href]:not([hidden])',
+    dialog
+  )).filter(element => element.offsetParent !== null);
+
+  const openDialog = (trigger) => {
+    lastTrigger = trigger;
+    if (completed) {
+      form.reset();
+      sourceInput.value = sourceWebsite;
+      form.hidden = false;
+      success.hidden = true;
+      completed = false;
+    }
+    status.textContent = '';
+    status.classList.remove('is-error');
+    fallback.hidden = true;
+    backdrop.hidden = false;
+    document.body.classList.add('feedback-dialog-open');
+    void backdrop.offsetWidth;
+    backdrop.classList.add('is-open');
+    dialog.focus({ preventScroll: true });
+  };
+
+  const closeDialog = () => {
+    backdrop.classList.remove('is-open');
+    document.body.classList.remove('feedback-dialog-open');
+    setTimeout(() => {
+      backdrop.hidden = true;
+      if (lastTrigger) lastTrigger.focus();
+    }, 180);
+  };
+
+  triggerLinks.forEach(trigger => {
+    trigger.setAttribute('aria-haspopup', 'dialog');
+    trigger.setAttribute('aria-controls', 'feedback-dialog');
+    trigger.addEventListener('click', event => {
+      event.preventDefault();
+      openDialog(trigger);
+    });
+  });
+
+  closeButton.addEventListener('click', closeDialog);
+  doneButton.addEventListener('click', closeDialog);
+  backdrop.addEventListener('click', event => {
+    if (event.target === backdrop) closeDialog();
+  });
+
+  document.addEventListener('keydown', event => {
+    if (backdrop.hidden) return;
+    if (event.key === 'Escape') {
+      closeDialog();
+      return;
+    }
+    if (event.key !== 'Tab') return;
+
+    const focusable = focusableElements();
+    if (!focusable.length) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (!dialog.contains(document.activeElement)) {
+      event.preventDefault();
+      (event.shiftKey ? last : first).focus();
+    } else if (event.shiftKey && (document.activeElement === first || document.activeElement === dialog)) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
+  });
+
+  form.addEventListener('submit', async event => {
+    event.preventDefault();
+    if (!form.reportValidity()) return;
+
+    submitButton.disabled = true;
+    submitButton.textContent = 'Sending…';
+    status.textContent = '';
+    status.classList.remove('is-error');
+    fallback.hidden = true;
+
+    const payload = new FormData(form);
+    payload.append('fvv', '1');
+    payload.append('pageHistory', '0');
+    payload.append('submit', 'Submit');
+
+    try {
+      await fetch(formAction.href, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: payload,
+        referrerPolicy: 'no-referrer'
+      });
+      form.hidden = true;
+      success.hidden = false;
+      completed = true;
+      doneButton.focus();
+    } catch (error) {
+      status.textContent = 'We couldn\'t send your feedback. Please try again.';
+      status.classList.add('is-error');
+      fallback.hidden = false;
+    } finally {
+      submitButton.disabled = false;
+      submitButton.textContent = 'Send feedback';
+    }
+  });
+}
+
 // ===== PAGE INITIALIZATION =====
 
 /**
@@ -775,6 +951,7 @@ function initCommon() {
   initNavDropdown();
   initFAQAccordion();
   initInfoModals();
+  initFeedbackForm();
 }
 
 // Auto-init on DOMContentLoaded
@@ -804,6 +981,7 @@ if (typeof module !== 'undefined' && module.exports) {
     initStateSelector,
     renderComparison,
     initInfoModals,
+    initFeedbackForm,
     initCommon
   };
 }
