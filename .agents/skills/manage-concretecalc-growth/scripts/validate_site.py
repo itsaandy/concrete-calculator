@@ -16,6 +16,13 @@ DOMAIN = "https://concretecalc.com.au"
 HOST = "concretecalc.com.au"
 GA_ID = "G-XNWWCK3HP0"
 ADSENSE_ID = "ca-pub-2538773959178920"
+FEEDBACK_LINK = (
+    '<a href="https://docs.google.com/forms/d/e/'
+    '1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/'
+    'viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" '
+    'target="_blank" rel="noopener noreferrer">Feedback</a>'
+)
+FEEDBACK_FAB = FEEDBACK_LINK.replace('<a href=', '<a class="feedback-fab" href=')
 PRIVACY_PAGE = "privacy/index.html"
 PRIVACY_FORBIDDEN_MARKERS = (
     "pagead2.googlesyndication.com",
@@ -150,6 +157,17 @@ def main() -> int:
         parser = PageParser()
         parser.feed(source)
 
+        feedback_count = source.count(FEEDBACK_LINK)
+        if feedback_count != 1:
+            errors.append(
+                f"{relative}: expected one canonical feedback link, found {feedback_count}"
+            )
+        feedback_fab_count = source.count(FEEDBACK_FAB)
+        if feedback_fab_count != 1:
+            errors.append(
+                f"{relative}: expected one floating feedback link, found {feedback_fab_count}"
+            )
+
         if parser.h1_count != 1:
             errors.append(f"{relative}: expected one H1, found {parser.h1_count}")
         if len(parser.titles) != 1 or not parser.titles[0]:
@@ -216,7 +234,7 @@ def main() -> int:
 
     print(
         f"PASS: {len(pages)} pages; titles, descriptions, H1s, canonicals, "
-        "JSON-LD, tracking/privacy rules, internal targets, and sitemap parity are valid."
+        "JSON-LD, feedback links, tracking/privacy rules, internal targets, and sitemap parity are valid."
     )
     return 0
 

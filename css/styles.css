@@ -1055,6 +1055,39 @@ details[open] .formula-toggle svg {
   line-height: var(--line-height-relaxed);
 }
 
+/* ===== FEEDBACK ===== */
+.feedback-fab {
+  position: fixed;
+  right: calc(var(--space-4) + env(safe-area-inset-right, 0px));
+  bottom: calc(var(--space-4) + env(safe-area-inset-bottom, 0px));
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 var(--space-4);
+  color: var(--color-grey-900);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary-dark);
+  border-radius: var(--radius-full);
+  box-shadow: var(--shadow-lg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: background var(--transition-fast), transform var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.feedback-fab:hover {
+  color: var(--color-grey-900);
+  background: var(--color-primary-light);
+  transform: translateY(-1px);
+}
+
+.feedback-fab:focus-visible {
+  outline: 3px solid var(--color-white);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--color-grey-900), var(--shadow-lg);
+}
+
 /* ===== FOOTER ===== */
 .site-footer {
   background: var(--color-grey-900);
@@ -1549,6 +1582,7 @@ details[open] .faq-question svg {
 @media print {
   .site-header,
   .site-footer,
+  .feedback-fab,
   .nav-toggle,
   .presets-section,
   .related-section,

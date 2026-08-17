@@ -279,6 +279,8 @@ const breadcrumbTemplate = (page) => `
     </div>`;
 
 const footerTemplate = `
+    <a class="feedback-fab" href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a>
+
     <!-- Footer -->
     <footer class="site-footer">
       <div class="container">
@@ -311,6 +313,7 @@ const footerTemplate = `
             <ul>
               <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
               <li><a href="/privacy/">Privacy Policy</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a></li>
             </ul>
           </nav>
         </div>
