@@ -45,6 +45,16 @@ PRIVACY_FORBIDDEN_MARKERS = (
     "googlefc",
     "fundingchoicesmessages.google.com",
 )
+UNSUPPORTED_APPROVAL_MARKERS = (
+    "is standard for most diy projects",
+    "for volumes over 0.8m³",
+)
+PRIVACY_FEEDBACK_DISCLOSURES = (
+    "google forms",
+    "email address",
+    "feedback message",
+    "page url",
+)
 
 
 class PageParser(HTMLParser):
@@ -174,6 +184,7 @@ def main() -> int:
     for page in pages:
         relative = page.relative_to(root).as_posix()
         source = page.read_text(encoding="utf-8", errors="replace")
+        source_lower = source.lower()
         parser = PageParser()
         parser.feed(source)
 
@@ -217,9 +228,14 @@ def main() -> int:
 
         if relative == PRIVACY_PAGE:
             for marker in PRIVACY_FORBIDDEN_MARKERS:
-                if marker in source.lower():
+                if marker in source_lower:
                     errors.append(
                         f"{relative}: privacy page contains consent-dependent marker {marker!r}"
+                    )
+            for disclosure in PRIVACY_FEEDBACK_DISCLOSURES:
+                if disclosure not in source_lower:
+                    errors.append(
+                        f"{relative}: privacy page is missing feedback disclosure {disclosure!r}"
                     )
         else:
             if GA_ID not in source:
@@ -238,6 +254,12 @@ def main() -> int:
 
         if "/methodology/" not in source:
             errors.append(f"{relative}: missing methodology link")
+
+        for marker in UNSUPPORTED_APPROVAL_MARKERS:
+            if marker in source_lower:
+                errors.append(
+                    f"{relative}: contains unsupported approval-readiness claim {marker!r}"
+                )
 
         for index, payload in enumerate(parser.json_ld, start=1):
             try:
