@@ -17,7 +17,7 @@ const data = JSON.parse(fs.readFileSync(dataPath, 'utf8'));
 // Constants
 const BAGS_PER_M3 = 108;
 const BAG_COST_MIN = 8.50;
-const BAG_COST_MAX = 12.50;
+const BAG_COST_MAX = 14.50;
 const READYMIX_COST_MIN = 280;
 const READYMIX_COST_MAX = 420;
 const DOMAIN = 'https://concretecalc.com.au';
@@ -312,6 +312,9 @@ const footerTemplate = `
             <h4>Resources</h4>
             <ul>
               <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+              <li><a href="/methodology/">Methodology &amp; Sources</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/contact/">Contact</a></li>
               <li><a href="/privacy/">Privacy Policy</a></li>
               <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a></li>
             </ul>
@@ -321,7 +324,7 @@ const footerTemplate = `
         <div class="footer-bottom">
           <p>&copy; 2026 Concrete Calculator Australia</p>
           <p class="disclaimer">
-            <strong>Disclaimer:</strong> These calculators provide estimates only. Actual concrete requirements may vary based on site conditions, mixing accuracy, and other factors. Always consult with a professional for structural projects. Prices are estimates based on typical Australian retail pricing and may vary by location and supplier.
+            <strong>Disclaimer:</strong> Quantity and cost results are planning estimates, not structural or engineering advice. Check the selected product's stated yield and obtain local prices or quotes before ordering. See our <a href="/methodology/">methodology and sources</a>.
           </p>
         </div>
       </div>
@@ -333,6 +336,51 @@ const footerTemplate = `
   <script src="/js/ui.js"></script>
 </body>
 </html>`;
+
+/**
+ * Long-tail pages are retained only for existing bookmarks and backlinks.
+ * They are deliberately noindex and ad-free: the interactive calculators are
+ * the maintained product and the only pages intended for search discovery.
+ */
+function archiveLongTailPage(html, calculatorUrl, calculatorName) {
+  const archivedContent = `        <!-- Archived worked example -->
+        <article class="content-article">
+          <div class="info-box info-box--warning">
+            <div class="info-box-header">Archived worked example</div>
+            <div class="info-box-content">
+              This page is retained for existing bookmarks. Its dimensions are examples, not recommended specifications. For a current estimate using your own measurements, use the <a href="${calculatorUrl}">${calculatorName}</a>.
+            </div>
+          </div>
+
+          <h2>How this example was calculated</h2>
+          <p>The result above applies the geometric volume formula to the dimensions shown on this page, then applies the displayed allowance. The bag count rounds up after multiplying the estimated volume by 108 20kg bags per cubic metre.</p>
+          <p>The 108-bag conversion follows Boral's published Concrete Mix product guide. Other products can have different yields, so check the bag you intend to buy before ordering. An allowance is optional and user-controlled; it is not a structural recommendation.</p>
+
+          <h2>What this example does not decide</h2>
+          <p>This calculation does not determine suitable dimensions, concrete strength, reinforcement, drainage, footing design, permits or site preparation. Those requirements depend on the project, site and local rules. Use plans supplied for the project or ask an appropriately qualified professional.</p>
+
+          <p>Read the full <a href="/methodology/">calculation methodology and sources</a>, or open the <a href="${calculatorUrl}">${calculatorName}</a> to enter exact dimensions.</p>
+        </article>
+      </div>
+    </main>`;
+
+  return html
+    .replace(
+      /\n  <!-- Google AdSense -->\n  <script async src="https:\/\/pagead2\.googlesyndication\.com[\s\S]*?<\/script>\n/,
+      '\n'
+    )
+    .replace('<meta name="robots" content="index, follow">', '<meta name="robots" content="noindex, follow">')
+    .replace(
+      /\n  <script type="application\/ld\+json">\s*\{\s*"@context": "https:\/\/schema\.org",\s*"@type": "FAQPage"[\s\S]*?<\/script>/,
+      ''
+    )
+    .replace(
+      /\n {18}<div class="result-item">\n {20}<span class="result-label">(?:Estimated Cost|Estimated Bag Cost|Bag Cost Estimate|Ready-Mix Cost)<\/span>[\s\S]*?\n {20}<span class="result-subtext">[^\n]*<\/span>\n {18}<\/div>/g,
+      ''
+    )
+    .replace(/pre-calculated with standard Australian specifications/g, 'calculated from the example dimensions shown below')
+    .replace(/        <!-- SEO Content -->[\s\S]*?      <\/div>\n    <\/main>/, archivedContent);
+}
 
 // ============================================================================
 // SEO CONTENT GENERATORS (Unique per page type)
@@ -1684,7 +1732,11 @@ function main() {
   // Generate slab pages
   console.log('📄 Generating slab pages...');
   data.slabPages.forEach(page => {
-    const html = generateSlabPage(page);
+    const html = archiveLongTailPage(
+      generateSlabPage(page),
+      PARENT_PAGES.slab.url,
+      PARENT_PAGES.slab.name
+    );
     const dir = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), html);
@@ -1696,7 +1748,11 @@ function main() {
   // Generate post hole pages
   console.log('\n📄 Generating post hole pages...');
   data.postHolePages.forEach(page => {
-    const html = generatePostHolePage(page);
+    const html = archiveLongTailPage(
+      generatePostHolePage(page),
+      PARENT_PAGES.postHole.url,
+      PARENT_PAGES.postHole.name
+    );
     const dir = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), html);
@@ -1708,7 +1764,11 @@ function main() {
   // Generate volume pages
   console.log('\n📄 Generating volume pages...');
   data.volumePages.forEach(page => {
-    const html = generateVolumePage(page);
+    const html = archiveLongTailPage(
+      generateVolumePage(page),
+      PARENT_PAGES.volume.url,
+      PARENT_PAGES.volume.name
+    );
     const dir = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), html);
@@ -1720,7 +1780,11 @@ function main() {
   // Generate footing pages
   console.log('\n📄 Generating footing pages...');
   data.footingPages.forEach(page => {
-    const html = generateFootingPage(page);
+    const html = archiveLongTailPage(
+      generateFootingPage(page),
+      PARENT_PAGES.footing.url,
+      PARENT_PAGES.footing.name
+    );
     const dir = path.join(ROOT_DIR, page.slug);
     fs.mkdirSync(dir, { recursive: true });
     fs.writeFileSync(path.join(dir, 'index.html'), html);
@@ -1729,14 +1793,13 @@ function main() {
     console.log(`   ✓ ${page.slug}/`);
   });
 
-  // Update sitemap
-  console.log('\n📄 Updating sitemap.xml...');
-  const sitemap = generateSitemap(allSlugs);
-  fs.writeFileSync(path.join(ROOT_DIR, 'sitemap.xml'), sitemap);
-  console.log('   ✓ sitemap.xml updated');
+  // Archived long-tail pages are deliberately excluded from the sitemap.
+  // Sitemap dates are maintained per URL so regeneration does not falsely
+  // refresh unrelated pages.
+  console.log('\nℹ️  sitemap.xml left unchanged (archive pages are excluded)');
 
   console.log(`\n✅ Done! Generated ${pagesGenerated} long-tail pages.`);
-  console.log(`📍 Sitemap updated with ${allSlugs.length} new URLs.`);
+  console.log(`📍 ${allSlugs.length} archive URLs retained outside the sitemap.`);
 }
 
 main();

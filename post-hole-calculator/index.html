@@ -86,46 +86,6 @@
     ]
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How deep should fence post holes be?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "The general rule is 1/3 of the post length should be in the ground. For a 1.8m fence (6ft): 600mm deep minimum. For a 2.1m fence (7ft): 700mm deep. For a 2.4m fence (8ft): 800mm deep. Minimum depth should never be less than 450mm for stability."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What size hole do I need for a fence post?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Hole diameter should be at least 3 times the post width. For a 90mm post: 270mm minimum (300mm recommended). For a 100mm post: 300mm minimum. For a 125mm post: 375mm minimum (400mm recommended). This provides enough concrete around the post for proper anchoring."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How many bags per fence post?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For a typical 300mm diameter × 600mm deep hole: Quick-set post mix (20kg bag) needs 1-2 bags per post. Standard concrete (20kg bag) needs 2-3 bags per post. Use our calculator for exact quantities based on your hole size."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Should I use quick-set or standard concrete?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Quick-set post mix sets in 20-40 minutes and is best for fence posts and letterboxes. Standard concrete takes 24-48 hours to set, provides more working time for adjustments, and is better for structural posts like decks and pergolas due to its stronger final result."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -428,7 +388,7 @@
                   <div class="result-item">
                     <span class="result-label">Estimated Bag Cost</span>
                     <div class="cost-range result-value result-value--small result-value--placeholder" id="result-bag-cost">--</div>
-                    <span class="result-subtext">Based on $8.50-$12.50/bag</span>
+                    <span class="result-subtext">Based on $8.50-$14.50/bag</span>
                   </div>
 
                   <div class="result-item">
@@ -485,104 +445,19 @@
           </div>
         </section>
 
-        <!-- Info Box -->
-        <div class="info-box info-box--tip">
-          <div class="info-box-header">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="16" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12.01" y2="8"/>
-            </svg>
-            Tip: Post Hole Sizing
-          </div>
-          <div class="info-box-content">
-            <strong>Hole diameter:</strong> At least 3× the post width. <strong>Depth:</strong> 1/3 of total post length for fence posts (minimum 450mm), or 600mm for structural posts. Add 50mm gravel drainage at the bottom.
-          </div>
-        </div>
+        <!-- Calculation guidance -->
+        <article class="content-article">
+          <h2>How the Post Hole Estimate Works</h2>
+          <p>Each hole is treated as a cylinder: π × radius² × depth. If you enter a post width, the calculator subtracts the part of the post occupying the hole. A round post is treated as a cylinder; a square post is treated as a square prism.</p>
+          <p>For example, a 300mm diameter × 600mm deep hole containing a 100mm square post has approximately 0.0364m³ of space around the post before an allowance. With 10% selected, the estimate becomes approximately 0.0401m³, which rounds up to 5 bags using the stated 108-bag assumption.</p>
 
-        <!-- FAQ Section -->
-        <section class="faq-section">
-          <h2 class="section-title">Post Hole FAQ</h2>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary class="faq-question">
-                How deep should fence post holes be?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>The general rule is <strong>1/3 of the post length should be in the ground</strong>:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>1.8m fence (6ft): 600mm deep minimum</li>
-                  <li>2.1m fence (7ft): 700mm deep</li>
-                  <li>2.4m fence (8ft): 800mm deep</li>
-                </ul>
-                <p>Minimum depth should never be less than 450mm for stability.</p>
-              </div>
-            </details>
+          <h3>Measure every input</h3>
+          <p>Use the excavated hole's diameter at its widest practical point and its actual depth. Enter the post dimension that sits inside the hole. Multiply by the number of identical holes, or calculate different hole sizes separately and add the results.</p>
 
-            <details class="faq-item">
-              <summary class="faq-question">
-                What size hole do I need for a fence post?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>Hole diameter should be <strong>at least 3 times the post width</strong>:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>90mm post: 270mm minimum (300mm recommended)</li>
-                  <li>100mm post: 300mm minimum</li>
-                  <li>125mm post: 375mm minimum (400mm recommended)</li>
-                </ul>
-                <p>This provides enough concrete around the post for proper anchoring.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                How many bags per fence post?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>Typical requirements for a 300mm diameter × 600mm deep hole:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>Quick-set post mix (20kg bag): 1-2 bags per post</li>
-                  <li>Standard concrete (20kg bag): 2-3 bags per post</li>
-                </ul>
-                <p>Use our calculator above for exact quantities based on your hole size.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                Should I use quick-set or standard concrete?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p><strong>Quick-set post mix:</strong></p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>Sets in 20-40 minutes</li>
-                  <li>Can attach fence panels same day</li>
-                  <li>Slightly more expensive</li>
-                  <li>Best for fence posts and letterboxes</li>
-                </ul>
-                <p><strong>Standard concrete:</strong></p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>24-48 hours to set</li>
-                  <li>More working time for adjustments</li>
-                  <li>Stronger final result</li>
-                  <li>Better for structural posts (decks, pergolas)</li>
-                </ul>
-              </div>
-            </details>
-          </div>
-        </section>
+          <h3>Dimensions are not design advice</h3>
+          <p>The calculator does not choose hole diameter, depth, post embedment or concrete type. Wind loads, soil, post material, structure design and local requirements can all change those decisions. Use the project plans or advice from an appropriately qualified professional.</p>
+          <p>Read the full <a href="/methodology/">methodology and sources</a>, including the bag-yield assumption.</p>
+        </article>
 
         <!-- Related Calculators -->
         <section class="related-section">
@@ -621,41 +496,6 @@
           </div>
         </section>
 
-        <!-- SEO Content Section -->
-        <article class="content-article">
-          <h2>How Much Concrete for Fence Posts in Australia</h2>
-
-          <p>Setting fence posts in concrete is one of the most common DIY concreting jobs in Australia. Getting the right amount of concrete ensures your fence stands strong for years, whether you're building a standard timber paling fence or a more substantial boundary fence.</p>
-
-          <h3>Australian Fence Post Sizes</h3>
-          <p>The most common timber fence post sizes in Australia are 90×90mm and 100×100mm for standard residential fencing. Steel posts, popular for their durability and termite resistance, typically come in 65×65mm sizes. For heavier-duty applications like front fences or dividing fences that need to support gates, 125×125mm timber posts provide extra strength.</p>
-
-          <h3>Recommended Hole Dimensions</h3>
-          <p>A good rule of thumb is to dig your post hole at least three times the width of the post. For a 100mm post, this means a hole diameter of 300mm. The depth should be approximately one-third of the total post length that will be above ground. For a standard 2.4 metre fence post where 1.8 metres is above ground, you would bury 600mm in concrete. Most Australian councils and fencing contractors recommend a minimum depth of 450mm for standard fences and 600mm for structural posts.</p>
-
-          <h3>How the Calculation Works</h3>
-          <p>This calculator determines the concrete volume by calculating the cylindrical volume of each hole and subtracting the volume occupied by the post itself. The formula uses π × radius² × depth for the hole volume, minus the post dimensions multiplied by the depth it extends into the concrete. This gives you an accurate figure for the actual concrete needed, not just the hole size.</p>
-
-          <h3>Tips for Setting Posts in Concrete</h3>
-          <p>Rapid-set concrete is ideal for fence posts because it sets quickly and eliminates the need for temporary bracing overnight. Some products, like Rapid Set Concrete Post Mix, can be poured dry into the hole around the post and simply watered. This makes the job much easier for DIYers working alone. For best results, place about 50mm of gravel at the bottom of each hole for drainage before adding concrete.</p>
-
-          <h3>Council Regulations</h3>
-          <p>Australian fencing regulations vary by state and local council. Boundary fences between neighbours are typically covered by state fencing acts, which specify height limits and cost-sharing arrangements. Front fences often have stricter height restrictions, usually limited to 1.2 metres without council approval. Corner properties may have visibility requirements that affect fence placement. Always check with your local council before building, especially for fences over 2 metres high or within certain distances of property boundaries.</p>
-
-          <h3>Common Post Projects</h3>
-          <p>Beyond standard fence posts, this calculator works for deck posts that need substantial footings, pergola posts that may require deeper embedment for structural stability, and letterbox posts. For structural applications like decks and pergolas, consider using larger posts and deeper holes than you might for a simple fence, and always check if your project requires engineering certification or a building permit.</p>
-
-          <h3>Popular Post Hole Calculations</h3>
-          <p>Quick reference guides for common post projects:</p>
-          <ul style="margin: 0.5rem 0 1rem; padding-left: 1.5rem; list-style: disc;">
-            <li><a href="/concrete-for-a-fence-post/">Concrete for a Single Fence Post</a></li>
-            <li><a href="/concrete-for-10-fence-posts/">Concrete for 10 Fence Posts</a></li>
-            <li><a href="/concrete-for-20-fence-posts/">Concrete for 20 Fence Posts</a></li>
-            <li><a href="/concrete-for-pergola-posts/">Concrete for 4 Pergola Posts</a></li>
-            <li><a href="/concrete-for-deck-posts/">Concrete for 4 Deck Posts</a></li>
-            <li><a href="/concrete-for-shade-sail-post/">Concrete for a Shade Sail Post</a></li>
-          </ul>
-        </article>
       </div>
     </main>
 
@@ -692,6 +532,9 @@
             <h4>Resources</h4>
             <ul>
               <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+              <li><a href="/methodology/">Methodology &amp; Sources</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/contact/">Contact</a></li>
               <li><a href="/privacy/">Privacy Policy</a></li>
               <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a></li>
             </ul>

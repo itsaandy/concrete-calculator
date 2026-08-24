@@ -38,6 +38,14 @@ Do not alter tracking IDs or credentials unless the owner explicitly requests it
 - Treat `108` 20 kg bags per m³ and all pricing, yield, dimension, engineering, standards, council, and safety claims as sensitive facts. Verify authoritative current sources before changing them and retain estimator/engineering disclaimers.
 - Never fabricate ratings, reviews, credentials, first-hand experience, or schema-only content.
 
+## Approval-readiness and trust invariants
+
+- Keep `/about/`, `/contact/`, `/methodology/`, and `/privacy/` indexable but AdSense-free. `/privacy/` remains the only page that must also omit Analytics and all consent-dependent remote assets.
+- Monetise only the homepage and six maintained calculator/resource routes listed in the validator. Do not put ads on archived worked examples or thin utility/trust screens.
+- All 28 generated long-tail worked examples are retained for old links but must stay `noindex, follow`, AdSense-free, absent from `sitemap.xml`, and limited to transparent calculations that point to a maintained calculator. Do not restore speculative project advice, related-page loops, or search-targeted articles to them.
+- Keep `/methodology/` aligned with calculator formulas, rounding, yield assumptions, displayed price ranges, source links, and review dates. Cite primary manufacturer information for product yield and dated retailer information for variable prices.
+- Do not state that a default allowance, dimension, thickness, strength, reinforcement detail, timing, cost threshold, permit rule, or construction method is universally standard. Source the claim and qualify its scope, or omit it.
+
 ## Before editing
 
 1. Run `git status --short --branch`; preserve unrelated changes.

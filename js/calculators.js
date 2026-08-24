@@ -13,10 +13,10 @@ const CONSTANTS = {
 
   // Bag pricing (AUD)
   BAG_PRICE_MIN: 8.50,
-  BAG_PRICE_MAX: 12.50,
+  BAG_PRICE_MAX: 14.50,
   BAG_PRICE_DEFAULT: 10.00,
 
-  // Ready-mix pricing per cubic metre by state (AUD)
+  // Legacy ready-mix estimate data retained for backwards compatibility; not displayed
   READYMIX_PRICES: {
     nsw: { min: 250, max: 380, label: 'NSW' },
     vic: { min: 240, max: 360, label: 'Victoria' },
@@ -28,11 +28,11 @@ const CONSTANTS = {
     act: { min: 250, max: 380, label: 'ACT' }
   },
 
-  // Average ready-mix price for general estimates
+  // Legacy average used only by the pure comparison helper
   READYMIX_PRICE_MIN: 200,
   READYMIX_PRICE_MAX: 420,
 
-  // Minimum order for ready-mix (cubic metres)
+  // Legacy minimum used only by the pure comparison helper
   READYMIX_MINIMUM_ORDER: 0.5,
 
   // Pi for circular calculations

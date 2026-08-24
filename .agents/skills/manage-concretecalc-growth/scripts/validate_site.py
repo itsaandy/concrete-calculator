@@ -24,6 +24,21 @@ FEEDBACK_LINK = (
 )
 FEEDBACK_FAB = FEEDBACK_LINK.replace('<a href=', '<a class="feedback-fab" href=')
 PRIVACY_PAGE = "privacy/index.html"
+MONETISED_PAGES = {
+    "index.html",
+    "concrete-slab-calculator/index.html",
+    "post-hole-calculator/index.html",
+    "footing-calculator/index.html",
+    "column-calculator/index.html",
+    "circular-slab-calculator/index.html",
+    "bags-vs-readymix/index.html",
+}
+AD_FREE_INDEXED_PAGES = {
+    "about/index.html",
+    "contact/index.html",
+    "methodology/index.html",
+    PRIVACY_PAGE,
+}
 PRIVACY_FORBIDDEN_MARKERS = (
     "pagead2.googlesyndication.com",
     "googletagmanager.com",
@@ -39,6 +54,7 @@ class PageParser(HTMLParser):
         self.titles: list[str] = []
         self.descriptions: list[str] = []
         self.canonicals: list[str] = []
+        self.robots: list[str] = []
         self.links: list[str] = []
         self.json_ld: list[str] = []
         self._in_head = False
@@ -59,6 +75,8 @@ class PageParser(HTMLParser):
             self._title_parts = []
         elif tag == "meta" and values.get("name", "").lower() == "description":
             self.descriptions.append(values.get("content", "").strip())
+        elif tag == "meta" and values.get("name", "").lower() == "robots":
+            self.robots.append(values.get("content", "").strip().lower())
         elif tag == "link" and "canonical" in values.get("rel", "").lower().split():
             self.canonicals.append(values.get("href", "").strip())
         elif tag == "script" and values.get("type", "").lower() == "application/ld+json":
@@ -150,6 +168,8 @@ def main() -> int:
     errors: list[str] = []
     canonical_to_pages: dict[str, list[str]] = defaultdict(list)
     title_to_pages: dict[str, list[str]] = defaultdict(list)
+    indexable_canonicals: set[str] = set()
+    noindex_canonicals: set[str] = set()
 
     for page in pages:
         relative = page.relative_to(root).as_posix()
@@ -185,6 +205,16 @@ def main() -> int:
             if canonical != expected:
                 errors.append(f"{relative}: canonical {canonical!r} should be {expected!r}")
 
+            robots = parser.robots[0] if len(parser.robots) == 1 else ""
+            robot_tokens = {token.strip() for token in robots.split(",")}
+            if "noindex" in robot_tokens:
+                noindex_canonicals.add(canonical)
+            else:
+                indexable_canonicals.add(canonical)
+
+        if len(parser.robots) != 1:
+            errors.append(f"{relative}: expected one robots meta tag")
+
         if relative == PRIVACY_PAGE:
             for marker in PRIVACY_FORBIDDEN_MARKERS:
                 if marker in source.lower():
@@ -194,8 +224,20 @@ def main() -> int:
         else:
             if GA_ID not in source:
                 errors.append(f"{relative}: missing GA measurement ID {GA_ID}")
+
+        if relative in MONETISED_PAGES:
             if ADSENSE_ID not in source:
                 errors.append(f"{relative}: missing AdSense publisher ID {ADSENSE_ID}")
+        elif ADSENSE_ID in source:
+            errors.append(f"{relative}: ad-free page contains AdSense publisher ID {ADSENSE_ID}")
+
+        if relative not in MONETISED_PAGES and relative not in AD_FREE_INDEXED_PAGES:
+            robots = parser.robots[0] if parser.robots else ""
+            if "noindex" not in {token.strip() for token in robots.split(",")}:
+                errors.append(f"{relative}: archived worked example must be noindex")
+
+        if "/methodology/" not in source:
+            errors.append(f"{relative}: missing methodology link")
 
         for index, payload in enumerate(parser.json_ld, start=1):
             try:
@@ -220,11 +262,13 @@ def main() -> int:
     except (ET.ParseError, OSError) as exc:
         errors.append(f"sitemap.xml: cannot parse: {exc}")
         sitemap = set()
-    canonical_set = set(canonical_to_pages)
-    for url in sorted(canonical_set - sitemap):
+    for url in sorted(indexable_canonicals - sitemap):
         errors.append(f"sitemap.xml: missing canonical {url}")
-    for url in sorted(sitemap - canonical_set):
-        errors.append(f"sitemap.xml: URL has no matching page canonical {url}")
+    for url in sorted(sitemap - indexable_canonicals):
+        if url in noindex_canonicals:
+            errors.append(f"sitemap.xml: noindex canonical must be excluded {url}")
+        else:
+            errors.append(f"sitemap.xml: URL has no matching indexable page canonical {url}")
 
     if errors:
         print(f"FAIL: {len(errors)} validation issue(s)")
@@ -234,7 +278,7 @@ def main() -> int:
 
     print(
         f"PASS: {len(pages)} pages; titles, descriptions, H1s, canonicals, "
-        "JSON-LD, feedback links, tracking/privacy rules, internal targets, and sitemap parity are valid."
+        "JSON-LD, feedback links, ad/tracking/privacy rules, internal targets, and indexable sitemap parity are valid."
     )
     return 0
 

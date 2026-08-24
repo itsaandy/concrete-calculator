@@ -86,46 +86,6 @@
     ]
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What size footing do I need for a deck?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "For a typical residential deck: Pad footing size should be 450mm × 450mm minimum, depth 350mm minimum below ground level, using 25MPa concrete minimum. Larger decks or those supporting heavy loads may require bigger footings. Check local building codes as deck footing requirements vary by council."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "How deep should footings be?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Footing depth depends on frost line, soil type, and load. General guidelines: Light structures (sheds) need 300mm minimum. Decks and pergolas need 350-400mm. House footings need 300-450mm (engineered). Clay soils may require deeper footings."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do footings need reinforcement?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Small pad footings usually don't require reinforcement for light loads. Strip footings should have 2× N12 bars running lengthwise. Structural footings need reinforcement per engineering specifications. On reactive clay soils, reinforcement is more important to prevent cracking from ground movement."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What's the difference between a strip footing and pad footing?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Strip footings are long, continuous concrete strips used under walls and retaining walls, distributing load along their length. Pad footings (pier footings) are square or rectangular isolated blocks used under individual posts or columns, common for decks, pergolas, and sheds."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -406,14 +366,9 @@
                   <div class="result-item">
                     <span class="result-label">Estimated Bag Cost</span>
                     <div class="cost-range result-value result-value--small result-value--placeholder" id="result-bag-cost">--</div>
-                    <span class="result-subtext">Based on $8.50-$12.50/bag</span>
+                    <span class="result-subtext">Based on $8.50-$14.50/bag</span>
                   </div>
 
-                  <div class="result-item">
-                    <span class="result-label">Ready-Mix Cost</span>
-                    <div class="cost-range result-value result-value--small result-value--placeholder" id="result-readymix-cost">--</div>
-                    <span class="result-subtext">Delivered, varies by region</span>
-                  </div>
                 </div>
 
                 <div class="share-buttons">
@@ -463,152 +418,18 @@
           </div>
         </section>
 
-        <!-- Info Box -->
-        <div class="info-box info-box--warning">
-          <div class="info-box-header">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
-              <line x1="12" y1="9" x2="12" y2="13"/>
-              <line x1="12" y1="17" x2="12.01" y2="17"/>
-            </svg>
-            Important: Footing Requirements
-          </div>
-          <div class="info-box-content">
-            These calculations are estimates only. Footing sizes depend on soil conditions and load requirements. Always check with your local council for regulations. Structural footings for decks, pergolas, and buildings typically require engineering approval. Use minimum 25MPa concrete for footings.
-          </div>
-        </div>
+        <!-- Calculation guidance -->
+        <article class="content-article">
+          <h2>How the Footing Estimate Works</h2>
+          <p>For rectangular footings, the calculator multiplies length × width × depth × number of footings. It then applies the allowance you select. A 5m × 300mm × 400mm footing entered twice has a base volume of 1.20m³; with 10% selected, the planning quantity is 1.32m³.</p>
 
-        <!-- Footing Guide -->
-        <section class="info-section" style="margin-top: var(--space-8);">
-          <h2 class="section-title">Common Footing Sizes</h2>
-          <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
-            <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
-              <thead>
-                <tr style="border-bottom: 2px solid var(--color-grey-200);">
-                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Application</th>
-                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Typical Size</th>
-                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Depth</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Small shed pad footing</td>
-                  <td style="padding: var(--space-3);">400 × 400mm</td>
-                  <td style="padding: var(--space-3);">300mm</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Deck pier footing</td>
-                  <td style="padding: var(--space-3);">450 × 450mm</td>
-                  <td style="padding: var(--space-3);">350mm</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Pergola footing</td>
-                  <td style="padding: var(--space-3);">450 × 450mm</td>
-                  <td style="padding: var(--space-3);">400mm</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Retaining wall strip</td>
-                  <td style="padding: var(--space-3);">400mm wide</td>
-                  <td style="padding: var(--space-3);">300mm</td>
-                </tr>
-                <tr>
-                  <td style="padding: var(--space-3);">House strip footing</td>
-                  <td style="padding: var(--space-3);">450-600mm wide</td>
-                  <td style="padding: var(--space-3);">300-450mm*</td>
-                </tr>
-              </tbody>
-            </table>
-            <p style="margin-top: var(--space-3); font-size: var(--font-size-xs); color: var(--color-grey-500);">* House footings require engineering. Sizes depend on soil classification and loads.</p>
-          </div>
-        </section>
+          <h3>Separate unequal footings</h3>
+          <p>The count field assumes every footing has the same dimensions. If your plan contains several footing sizes, calculate each group separately and add the final cubic-metre quantities. Measure trenches after excavation where practical because their real dimensions can differ from nominal dimensions.</p>
 
-        <!-- FAQ Section -->
-        <section class="faq-section">
-          <h2 class="section-title">Footing FAQ</h2>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary class="faq-question">
-                What size footing do I need for a deck?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>For a typical residential deck:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li><strong>Pad footing size:</strong> 450mm × 450mm minimum</li>
-                  <li><strong>Depth:</strong> 350mm minimum below ground level</li>
-                  <li><strong>Concrete strength:</strong> 25MPa minimum</li>
-                </ul>
-                <p>Larger decks or those supporting heavy loads may require bigger footings. Check local building codes as deck footing requirements vary by council.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                How deep should footings be?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>Footing depth depends on:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li><strong>Frost line:</strong> Must extend below frost line (not usually an issue in most of Australia)</li>
-                  <li><strong>Soil type:</strong> Clay soils may require deeper footings</li>
-                  <li><strong>Load:</strong> Heavier structures need deeper footings</li>
-                </ul>
-                <p>General guidelines:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>Light structures (sheds): 300mm minimum</li>
-                  <li>Decks and pergolas: 350-400mm</li>
-                  <li>House footings: 300-450mm (engineered)</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                Do footings need reinforcement?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>Reinforcement recommendations:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li><strong>Small pad footings:</strong> Usually not required for light loads</li>
-                  <li><strong>Strip footings:</strong> 2× N12 bars running lengthwise recommended</li>
-                  <li><strong>Structural footings:</strong> Per engineering specifications</li>
-                </ul>
-                <p>On reactive clay soils, reinforcement is more important to prevent cracking from ground movement.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                What's the difference between a strip footing and pad footing?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p><strong>Strip footing:</strong></p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>Long, continuous concrete strip</li>
-                  <li>Used under walls and retaining walls</li>
-                  <li>Distributes load along its length</li>
-                </ul>
-                <p><strong>Pad footing (pier footing):</strong></p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>Square or rectangular isolated block</li>
-                  <li>Used under individual posts or columns</li>
-                  <li>Common for decks, pergolas, and sheds</li>
-                </ul>
-              </div>
-            </details>
-          </div>
-        </section>
+          <h3>Use dimensions from a design</h3>
+          <p>This calculator only estimates material quantity. It does not determine footing width, depth, reinforcement, founding material, concrete strength or whether engineering and approval are required. Enter the dimensions specified in the project documentation.</p>
+          <p>See the complete <a href="/methodology/">methodology and source list</a>.</p>
+        </article>
 
         <!-- Related Calculators -->
         <section class="related-section">
@@ -646,37 +467,6 @@
           </div>
         </section>
 
-        <!-- SEO Content Section -->
-        <article class="content-article">
-          <h2>Concrete Footing Calculator for Australian Projects</h2>
-
-          <p>Footings are the foundation of any structure, distributing the load from posts, walls, and columns into the ground below. Getting your footing dimensions and concrete quantity right is essential for a stable, long-lasting structure that meets Australian building standards.</p>
-
-          <h3>What Are Footings and Why Do They Matter?</h3>
-          <p>A footing spreads the weight of a structure over a larger area of soil, preventing the structure from sinking or shifting over time. Without adequate footings, even well-built structures can experience movement, cracking, and ultimately failure. In Australian conditions, where many areas have reactive clay soils that expand and contract with moisture changes, properly designed footings are particularly important.</p>
-
-          <h3>Common Australian Footing Types</h3>
-          <p>Strip footings are continuous concrete strips that run beneath walls, commonly used for house foundations, retaining walls, and garden walls. Pad footings, also called pier footings, are isolated rectangular or square blocks of concrete that support individual posts or columns. These are the most common type for decks, pergolas, and shed posts. Pier footings combine a pad at the bottom with a column of concrete rising to ground level, useful when the bearing soil is deeper below the surface.</p>
-
-          <h3>Standard Footing Sizes</h3>
-          <p>For small shed footings supporting lightweight structures, 400×400mm pads at 300mm deep are typically adequate. Deck footings usually need to be larger at 450×450mm with 350mm depth to handle the loads from deck framing and occupants. Pergola footings are similar in size but may require greater depth depending on the height and span of the pergola. House strip footings in Australia are typically 450 to 600mm wide and 300 to 450mm deep, though these require engineering design based on soil conditions and structural loads.</p>
-
-          <h3>Concrete Strength Requirements</h3>
-          <p>Australian building standards specify minimum 25MPa concrete for structural footings. This strength rating means the concrete can withstand 25 megapascals of compressive force, which is suitable for most residential footing applications. For footings in aggressive soil conditions or those exposed to sulfate attack, higher strength concrete or special blends may be required. Pre-mixed bagged concrete from hardware stores is typically 20MPa or 25MPa, so check the bag to ensure you're using the right product.</p>
-
-          <h3>When You Need Approval</h3>
-          <p>Many footing projects in Australia require council approval or engineering certification. Decks over a certain height, pergolas attached to dwellings, carports, and any additions or extensions to existing buildings typically require a building permit. Even seemingly simple projects like large deck footings may need a structural engineer to specify the footing size based on your soil type and the loads involved. Your local council can advise whether your specific project requires approval.</p>
-
-          <h3>Soil Classification and Reactive Soils</h3>
-          <p>Australian soils are classified from Class A (stable, sand and rock) through to Class P (problem sites requiring special assessment). The most common residential classifications are Class M (moderately reactive) and Class H (highly reactive), particularly prevalent in Melbourne, Adelaide, and parts of Sydney. Highly reactive clay soils can cause significant ground movement as they absorb and release moisture through seasonal cycles. Footings in these areas often need to be deeper and may require reinforcement to handle the soil movement without cracking.</p>
-
-          <h3>Popular Footing Calculations</h3>
-          <p>Pre-calculated guides for common footing projects:</p>
-          <ul style="margin: 0.5rem 0 1rem; padding-left: 1.5rem; list-style: disc;">
-            <li><a href="/concrete-for-shed-footings/">Concrete for Shed Footings (4 pads)</a></li>
-            <li><a href="/concrete-for-deck-footings/">Concrete for Deck Footings (6 pads)</a></li>
-          </ul>
-        </article>
       </div>
     </main>
 
@@ -713,6 +503,9 @@
             <h4>Resources</h4>
             <ul>
               <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+              <li><a href="/methodology/">Methodology &amp; Sources</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/contact/">Contact</a></li>
               <li><a href="/privacy/">Privacy Policy</a></li>
               <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a></li>
             </ul>

@@ -86,46 +86,6 @@
     ]
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "What size column do I need?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Column size depends on the load it needs to support. Veranda columns typically need 200-300mm diameter. Carport columns need 300-400mm diameter. Structural piers require engineering. Always consult a structural engineer for load-bearing columns."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do concrete columns need reinforcement?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Most structural columns require reinforcement: vertical bars (typically 4× N12 or N16) running the full height, horizontal ties/ligatures spaced every 200-300mm, and adequate cover (40-50mm) from edge to steel. Requirements vary based on loads - check with an engineer for structural applications."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What concrete strength for columns?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Minimum 32MPa concrete is recommended for structural columns. This provides adequate strength for load-bearing applications. For exposed decorative columns, consider 40MPa for better durability and finish."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Round vs square columns - which is stronger?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Both can be equally strong when properly designed. Round columns offer more efficient use of concrete, are easier to pour, and better for exposed applications. Square columns are easier to form, have simpler connections to beams, and are more common in construction. Choose based on aesthetics, ease of construction, and connection requirements."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -394,7 +354,7 @@
                   <div class="result-item">
                     <span class="result-label">Estimated Bag Cost</span>
                     <div class="cost-range result-value result-value--small result-value--placeholder" id="result-bag-cost">--</div>
-                    <span class="result-subtext">Based on $8.50-$12.50/bag</span>
+                    <span class="result-subtext">Based on $8.50-$14.50/bag</span>
                   </div>
 
                   <div class="result-item">
@@ -451,91 +411,19 @@
           </div>
         </section>
 
-        <!-- Info Box -->
-        <div class="info-box info-box--tip">
-          <div class="info-box-header">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="16" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12.01" y2="8"/>
-            </svg>
-            Tip: Column Formwork
-          </div>
-          <div class="info-box-content">
-            For round columns, use cardboard Sonotubes (available at Bunnings) which peel away after curing. For square columns, build plywood formwork or use steel forms for a smooth finish.
-          </div>
-        </div>
+        <!-- Calculation guidance -->
+        <article class="content-article">
+          <h2>How the Column and Pier Estimate Works</h2>
+          <p>A round column uses π × radius² × height. A square column uses width × width × height. The calculator multiplies that volume by the number of identical columns, then applies the allowance you select.</p>
+          <p>For a 300mm diameter round column 1m high, the geometric volume is π × 0.15² × 1 = approximately 0.0707m³. With 10% selected, the planning quantity becomes approximately 0.0778m³.</p>
 
-        <!-- FAQ Section -->
-        <section class="faq-section">
-          <h2 class="section-title">Column FAQ</h2>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary class="faq-question">
-                What size column do I need?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>Column size depends on the load it needs to support. General guidelines:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li><strong>Veranda columns:</strong> 200-300mm diameter</li>
-                  <li><strong>Carport columns:</strong> 300-400mm diameter</li>
-                  <li><strong>Structural piers:</strong> Engineering required</li>
-                </ul>
-                <p>For load-bearing columns, always consult a structural engineer.</p>
-              </div>
-            </details>
+          <h3>Calculate different sizes separately</h3>
+          <p>The count field assumes identical dimensions. If column diameters, widths or heights vary, calculate each size as a separate group and add the cubic-metre results.</p>
 
-            <details class="faq-item">
-              <summary class="faq-question">
-                Do concrete columns need reinforcement?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>Most structural columns require reinforcement:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>Vertical bars (typically 4× N12 or N16) running the full height</li>
-                  <li>Horizontal ties/ligatures spaced every 200-300mm</li>
-                  <li>Adequate cover (40-50mm) from edge to steel</li>
-                </ul>
-                <p>Reinforcement requirements vary based on loads. Check with an engineer for structural applications.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                What concrete strength for columns?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>Minimum <strong>32MPa concrete</strong> is recommended for structural columns. This provides adequate strength for load-bearing applications. For exposed decorative columns, consider 40MPa for better durability and finish.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                Round vs square columns - which is stronger?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>Both can be equally strong when properly designed. Differences include:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li><strong>Round:</strong> More efficient use of concrete, easier to pour, better for exposed applications</li>
-                  <li><strong>Square:</strong> Easier to form, simpler connections to beams, more common in construction</li>
-                </ul>
-                <p>Choose based on aesthetics, ease of construction, and how it connects to other elements.</p>
-              </div>
-            </details>
-          </div>
-        </section>
+          <h3>Quantity is not structural design</h3>
+          <p>The calculator does not determine column dimensions, reinforcement, concrete strength, footing connections or load capacity. Columns and piers can be structural elements, so use dimensions and specifications from approved plans or an appropriately qualified professional.</p>
+          <p>See the complete <a href="/methodology/">methodology and source list</a>.</p>
+        </article>
 
         <!-- Related Calculators -->
         <section class="related-section">
@@ -575,30 +463,6 @@
           </div>
         </section>
 
-        <!-- SEO Content Section -->
-        <article class="content-article">
-          <h2>Concrete Column and Pier Calculator for Australia</h2>
-
-          <p>Concrete columns and piers are essential structural elements that transfer loads from above-ground structures down to their footings. Whether you're building deck stumps, pergola supports, or verandah posts, calculating the right amount of concrete ensures your columns are solid and structurally sound.</p>
-
-          <h3>Round vs Square Columns</h3>
-          <p>Round columns are popular for their clean appearance and structural efficiency. They handle lateral loads well from all directions, making them ideal for exposed positions where wind or impact might come from any angle. Square columns are easier to form using standard timber and provide flat surfaces for attaching beams and brackets. The choice often comes down to aesthetics and practical considerations like what fixings you need to attach to the column.</p>
-
-          <h3>Common Uses in Australia</h3>
-          <p>Deck piers are perhaps the most common application, supporting the bearers and joists that make up the deck subframe. These typically range from 200mm to 450mm in diameter or width. Pergola supports need to be substantial enough to handle wind loads on the roof structure above. Verandah posts often need to match existing architectural features while providing adequate structural support. Carport columns must handle the weight of the roof and any wind or impact loads.</p>
-
-          <h3>Standard Sizes</h3>
-          <p>For lightweight deck piers supporting small residential decks, 200mm diameter round columns or 200×200mm square columns are common. Medium-duty applications like larger decks and pergolas typically use 300mm to 350mm diameter columns. For heavy-duty applications such as carports and large verandahs, columns of 400mm diameter or larger may be required. The exact size depends on the loads involved, the height of the column, and engineering requirements.</p>
-
-          <h3>Importance of Reinforcement</h3>
-          <p>While unreinforced concrete columns can work for short, low-load applications, structural columns almost always need steel reinforcement. Reinforcement helps the column handle bending forces and prevents catastrophic failure if the concrete cracks. For columns over 1.5 metres tall or those carrying significant loads, engineering specifications will typically call for vertical bars tied with horizontal ligatures. Never skip reinforcement if your plans require it.</p>
-
-          <h3>Using Sonotubes for Round Columns</h3>
-          <p>Cardboard Sonotubes, available at Bunnings and other building suppliers, make forming round columns straightforward. These tubes are set in the ground or on top of footings, filled with concrete, and then peeled away once the concrete has cured. They come in standard diameters and can be cut to length. For a smooth finish, some builders line the inside with plastic or apply a release agent before pouring.</p>
-
-          <h3>Planning Your Column Project</h3>
-          <p>Before starting any structural column work, check whether you need a building permit. In most Australian states, structures like decks, pergolas, and carports require permits if they exceed certain sizes or are attached to the house. Your local council can advise on requirements. For any load-bearing columns, having an engineer specify the size, reinforcement, and footing requirements ensures your structure is safe and compliant with the National Construction Code.</p>
-        </article>
       </div>
     </main>
 
@@ -635,6 +499,9 @@
             <h4>Resources</h4>
             <ul>
               <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+              <li><a href="/methodology/">Methodology &amp; Sources</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/contact/">Contact</a></li>
               <li><a href="/privacy/">Privacy Policy</a></li>
               <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a></li>
             </ul>

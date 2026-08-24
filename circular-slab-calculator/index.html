@@ -86,46 +86,6 @@
     ]
   }
   </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
-      {
-        "@type": "Question",
-        "name": "How do I make a perfect circle for my slab?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Use a string compass: Drive a stake at the center point, tie string to the stake with length equal to the radius (half the diameter), tie marking paint to the other end, and walk around keeping the string taut while spraying. For formwork, bend flexible hardboard (3-6mm) or use thin plywood with relief cuts on the back."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "What thickness for a fire pit base?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "100mm thickness is recommended for fire pit bases. This provides adequate thermal mass and structural strength. Use SL72 reinforcement mesh, make the base 300-500mm wider than the fire pit, add expansion joints if over 2m diameter, and allow 28 days to cure before the first fire."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Do I need reinforcement in a circular slab?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "It depends on the application. Small bases under 1m usually don't require it. Fire pit bases should have reinforcement as thermal cycling can cause cracking. Patios over 2m should use SL72 mesh. Heavy loads like water tanks require SL82 mesh minimum. When in doubt, add mesh - it's inexpensive insurance against cracking."
-        }
-      },
-      {
-        "@type": "Question",
-        "name": "Can I use a circular slab for a water tank?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Yes, but ensure adequate design: thickness of 100-150mm minimum, SL82 reinforcement mesh required, size 200-300mm wider than tank diameter, and compact the base well using 75-100mm road base. A full 22,500L tank weighs over 22 tonnes, so ensure ground bearing capacity is adequate."
-        }
-      }
-    ]
-  }
-  </script>
 </head>
 <body>
   <div class="page-wrapper">
@@ -320,14 +280,9 @@
                   <div class="result-item">
                     <span class="result-label">Estimated Bag Cost</span>
                     <div class="cost-range result-value result-value--small result-value--placeholder" id="result-bag-cost">--</div>
-                    <span class="result-subtext">Based on $8.50-$12.50/bag</span>
+                    <span class="result-subtext">Based on $8.50-$14.50/bag</span>
                   </div>
 
-                  <div class="result-item">
-                    <span class="result-label">Ready-Mix Cost</span>
-                    <div class="cost-range result-value result-value--small result-value--placeholder" id="result-readymix-cost">--</div>
-                    <span class="result-subtext">Delivered, varies by region</span>
-                  </div>
                 </div>
 
                 <div class="share-buttons">
@@ -377,144 +332,18 @@
           </div>
         </section>
 
-        <!-- Info Box -->
-        <div class="info-box info-box--tip">
-          <div class="info-box-header">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-              <circle cx="12" cy="12" r="10"/>
-              <line x1="12" y1="16" x2="12" y2="12"/>
-              <line x1="12" y1="8" x2="12.01" y2="8"/>
-            </svg>
-            Tip: Making Circular Forms
-          </div>
-          <div class="info-box-content">
-            Create circular formwork by bending flexible materials: <strong>Hardboard/Masonite</strong> (3-6mm) works great for curves up to 3m diameter. For larger circles, use thin plywood with relief cuts. Steel garden edging can work for smaller circles.
-          </div>
-        </div>
+        <!-- Calculation guidance -->
+        <article class="content-article">
+          <h2>How the Circular Slab Estimate Works</h2>
+          <p>The calculator halves the diameter to find the radius, then uses π × radius² × thickness. A 2m diameter slab entered at 100mm thick has a geometric volume of π × 1² × 0.1 = approximately 0.314m³. With 10% selected, the planning quantity is approximately 0.346m³, or 38 bags under the stated yield assumption.</p>
 
-        <!-- Common Uses -->
-        <section style="margin-top: var(--space-8);">
-          <h2 class="section-title">Common Circular Slab Projects</h2>
-          <div style="background: var(--color-white); padding: var(--space-5); border-radius: var(--radius-xl); border: 1px solid var(--color-grey-200);">
-            <table style="width: 100%; border-collapse: collapse; font-size: var(--font-size-sm);">
-              <thead>
-                <tr style="border-bottom: 2px solid var(--color-grey-200);">
-                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Project</th>
-                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Typical Diameter</th>
-                  <th style="text-align: left; padding: var(--space-3); color: var(--color-grey-700);">Thickness</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Fire pit base</td>
-                  <td style="padding: var(--space-3);">1.0 - 1.5m</td>
-                  <td style="padding: var(--space-3);">100mm</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Birdbath/planter base</td>
-                  <td style="padding: var(--space-3);">0.5 - 0.8m</td>
-                  <td style="padding: var(--space-3);">75mm</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Round patio</td>
-                  <td style="padding: var(--space-3);">2.5 - 4m</td>
-                  <td style="padding: var(--space-3);">100mm</td>
-                </tr>
-                <tr style="border-bottom: 1px solid var(--color-grey-200);">
-                  <td style="padding: var(--space-3);">Hot tub pad</td>
-                  <td style="padding: var(--space-3);">2.0 - 2.5m</td>
-                  <td style="padding: var(--space-3);">100-125mm</td>
-                </tr>
-                <tr>
-                  <td style="padding: var(--space-3);">Water tank base</td>
-                  <td style="padding: var(--space-3);">1.5 - 3m</td>
-                  <td style="padding: var(--space-3);">100-150mm</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </section>
+          <h3>Measure diameter and depth carefully</h3>
+          <p>Measure across the widest internal part of the circular formwork. Use the actual designed thickness, converted to metres by the calculator. If the shape is an annulus or contains large voids, this solid-circle calculator will overestimate unless those volumes are calculated and subtracted separately.</p>
 
-        <!-- FAQ Section -->
-        <section class="faq-section">
-          <h2 class="section-title">Circular Slab FAQ</h2>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary class="faq-question">
-                How do I make a perfect circle for my slab?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>The easiest method is using a string compass:</p>
-                <ol style="margin: 0.5rem 0; padding-left: 1.5rem;">
-                  <li>Drive a stake or post at the center point</li>
-                  <li>Tie string to the stake, length = radius (half the diameter)</li>
-                  <li>Tie a can of marking paint to the other end</li>
-                  <li>Walk around keeping the string taut, spraying as you go</li>
-                </ol>
-                <p>For the formwork, bend flexible hardboard (3-6mm) or use thin plywood with relief cuts on the back.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                What thickness for a fire pit base?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p><strong>100mm thickness</strong> is recommended for fire pit bases. This provides adequate thermal mass and structural strength. Consider these tips:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li>Use SL72 reinforcement mesh</li>
-                  <li>Make the base 300-500mm wider than the fire pit</li>
-                  <li>Add expansion joints if over 2m diameter</li>
-                  <li>Allow 28 days to cure before first fire</li>
-                </ul>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                Do I need reinforcement in a circular slab?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>It depends on the application:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li><strong>Small bases (under 1m):</strong> Usually not required</li>
-                  <li><strong>Fire pit bases:</strong> Recommended - thermal cycling can cause cracking</li>
-                  <li><strong>Patios (over 2m):</strong> Recommended - SL72 mesh</li>
-                  <li><strong>Heavy loads (water tanks):</strong> Required - SL82 mesh minimum</li>
-                </ul>
-                <p>When in doubt, add mesh. It's inexpensive insurance against cracking.</p>
-              </div>
-            </details>
-
-            <details class="faq-item">
-              <summary class="faq-question">
-                Can I use a circular slab for a water tank?
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </summary>
-              <div class="faq-answer">
-                <p>Yes, but ensure adequate design:</p>
-                <ul style="margin: 0.5rem 0; padding-left: 1.5rem; list-style: disc;">
-                  <li><strong>Thickness:</strong> 100-150mm minimum</li>
-                  <li><strong>Reinforcement:</strong> SL82 mesh required</li>
-                  <li><strong>Size:</strong> 200-300mm wider than tank diameter</li>
-                  <li><strong>Site prep:</strong> Compact base well, use 75-100mm road base</li>
-                </ul>
-                <p>A full 22,500L tank weighs over 22 tonnes. Ensure ground bearing capacity is adequate.</p>
-              </div>
-            </details>
-          </div>
-        </section>
+          <h3>Use a designed thickness</h3>
+          <p>The calculator does not choose thickness, reinforcement, concrete strength or ground preparation for fire pits, water tanks or other loads. Use project documentation or advice from an appropriately qualified professional.</p>
+          <p>See the complete <a href="/methodology/">methodology and source list</a>.</p>
+        </article>
 
         <!-- Related Calculators -->
         <section class="related-section">
@@ -552,27 +381,6 @@
           </div>
         </section>
 
-        <!-- SEO Content Section -->
-        <article class="content-article">
-          <h2>Circular Concrete Slab Calculator</h2>
-
-          <p>Circular concrete slabs add visual interest to outdoor spaces and are perfect for specific applications where a round shape makes practical or aesthetic sense. Calculating the volume for a circular slab is slightly different from rectangular slabs, using the formula for the area of a circle multiplied by the thickness.</p>
-
-          <h3>The Formula Explained</h3>
-          <p>The volume of a circular slab is calculated using π × radius² × depth. Pi (π) is approximately 3.14159, the radius is half the diameter of your circle, and depth is the thickness of the slab. For example, a circular slab with a 2 metre diameter (1 metre radius) and 100mm thickness would be π × 1² × 0.1 = 0.314 cubic metres. This calculator handles the maths automatically when you enter your diameter and thickness.</p>
-
-          <h3>Common Circular Slab Projects</h3>
-          <p>Fire pit bases are one of the most popular circular slab applications in Australian backyards. A fire pit pad typically ranges from 1.5 to 2.5 metres in diameter, providing a safe, fireproof base and surrounding area. Bird bath and fountain pads need solid, level bases and are usually quite small at 500mm to 1 metre diameter. Round patio areas create interesting outdoor entertaining spaces, often used as focal points in landscape designs. Water tank pads need to be sized to the tank diameter plus extra margin for access, typically ranging from 2 to 3 metres for residential rainwater tanks.</p>
-
-          <h3>Creating Circular Formwork</h3>
-          <p>The main challenge with circular slabs is creating the curved formwork. Flexible materials work best for bending around the circle. Hardboard or masonite in 3 to 6mm thickness bends easily and works well for circles up to about 3 metres in diameter. For larger circles, thin plywood with relief cuts on the back face allows it to bend smoothly. Steel garden edging can work for smaller circles and has the advantage of being reusable. Multiple stakes around the perimeter hold the formwork in place while you pour.</p>
-
-          <h3>Thickness Recommendations</h3>
-          <p>Circular slabs follow the same thickness guidelines as rectangular slabs. For decorative pads and light foot traffic areas, 75 to 100mm is usually sufficient. Fire pit bases should be at least 100mm thick to handle the heat and weight of the fire pit. Water tank pads may need to be thicker, particularly for larger tanks, with 100 to 150mm being common depending on the tank capacity and soil conditions.</p>
-
-          <h3>Finishing a Circular Slab</h3>
-          <p>Circular slabs offer interesting finishing options. A broom finish radiating from the centre creates an attractive sunburst pattern. Exposed aggregate finishes look particularly good on round slabs, with the circular shape highlighting the stone pattern. For fire pit bases, a simple smooth trowel finish is practical and easy to clean. Some people add decorative edges or stamped patterns to enhance the visual appeal of their circular slab.</p>
-        </article>
       </div>
     </main>
 
@@ -609,6 +417,9 @@
             <h4>Resources</h4>
             <ul>
               <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+              <li><a href="/methodology/">Methodology &amp; Sources</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/contact/">Contact</a></li>
               <li><a href="/privacy/">Privacy Policy</a></li>
               <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a></li>
             </ul>
