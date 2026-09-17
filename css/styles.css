@@ -982,6 +982,11 @@ details[open] .formula-toggle svg {
   transform: translateY(-2px);
 }
 
+.related-card--featured {
+  border-color: var(--color-primary);
+  background: linear-gradient(145deg, var(--color-white), var(--color-warning-bg));
+}
+
 .related-card svg {
   width: 32px;
   height: 32px;
@@ -1799,6 +1804,264 @@ details[open] .faq-question svg {
   margin-top: var(--space-2);
 }
 
+/* ===== MULTI-POUR PROJECT PLANNER ===== */
+.project-planner .calculator-body {
+  display: grid;
+  gap: var(--space-6);
+}
+
+.project-intro,
+.project-privacy {
+  color: var(--color-grey-600);
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.project-items {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.project-item {
+  min-width: 0;
+  padding: var(--space-4);
+  background: var(--color-grey-50);
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--radius-xl);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.project-item.has-error {
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px rgb(220 38 38 / 0.1);
+}
+
+.project-item__header {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.project-item__number {
+  color: var(--color-grey-900);
+}
+
+.project-item__volume {
+  color: var(--color-primary-dark);
+  font-weight: var(--font-weight-bold);
+  font-variant-numeric: tabular-nums;
+}
+
+.project-item__remove {
+  min-height: 44px;
+  padding: 0 var(--space-3);
+  color: var(--color-error);
+  border: 1px solid var(--color-grey-300);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+}
+
+.project-item__remove:hover:not(:disabled) {
+  background: var(--color-error-bg);
+  border-color: var(--color-error);
+}
+
+.project-item__remove:disabled {
+  color: var(--color-grey-400);
+  cursor: not-allowed;
+}
+
+.project-item__grid,
+.project-item__dimensions {
+  display: grid;
+  gap: var(--space-4);
+}
+
+.project-item__dimensions[hidden] {
+  display: none;
+}
+
+.project-toolbar,
+.project-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: end;
+  gap: var(--space-3);
+}
+
+.project-toolbar--top {
+  align-items: end;
+}
+
+.project-name-field {
+  flex: 1 1 300px;
+}
+
+.project-allowance-field {
+  flex: 1 1 170px;
+  max-width: 240px;
+}
+
+.primary-btn,
+.secondary-btn {
+  min-height: 48px;
+  padding: var(--space-3) var(--space-5);
+  border-radius: var(--radius-lg);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.primary-btn {
+  color: var(--color-grey-900);
+  background: var(--color-primary);
+  border: 1px solid var(--color-primary-dark);
+}
+
+.primary-btn:hover {
+  background: var(--color-primary-light);
+}
+
+.secondary-btn {
+  color: var(--color-grey-800);
+  background: var(--color-white);
+  border: 1px solid var(--color-grey-400);
+}
+
+.secondary-btn:hover {
+  background: var(--color-grey-100);
+  border-color: var(--color-grey-600);
+}
+
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible,
+.project-item__remove:focus-visible {
+  outline: 3px solid rgb(245 158 11 / 0.3);
+  outline-offset: 2px;
+}
+
+.project-summary {
+  padding: var(--space-5);
+  color: var(--color-white);
+  background: var(--color-grey-900);
+  border-radius: var(--radius-xl);
+}
+
+.project-summary__empty {
+  color: var(--color-grey-300);
+  text-align: center;
+}
+
+.project-summary__grid {
+  display: grid;
+  gap: var(--space-3);
+}
+
+.project-summary__grid > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-grey-700);
+}
+
+.project-summary__grid span {
+  color: var(--color-grey-300);
+  font-size: var(--font-size-sm);
+}
+
+.project-summary__grid strong {
+  white-space: nowrap;
+  font-size: var(--font-size-xl);
+  font-variant-numeric: tabular-nums;
+}
+
+.project-summary__grid .project-summary__primary {
+  margin: 0 calc(var(--space-5) * -1);
+  padding: var(--space-4) var(--space-5);
+  color: var(--color-grey-900);
+  background: var(--color-primary);
+  border: 0;
+}
+
+.project-summary__grid .project-summary__primary span {
+  color: var(--color-grey-800);
+}
+
+.project-summary__note {
+  margin-top: var(--space-4);
+  color: var(--color-grey-400);
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-relaxed);
+}
+
+.project-summary__link {
+  display: inline-flex;
+  margin-top: var(--space-4);
+  color: var(--color-primary-light);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.project-summary__link:hover {
+  color: var(--color-white);
+}
+
+.project-status {
+  min-height: 1.5rem;
+  color: var(--color-success);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+}
+
+.project-status.is-error {
+  color: var(--color-error);
+}
+
+@media (min-width: 700px) {
+  .project-item {
+    padding: var(--space-5);
+  }
+
+  .project-item__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .project-item__label,
+  .project-item__dimensions {
+    grid-column: span 2;
+  }
+
+  .project-item__dimensions {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-item__dimensions--single {
+    grid-template-columns: 1fr;
+  }
+
+  .project-summary__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-summary__grid > div {
+    display: grid;
+    gap: var(--space-1);
+    border-bottom: 0;
+  }
+
+  .project-summary__grid .project-summary__primary {
+    margin: 0;
+    border-radius: var(--radius-lg);
+  }
+}
+
 /* ===== PRINT STYLES ===== */
 @media print {
   .site-header,
@@ -1808,7 +2071,13 @@ details[open] .faq-question svg {
   .nav-toggle,
   .presets-section,
   .related-section,
-  .formula-section {
+  .formula-section,
+  .project-actions,
+  .project-toolbar,
+  .project-intro,
+  .project-privacy,
+  .project-status,
+  .project-item__remove {
     display: none;
   }
 
@@ -1825,5 +2094,33 @@ details[open] .faq-question svg {
 
   .results-panel .result-value {
     color: var(--color-grey-900);
+  }
+
+  .project-planner {
+    margin-top: 0;
+  }
+
+  .project-item {
+    break-inside: avoid;
+  }
+
+  .project-summary {
+    color: var(--color-grey-900);
+    background: var(--color-white);
+    border: 2px solid var(--color-grey-400);
+  }
+
+  .project-summary__grid span,
+  .project-summary__note {
+    color: var(--color-grey-700);
+  }
+
+  .project-summary__link {
+    color: var(--color-grey-900);
+  }
+
+  .project-summary__grid .project-summary__primary {
+    color: var(--color-grey-900);
+    background: var(--color-grey-200);
   }
 }

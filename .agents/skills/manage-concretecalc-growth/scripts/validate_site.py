@@ -37,6 +37,7 @@ AD_FREE_INDEXED_PAGES = {
     "about/index.html",
     "contact/index.html",
     "methodology/index.html",
+    "project-planner/index.html",
     PRIVACY_PAGE,
 }
 PRIVACY_FORBIDDEN_MARKERS = (

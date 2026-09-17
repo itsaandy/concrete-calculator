@@ -617,6 +617,89 @@ function compareBagsVsReadymix({ volume, state = null, bagPrice = null }) {
   };
 }
 
+/**
+ * Calculate the base volume for one item in a multi-pour project.
+ * Rectangular items use length x width x depth. Circular items use pi x r^2 x depth.
+ *
+ * @param {Object} item - Project item values in metres
+ * @returns {Object} Calculation result
+ */
+function calculateProjectItem({ shape, length = 0, width = 0, diameter = 0, depth = 0, quantity = 1 }) {
+  const count = Number(quantity);
+  const itemDepth = Number(depth);
+
+  if (!Number.isFinite(count) || count < 1 || !Number.isInteger(count)) {
+    return { valid: false, error: 'Enter a whole-number quantity of at least one.' };
+  }
+  if (!Number.isFinite(itemDepth) || itemDepth <= 0) {
+    return { valid: false, error: 'Enter a positive depth or thickness.' };
+  }
+
+  let volumeEach;
+  if (shape === 'circular') {
+    const itemDiameter = Number(diameter);
+    if (!Number.isFinite(itemDiameter) || itemDiameter <= 0) {
+      return { valid: false, error: 'Enter a positive diameter.' };
+    }
+    volumeEach = CONSTANTS.PI * Math.pow(itemDiameter / 2, 2) * itemDepth;
+  } else if (shape === 'rectangular') {
+    const itemLength = Number(length);
+    const itemWidth = Number(width);
+    if (!Number.isFinite(itemLength) || itemLength <= 0 ||
+        !Number.isFinite(itemWidth) || itemWidth <= 0) {
+      return { valid: false, error: 'Enter positive length and width values.' };
+    }
+    volumeEach = itemLength * itemWidth * itemDepth;
+  } else {
+    return { valid: false, error: 'Choose a supported pour shape.' };
+  }
+
+  return {
+    valid: true,
+    volumeEach,
+    baseVolume: volumeEach * count
+  };
+}
+
+/**
+ * Combine valid project items and apply one user-selected allowance to the job.
+ *
+ * @param {Array<Object>} items - Project items
+ * @param {number} wastage - Allowance percentage
+ * @returns {Object} Project totals
+ */
+function calculateProjectTotal(items, wastage = CONSTANTS.DEFAULT_WASTAGE) {
+  const allowance = Number(wastage);
+  if (!Number.isFinite(allowance) || allowance < 0 || allowance > 30) {
+    return { valid: false, error: 'Choose an allowance from 0% to 30%.' };
+  }
+  if (!Array.isArray(items) || items.length === 0) {
+    return { valid: false, error: 'Add at least one pour to the project.' };
+  }
+
+  const calculatedItems = items.map(calculateProjectItem);
+  const invalidIndex = calculatedItems.findIndex(result => !result.valid);
+  if (invalidIndex !== -1) {
+    return {
+      valid: false,
+      invalidIndex,
+      error: calculatedItems[invalidIndex].error
+    };
+  }
+
+  const baseVolume = calculatedItems.reduce((sum, result) => sum + result.baseVolume, 0);
+  const totalVolume = applyWastage(baseVolume, allowance);
+
+  return {
+    valid: true,
+    calculatedItems,
+    baseVolume,
+    wastageVolume: totalVolume - baseVolume,
+    totalVolume,
+    bags: calculateBags(totalVolume)
+  };
+}
+
 // ===== PRESET CONFIGURATIONS =====
 const PRESETS = {
   slab: {
@@ -665,6 +748,8 @@ if (typeof module !== 'undefined' && module.exports) {
     calculateFooting,
     calculateColumn,
     calculateCircularSlab,
-    compareBagsVsReadymix
+    compareBagsVsReadymix,
+    calculateProjectItem,
+    calculateProjectTotal
   };
 }

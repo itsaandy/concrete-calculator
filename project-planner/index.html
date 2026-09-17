@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNWWCK3HP0"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XNWWCK3HP0');
+  </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plan a concrete job with multiple slabs, footings and circular pours. Total the cubic metres and 20kg bags, then save, share or print the project.">
+  <meta name="author" content="Concrete Calculator Australia">
+  <meta name="robots" content="index, follow">
+
+  <title>Concrete Project Planner Australia | Multiple Pours</title>
+
+  <link rel="canonical" href="https://concretecalc.com.au/project-planner/">
+  <link rel="alternate" hreflang="en-AU" href="https://concretecalc.com.au/project-planner/">
+  <link rel="alternate" hreflang="x-default" href="https://concretecalc.com.au/project-planner/">
+
+  <meta property="og:title" content="Concrete Project Planner Australia | Multiple Pours">
+  <meta property="og:description" content="Combine multiple rectangular and circular pours into one concrete quantity, then save, share or print the job summary.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://concretecalc.com.au/project-planner/">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:image" content="https://concretecalc.com.au/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Concrete Project Planner",
+    "description": "Combine multiple rectangular and circular pours into one concrete quantity and printable project summary.",
+    "url": "https://concretecalc.com.au/project-planner/",
+    "applicationCategory": "UtilityApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "AUD"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://concretecalc.com.au/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Project Planner",
+        "item": "https://concretecalc.com.au/project-planner/"
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="site-logo">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="12" width="20" height="10" rx="1"/>
+            <path d="M4 12V6a2 2 0 0 1 2-2h4"/>
+            <path d="M14 4h4a2 2 0 0 1 2 2v6"/>
+          </svg>
+          <span>Concrete Calculator</span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+          <ul class="nav-list">
+            <li><a href="/project-planner/" class="is-active">Project Planner</a></li>
+            <li><a href="/concrete-slab-calculator/">Slabs</a></li>
+            <li><a href="/post-hole-calculator/">Post Holes</a></li>
+            <li><a href="/footing-calculator/">Footings</a></li>
+            <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+          </ul>
+        </nav>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation">
+        <ul class="mobile-nav-list">
+          <li><a href="/project-planner/" class="is-active">Project Planner</a></li>
+          <li><a href="/concrete-slab-calculator/">Slab Calculator</a></li>
+          <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
+          <li><a href="/footing-calculator/">Footing Calculator</a></li>
+          <li><a href="/column-calculator/">Column Calculator</a></li>
+          <li><a href="/circular-slab-calculator/">Circular Slab Calculator</a></li>
+          <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="container">
+      <nav class="breadcrumbs" aria-label="Breadcrumb">
+        <ol class="breadcrumb-list">
+          <li><a href="/">Home</a></li>
+          <li>Project Planner</li>
+        </ol>
+      </nav>
+    </div>
+
+    <section class="hero">
+      <div class="container">
+        <h1>Concrete Project Planner</h1>
+        <p>Combine every slab, footing and circular pour in one job. Get one transparent total you can save, share and print.</p>
+      </div>
+    </section>
+
+    <main class="main-content">
+      <div class="container">
+        <section class="calculator-section project-planner" aria-labelledby="planner-heading">
+          <div class="calculator-card">
+            <div class="calculator-header">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/>
+              </svg>
+              <h2 id="planner-heading">Build your pour list</h2>
+            </div>
+
+            <div class="calculator-body">
+              <div class="project-toolbar project-toolbar--top">
+                <div class="form-group project-name-field">
+                  <label class="form-label" for="project-name">Project name <span class="form-label-hint">(optional)</span></label>
+                  <input class="form-input" id="project-name" type="text" maxlength="80" autocomplete="off" placeholder="e.g. Backyard shed and fence">
+                </div>
+                <button class="secondary-btn" id="load-project-example" type="button">Load worked example</button>
+              </div>
+
+              <p class="project-intro">Add each distinct pour below. Use rectangular for slabs and strip footings, or circular for round slabs, holes and piers. Enter all measurements in metres.</p>
+
+              <div id="project-items" class="project-items"></div>
+
+              <template id="project-item-template">
+                <fieldset class="project-item">
+                  <legend class="sr-only">Project pour</legend>
+                  <div class="project-item__header">
+                    <strong class="project-item__number">Pour</strong>
+                    <span class="project-item__volume" aria-label="Calculated volume">—</span>
+                    <button class="project-item__remove" type="button">Remove</button>
+                  </div>
+
+                  <div class="project-item__grid">
+                    <div class="form-group project-item__label">
+                      <label class="form-label">Label <span class="form-label-hint">(optional)</span>
+                        <input class="form-input" data-field="label" type="text" maxlength="80" autocomplete="off" placeholder="e.g. Main slab">
+                      </label>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Shape
+                        <select class="form-input form-select" data-field="shape">
+                          <option value="rectangular">Rectangular</option>
+                          <option value="circular">Circular</option>
+                        </select>
+                      </label>
+                    </div>
+
+                    <div class="project-item__dimensions" data-fields="rectangular">
+                      <div class="form-group">
+                        <label class="form-label">Length
+                          <span class="input-wrapper"><input class="form-input form-input--with-suffix" data-field="length" type="number" min="0" step="any" inputmode="decimal" placeholder="3"><span class="input-suffix">m</span></span>
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Width
+                          <span class="input-wrapper"><input class="form-input form-input--with-suffix" data-field="width" type="number" min="0" step="any" inputmode="decimal" placeholder="3"><span class="input-suffix">m</span></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="project-item__dimensions project-item__dimensions--single" data-fields="circular" hidden>
+                      <div class="form-group">
+                        <label class="form-label">Diameter
+                          <span class="input-wrapper"><input class="form-input form-input--with-suffix" data-field="diameter" type="number" min="0" step="any" inputmode="decimal" placeholder="0.3"><span class="input-suffix">m</span></span>
+                        </label>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label class="form-label">Depth / thickness
+                        <span class="input-wrapper"><input class="form-input form-input--with-suffix" data-field="depth" type="number" min="0" step="any" inputmode="decimal" placeholder="0.1"><span class="input-suffix">m</span></span>
+                      </label>
+                    </div>
+                    <div class="form-group">
+                      <label class="form-label">Quantity
+                        <input class="form-input" data-field="quantity" type="number" min="1" max="999" step="1" inputmode="numeric" value="1">
+                      </label>
+                    </div>
+                  </div>
+                </fieldset>
+              </template>
+
+              <div class="project-toolbar">
+                <button class="primary-btn" id="add-project-item" type="button">+ Add another pour</button>
+                <div class="form-group project-allowance-field">
+                  <label class="form-label" for="project-allowance">Project allowance</label>
+                  <select class="form-input form-select" id="project-allowance">
+                    <option value="0">0%</option>
+                    <option value="5">5%</option>
+                    <option value="10" selected>10%</option>
+                    <option value="15">15%</option>
+                    <option value="20">20%</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="project-summary" aria-live="polite">
+                <p id="project-results-empty" class="project-summary__empty">Complete every required measurement to see the project total.</p>
+                <div id="project-results" hidden>
+                  <div class="project-summary__grid">
+                    <div><span>Measured volume</span><strong id="project-base-volume">0.000 m³</strong></div>
+                    <div><span><span id="project-result-allowance">10</span>% allowance</span><strong id="project-allowance-volume">0.000 m³</strong></div>
+                    <div class="project-summary__primary"><span>Planning quantity</span><strong id="project-total-volume">0.000 m³</strong></div>
+                    <div><span>Estimated 20 kg bags</span><strong id="project-bags">0</strong></div>
+                  </div>
+                  <p class="project-summary__note">Bag count uses 108 × the planning quantity and rounds up. Check the yield printed on the exact product before buying.</p>
+                  <a class="project-summary__link" id="project-compare-link" href="/bags-vs-readymix/">Compare bags with your ready-mix quote →</a>
+                </div>
+              </div>
+
+              <div class="project-actions">
+                <button class="secondary-btn" id="save-project" type="button">Save on this device</button>
+                <button class="secondary-btn" id="load-project" type="button">Load saved project</button>
+                <button class="secondary-btn" id="share-project" type="button">Copy share link</button>
+                <button class="secondary-btn" id="print-project" type="button">Print summary</button>
+              </div>
+              <p class="project-status" id="project-status" role="status" aria-live="polite"></p>
+              <p class="project-privacy">Saving uses this browser only. A share link contains the project name and measurements in the URL; only send it to people you trust.</p>
+            </div>
+          </div>
+        </section>
+
+        <article class="content-article">
+          <h2>Plan a Whole Concrete Job, Not Just One Shape</h2>
+          <p>A real project can involve several separate pours: a slab, a strip footing and repeated post holes. Calculating them independently makes it easy to lose a quantity or apply an allowance more than once. This planner keeps every measured volume in one list, adds them together, then applies one allowance to the combined job.</p>
+
+          <h3>Worked example: shed slab and six post holes</h3>
+          <p>A 3m × 3m × 0.1m slab has a measured volume of 0.900m³. Six circular holes, each 0.3m in diameter and 0.6m deep, add approximately 0.254m³. The combined measured volume is approximately 1.154m³. With a user-selected 10% allowance, the planning quantity is approximately 1.270m³, or 138 of the referenced 20kg bags after rounding up.</p>
+          <p>Use “Load worked example” to inspect that calculation, then replace every value with measurements from your own project.</p>
+
+          <h3>How each shape is calculated</h3>
+          <p>Rectangular pours use length × width × depth. Circular pours use π × radius² × depth. Quantity multiplies that result for repeated identical pours. The planner sums the measured volumes before applying the selected project allowance.</p>
+
+          <h3>What saving and sharing do</h3>
+          <p>“Save on this device” stores the project locally in your current browser. “Copy share link” places the project values in the link itself, so another person can review the same list without an account or server upload. Printing produces a compact job summary for checking measurements or discussing an order.</p>
+
+          <h3>Use the result as a planning estimate</h3>
+          <p>The planner does not choose thickness, footing size, hole depth, concrete strength, reinforcement or structural details. Use dimensions from the relevant plans, manufacturer or qualified professional. Check the exact product yield and obtain a current supplier quote before ordering. See the complete <a href="/methodology/">methodology and primary sources</a>.</p>
+        </article>
+
+        <section class="related-section">
+          <h2 class="section-title">Check a Single Pour in Detail</h2>
+          <div class="related-grid">
+            <a href="/concrete-slab-calculator/" class="related-card">
+              <h3>Slab Calculator</h3>
+              <p>Inspect the formula and cost range for one rectangular slab.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+            <a href="/post-hole-calculator/" class="related-card">
+              <h3>Post Hole Calculator</h3>
+              <p>Subtract the volume displaced by round or square posts.</p>
+              <span class="card-arrow">Calculate →</span>
+            </a>
+            <a href="/bags-vs-readymix/" class="related-card">
+              <h3>Bags vs Ready-Mix</h3>
+              <p>Enter current bag prices and a ready-mix quote for your total.</p>
+              <span class="card-arrow">Compare →</span>
+            </a>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <a class="feedback-fab" href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a>
+
+    <footer class="site-footer">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="footer-logo">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="12" width="20" height="10" rx="1"/><path d="M4 12V6a2 2 0 0 1 2-2h4"/><path d="M14 4h4a2 2 0 0 1 2 2v6"/></svg>
+              <span>Concrete Calculator</span>
+            </a>
+            <p>Free concrete calculators for Australian DIYers and tradies. Calculate volume, bags and costs for concreting projects.</p>
+          </div>
+
+          <nav class="footer-nav">
+            <h4>Calculators</h4>
+            <ul>
+              <li><a href="/project-planner/">Project Planner</a></li>
+              <li><a href="/concrete-slab-calculator/">Slab Calculator</a></li>
+              <li><a href="/post-hole-calculator/">Post Hole Calculator</a></li>
+              <li><a href="/footing-calculator/">Footing Calculator</a></li>
+              <li><a href="/column-calculator/">Column Calculator</a></li>
+              <li><a href="/circular-slab-calculator/">Circular Slab</a></li>
+            </ul>
+          </nav>
+
+          <nav class="footer-nav">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
+              <li><a href="/methodology/">Methodology &amp; Sources</a></li>
+              <li><a href="/about/">About</a></li>
+              <li><a href="/contact/">Contact</a></li>
+              <li><a href="/privacy/">Privacy Policy</a></li>
+              <li><a href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="footer-bottom">
+          <p>&copy; 2026 Concrete Calculator Australia</p>
+          <p class="disclaimer"><strong>Disclaimer:</strong> Quantity results are planning estimates, not structural or engineering advice. Check the selected product's stated yield and obtain local prices or quotes before ordering. See our <a href="/methodology/">methodology and sources</a>.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <script src="/js/calculators.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/project-planner.js"></script>
+</body>
+</html>
