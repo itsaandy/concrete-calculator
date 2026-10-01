@@ -211,12 +211,63 @@ function initWastageSlider(sliderId, valueDisplayId, onChange) {
 
 // ===== RESULTS RENDERING =====
 
+let calculatorInteractionPending = false;
+let lastMeasuredCalculation = '';
+
+function trackCalculatorEvent(name, extra = {}) {
+  if (window.location.pathname.startsWith('/privacy/') || typeof window.gtag !== 'function') return;
+  try {
+    window.gtag('event', name, {
+      calculator_type: window.location.pathname.split('/').filter(Boolean)[0] || 'concrete',
+      page_location: window.location.origin + window.location.pathname,
+      ...extra
+    });
+  } catch (_) {
+    // Measurement must not interrupt the calculator.
+  }
+}
+
+function initCalculatorMeasurement() {
+  const markInteraction = event => {
+    if (event.target.closest('.calculator-section') &&
+        event.target.matches('input[type="number"], input[type="range"], select')) {
+      calculatorInteractionPending = true;
+    }
+  };
+  document.addEventListener('input', markInteraction, true);
+  document.addEventListener('change', markInteraction, true);
+  document.addEventListener('click', event => {
+    if (event.target.closest('.calculator-section') &&
+        event.target.closest('.preset-btn, .toggle-option')) {
+      calculatorInteractionPending = true;
+    }
+  }, true);
+}
+
+function recordCalculatorCompletion(result) {
+  if (!calculatorInteractionPending) return;
+  calculatorInteractionPending = false;
+  const volume = result && (result.results ? result.results.totalVolume : result.totalVolume);
+  if (result && result.valid && Number.isFinite(volume) && volume > 0) {
+    const signature = JSON.stringify(result.results || {
+      totalVolume: result.totalVolume,
+      bags: result.bags,
+      baseVolume: result.baseVolume
+    });
+    // Live calculators may render again on blur or copy without a new result.
+    if (signature === lastMeasuredCalculation) return;
+    lastMeasuredCalculation = signature;
+    trackCalculatorEvent('calculator_complete');
+  }
+}
+
 /**
  * Render results to the results panel
  * @param {Object} result - Calculation result object
  * @param {Object} elements - Object mapping result keys to element IDs
  */
 function renderResults(result, elements) {
+  recordCalculatorCompletion(result);
   if (!result || !result.valid) {
     // Show placeholders
     Object.values(elements).forEach(id => {
@@ -502,6 +553,7 @@ function initStateSelector(selectId, onChange) {
  * @param {Object} elements - Element ID mappings
  */
 function renderComparison(result, elements) {
+  recordCalculatorCompletion(result);
   if (!result || !result.valid) return;
 
   const { results } = result;
@@ -681,6 +733,7 @@ async function copyToClipboard(text, successMessage = 'Copied to clipboard!') {
   try {
     await navigator.clipboard.writeText(text);
     showToast(successMessage);
+    return true;
   } catch (err) {
     // Fallback for older browsers
     const textarea = document.createElement('textarea');
@@ -689,9 +742,16 @@ async function copyToClipboard(text, successMessage = 'Copied to clipboard!') {
     textarea.style.opacity = '0';
     document.body.appendChild(textarea);
     textarea.select();
-    document.execCommand('copy');
-    document.body.removeChild(textarea);
-    showToast(successMessage);
+    let copied = false;
+    try {
+      copied = document.execCommand('copy');
+    } catch (_) {
+      // A denied fallback must not be reported as a successful copy.
+    } finally {
+      document.body.removeChild(textarea);
+    }
+    showToast(copied ? successMessage : 'Unable to copy. Please try again.');
+    return copied;
   }
 }
 
@@ -735,19 +795,23 @@ function initShareButtons(config) {
   const shareBtn = qs('.share-btn--share');
 
   if (copyBtn) {
-    copyBtn.addEventListener('click', () => {
+    copyBtn.addEventListener('click', async () => {
       const resultText = config.getResultText();
       if (resultText) {
-        copyToClipboard(resultText, 'Result copied to clipboard!');
+        if (await copyToClipboard(resultText, 'Result copied to clipboard!')) {
+          trackCalculatorEvent('calculator_copy');
+        }
       }
     });
   }
 
   if (shareBtn) {
-    shareBtn.addEventListener('click', () => {
+    shareBtn.addEventListener('click', async () => {
       const values = config.getValues();
       const shareUrl = buildShareUrl(values);
-      copyToClipboard(shareUrl, 'Link copied to clipboard!');
+      if (await copyToClipboard(shareUrl, 'Link copied to clipboard!')) {
+        trackCalculatorEvent('share', { method: 'copy_link', content_type: 'calculator' });
+      }
     });
   }
 
@@ -988,6 +1052,7 @@ function initFeedbackForm() {
  * Initialize common page elements
  */
 function initCommon() {
+  initCalculatorMeasurement();
   initMobileNav();
   initNavDropdown();
   initFAQAccordion();

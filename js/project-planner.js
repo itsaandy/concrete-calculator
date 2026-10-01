@@ -111,6 +111,7 @@
   function updateResults() {
     const items = readItems();
     const result = calculateProjectTotal(calculationItems(items), Number(allowance.value));
+    recordCalculatorCompletion(result);
     const output = document.getElementById('project-results');
     const empty = document.getElementById('project-results-empty');
 
@@ -217,6 +218,7 @@
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(plannerState()));
       setStatus('Project saved on this device.', false);
+      trackCalculatorEvent('project_save');
     } catch (error) {
       setStatus('This browser did not allow local saving. Use the share link instead.', true);
     }
@@ -238,6 +240,7 @@
     try {
       await navigator.clipboard.writeText(url);
       setStatus('Share link copied. Anyone with the link can see the project name and measurements.', false);
+      trackCalculatorEvent('share', { method: 'copy_link', content_type: 'project' });
     } catch (error) {
       window.prompt('Copy this project link:', url);
     }
@@ -246,6 +249,7 @@
   document.getElementById('print-project').addEventListener('click', () => {
     if (!updateResults()) return setStatus('Complete every pour before printing.', true);
     window.print();
+    trackCalculatorEvent('project_print');
   });
 
   loadInitialState();

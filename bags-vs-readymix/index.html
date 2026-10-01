@@ -390,6 +390,7 @@
         const deliveryFee = parseFloat($('delivery-fee').value) || 0;
 
         if (!volume || volume <= 0) {
+          recordCalculatorCompletion({ valid: false });
           $('bags-quantity').textContent = '--';
           $('bags-weight').textContent = '--';
           $('bags-cost').textContent = '--';
@@ -404,6 +405,11 @@
         $('bags-cost').textContent = bagPrice >= 0 ? money(bags * bagPrice) : 'Enter bag price';
         $('readymix-volume').textContent = volume.toFixed(2) + ' m³';
         $('readymix-cost').textContent = readymixRate >= 0 ? money(volume * readymixRate + deliveryFee) : 'Enter quote';
+        recordCalculatorCompletion({
+          valid: [volume, bagPrice, readymixRate, deliveryFee].every(Number.isFinite) &&
+            bagPrice >= 0 && readymixRate >= 0 && deliveryFee >= 0,
+          results: { totalVolume: volume, bagPrice, readymixRate, deliveryFee }
+        });
       }
 
       fields.forEach(id => $(id).addEventListener('input', debounce(calculate, 100)));
