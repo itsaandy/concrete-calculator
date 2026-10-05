@@ -211,6 +211,55 @@ function initWastageSlider(sliderId, valueDisplayId, onChange) {
 
 // ===== RESULTS RENDERING =====
 
+function encodeProjectState(state) {
+  const bytes = new TextEncoder().encode(JSON.stringify(state));
+  let binary = '';
+  bytes.forEach(byte => { binary += String.fromCharCode(byte); });
+  return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+}
+
+function decodeProjectState(value) {
+  if (value.length > 40000) throw new Error('Project link too large');
+  const base64 = value.replace(/-/g, '+').replace(/_/g, '/');
+  const binary = atob(base64.padEnd(Math.ceil(base64.length / 4) * 4, '='));
+  return JSON.parse(new TextDecoder().decode(Uint8Array.from(binary, c => c.charCodeAt(0))));
+}
+
+function updatePlannerTransfer(result) {
+  const link = document.querySelector('.project-transfer-link');
+  if (!link) return;
+  link.setAttribute('aria-disabled', 'true');
+  link.removeAttribute('href');
+  if (!result || !result.valid || !result.inputs) return;
+  const countInput = document.querySelector('#postCount, #footingCount, #columnCount');
+  if (countInput && (!Number.isInteger(Number(countInput.value)) || Number(countInput.value) < 1)) return;
+  const input = result.inputs;
+  let item;
+  switch (window.location.pathname.replace(/index\.html$/, '')) {
+    case '/concrete-slab-calculator/':
+      item = { label: 'Slab', shape: 'rectangular', length: input.length, width: input.width, depth: input.depth, quantity: 1 };
+      break;
+    case '/footing-calculator/':
+      item = { label: 'Footings', shape: 'rectangular', length: input.length, width: input.width, depth: input.depth, quantity: input.footingCount };
+      break;
+    case '/circular-slab-calculator/':
+      item = { label: 'Circular slab', shape: 'circular', diameter: input.diameter, depth: input.thickness, quantity: 1 };
+      break;
+    case '/column-calculator/':
+      item = { label: 'Columns', shape: input.shape === 'round' ? 'circular' : 'rectangular',
+        diameter: input.diameter, length: input.width, width: input.depth, depth: input.height, quantity: input.columnCount };
+      break;
+    case '/post-hole-calculator/':
+      item = { label: 'Post holes', shape: 'post-hole', diameter: input.holeDiameter, depth: input.holeDepth,
+        quantity: input.postCount, postWidth: input.postWidth, postShape: input.postShape };
+      break;
+    default: return;
+  }
+  if (!calculateProjectItem(item).valid) return;
+  link.href = '/project-planner/#add=' + encodeProjectState({ item, allowance: input.wastage });
+  link.removeAttribute('aria-disabled');
+}
+
 let calculatorInteractionPending = false;
 let lastMeasuredCalculation = '';
 
@@ -268,6 +317,7 @@ function recordCalculatorCompletion(result) {
  */
 function renderResults(result, elements) {
   recordCalculatorCompletion(result);
+  updatePlannerTransfer(result);
   if (!result || !result.valid) {
     // Show placeholders
     Object.values(elements).forEach(id => {
@@ -793,6 +843,17 @@ function buildShareUrl(params) {
 function initShareButtons(config) {
   const copyBtn = qs('.share-btn--copy');
   const shareBtn = qs('.share-btn--share');
+  const plannerLink = qs('.project-transfer-link');
+  if (plannerLink) {
+    plannerLink.addEventListener('click', event => {
+      // Recalculate synchronously so a click cannot transfer stale debounced input.
+      config.getResultText();
+      if (plannerLink.getAttribute('aria-disabled') === 'true') {
+        event.preventDefault();
+        showToast('Enter valid dimensions and a whole-number quantity first.');
+      }
+    });
+  }
 
   if (copyBtn) {
     copyBtn.addEventListener('click', async () => {

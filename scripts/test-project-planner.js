@@ -3,7 +3,8 @@
 const assert = require('node:assert/strict');
 const {
   calculateProjectItem,
-  calculateProjectTotal
+  calculateProjectTotal,
+  calculatePostHole
 } = require('../js/calculators.js');
 
 const slab = calculateProjectItem({
@@ -44,4 +45,23 @@ assert.equal(calculateProjectTotal([
   { shape: 'circular', diameter: 0.3, depth: 0.6, quantity: 1 }
 ], 31).valid, false);
 
-console.log('PASS: project planner calculations and validation');
+// Transfers must subtract posts and apply allowance exactly once.
+for (const postShape of ['round', 'square']) {
+  const input = { holeDiameter: 0.3, holeDepth: 0.6, postWidth: 0.09, postCount: 6, postShape, wastage: 15 };
+  const source = calculatePostHole(input);
+  const transferred = calculateProjectTotal([
+    { shape: 'post-hole', diameter: input.holeDiameter, depth: input.holeDepth,
+      postWidth: input.postWidth, postShape, quantity: input.postCount }
+  ], 15);
+  assert.equal(transferred.valid, true);
+  assert.ok(Math.abs(transferred.totalVolume - source.results.totalVolume) < 1e-12);
+  assert.equal(transferred.bags, source.results.bags);
+}
+for (const bad of [
+  { shape: 'post-hole', diameter: 0.3, depth: 0.6, postWidth: 0.3, postShape: 'round' },
+  { shape: 'post-hole', diameter: 0.3, depth: 0.6, postWidth: 0.25, postShape: 'square' },
+  { shape: 'post-hole', diameter: 0.3, depth: 0.6, postWidth: -0.1 },
+  { shape: 'rectangular', length: 1e200, width: 1e200, depth: 1 }
+]) assert.equal(calculateProjectItem(bad).valid, false);
+assert.equal(calculateProjectTotal([{shape: 'circular', diameter: 1, depth: 1}], NaN).valid, false);
+console.log('PASS: project totals, post displacement, allowance and invalid inputs');

@@ -3,13 +3,16 @@
 <head>
   <meta charset="UTF-8">
 
+  <!-- Google AdSense: maintained interactive planner -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2538773959178920" crossorigin="anonymous"></script>
+
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNWWCK3HP0"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XNWWCK3HP0');
+    gtag('config', 'G-XNWWCK3HP0', { page_location: location.origin + location.pathname });
   </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Plan a concrete job with multiple slabs, footings and circular pours. Total the cubic metres and 20kg bags, then save, share or print the project.">
@@ -74,7 +77,7 @@
   }
   </script>
 </head>
-<body>
+<body class="planner-page">
   <div class="page-wrapper">
     <header class="site-header">
       <div class="header-inner">
@@ -153,7 +156,7 @@
                 <button class="secondary-btn" id="load-project-example" type="button">Load worked example</button>
               </div>
 
-              <p class="project-intro">Add each distinct pour below. Use rectangular for slabs and strip footings, or circular for round slabs, holes and piers. Enter all measurements in metres.</p>
+              <p class="project-intro">Add each distinct pour below, or use “Add to project” on a <a href="/concrete-slab-calculator/">slab</a>, <a href="/footing-calculator/">footing</a>, <a href="/post-hole-calculator/">post hole</a>, <a href="/column-calculator/">column</a> or <a href="/circular-slab-calculator/">circular slab</a> result. Your draft follows you within this tab. Enter all measurements in metres.</p>
 
               <div id="project-items" class="project-items"></div>
 
@@ -177,6 +180,7 @@
                         <select class="form-input form-select" data-field="shape">
                           <option value="rectangular">Rectangular</option>
                           <option value="circular">Circular</option>
+                          <option value="post-hole">Post hole (subtract post)</option>
                         </select>
                       </label>
                     </div>
@@ -202,6 +206,19 @@
                       </div>
                     </div>
 
+                    <div class="project-item__dimensions" data-fields="post-hole" hidden>
+                      <div class="form-group">
+                        <label class="form-label">Post width / diameter
+                          <span class="input-wrapper"><input class="form-input form-input--with-suffix" data-field="postWidth" type="number" min="0" step="any" inputmode="decimal" value="0"><span class="input-suffix">m</span></span>
+                        </label>
+                      </div>
+                      <div class="form-group">
+                        <label class="form-label">Post shape
+                          <select class="form-input form-select" data-field="postShape"><option value="square">Square</option><option value="round">Round</option></select>
+                        </label>
+                      </div>
+                    </div>
+
                     <div class="form-group">
                       <label class="form-label">Depth / thickness
                         <span class="input-wrapper"><input class="form-input form-input--with-suffix" data-field="depth" type="number" min="0" step="any" inputmode="decimal" placeholder="0.1"><span class="input-suffix">m</span></span>
@@ -220,19 +237,20 @@
                 <button class="primary-btn" id="add-project-item" type="button">+ Add another pour</button>
                 <div class="form-group project-allowance-field">
                   <label class="form-label" for="project-allowance">Project allowance</label>
-                  <select class="form-input form-select" id="project-allowance">
-                    <option value="0">0%</option>
-                    <option value="5">5%</option>
-                    <option value="10" selected>10%</option>
-                    <option value="15">15%</option>
-                    <option value="20">20%</option>
-                  </select>
+                  <div class="input-wrapper"><input class="form-input form-input--with-suffix" id="project-allowance" type="number" min="0" max="30" step="any" inputmode="decimal" value="10"><span class="input-suffix">%</span></div>
                 </div>
               </div>
 
               <div class="project-summary" aria-live="polite">
                 <p id="project-results-empty" class="project-summary__empty">Complete every required measurement to see the project total.</p>
                 <div id="project-results" hidden>
+                  <section class="order-summary" aria-labelledby="order-project-name">
+                    <h2 id="order-project-name">Concrete project</h2>
+                    <p>Pour list for checking measurements and requesting a supplier quote.</p>
+                    <div class="order-summary-scroll" role="region" aria-label="Pour quantities">
+                      <table><caption>Measured quantities before allowance</caption><thead><tr><th scope="col">Pour</th><th scope="col">Measurements</th><th scope="col">Qty</th><th scope="col">Volume</th></tr></thead><tbody id="order-summary-rows"></tbody></table>
+                    </div>
+                  </section>
                   <div class="project-summary__grid">
                     <div><span>Measured volume</span><strong id="project-base-volume">0.000 m³</strong></div>
                     <div><span><span id="project-result-allowance">10</span>% allowance</span><strong id="project-allowance-volume">0.000 m³</strong></div>
@@ -240,6 +258,7 @@
                     <div><span>Estimated 20 kg bags</span><strong id="project-bags">0</strong></div>
                   </div>
                   <p class="project-summary__note">Bag count uses 108 × the planning quantity and rounds up. Check the yield printed on the exact product before buying.</p>
+                  <p class="project-summary__note">Before ordering, confirm the concrete specification, delivery date, site access, supplier minimum load and any delivery or pump charges. This quantity estimate is not an order or a structural design.</p>
                   <a class="project-summary__link" id="project-compare-link" href="/bags-vs-readymix/">Compare bags with your ready-mix quote →</a>
                 </div>
               </div>
@@ -248,10 +267,12 @@
                 <button class="secondary-btn" id="save-project" type="button">Save on this device</button>
                 <button class="secondary-btn" id="load-project" type="button">Load saved project</button>
                 <button class="secondary-btn" id="share-project" type="button">Copy share link</button>
+                <button class="secondary-btn" id="copy-project-summary" type="button">Copy supplier summary</button>
                 <button class="secondary-btn" id="print-project" type="button">Print summary</button>
+                <button class="secondary-btn" id="new-project" type="button">Start new project</button>
               </div>
               <p class="project-status" id="project-status" role="status" aria-live="polite"></p>
-              <p class="project-privacy">Saving uses this browser only. A share link contains the project name and measurements in the URL; only send it to people you trust.</p>
+              <p class="project-privacy">The draft stays in this tab. “Save on this device” keeps a copy in this browser for later. A share link contains the project name and measurements; only send it to people you trust.</p>
             </div>
           </div>
         </section>
@@ -266,6 +287,7 @@
 
           <h3>How each shape is calculated</h3>
           <p>Rectangular pours use length × width × depth. Circular pours use π × radius² × depth. Quantity multiplies that result for repeated identical pours. The planner sums the measured volumes before applying the selected project allowance.</p>
+          <p>For post holes, the planner subtracts the round or square post volume over the entered hole depth, using the same formula as the post-hole calculator. Transferring a calculation carries its measurements and quantity, before allowance. When adding it to a draft, the draft's allowance applies to the whole job; allowances are never stacked.</p>
 
           <h3>What saving and sharing do</h3>
           <p>“Save on this device” stores the project locally in your current browser. “Copy share link” places the project values in the link itself, so another person can review the same list without an account or server upload. Printing produces a compact job summary for checking measurements or discussing an order.</p>

@@ -1807,6 +1807,7 @@ details[open] .faq-question svg {
 /* ===== MULTI-POUR PROJECT PLANNER ===== */
 .project-planner .calculator-body {
   display: grid;
+  grid-template-columns: minmax(0, 1fr);
   gap: var(--space-6);
 }
 
@@ -2062,8 +2063,58 @@ details[open] .faq-question svg {
   }
 }
 
+/* ===== PLANNER TRANSFERS AND SUPPLIER SUMMARY ===== */
+.project-transfer-link {
+  display: flex;
+  justify-content: center;
+  padding: var(--space-3);
+  margin-top: var(--space-4);
+  border: 1px solid currentColor;
+  border-radius: var(--radius-md);
+  color: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  min-height: 44px;
+}
+.project-transfer-link[aria-disabled="true"] { opacity: 0.65; cursor: not-allowed; }
+.order-summary { margin-bottom: var(--space-5); }
+.order-summary h2 { color: inherit; overflow-wrap: anywhere; }
+.order-summary-scroll { overflow-x: auto; }
+.order-summary table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+.order-summary caption { text-align: left; padding: var(--space-2) 0; }
+.order-summary th, .order-summary td {
+  text-align: left;
+  padding: var(--space-2);
+  border-bottom: 1px solid currentColor;
+  overflow-wrap: anywhere;
+}
+.order-summary th { white-space: nowrap; }
+.order-summary td:first-child { min-width: 6rem; max-width: 12rem; }
+.order-summary td:nth-child(2) { min-width: 10rem; }
+.order-summary td:last-child { white-space: nowrap; }
+
+@media screen and (max-width: 600px) {
+  .order-summary table, .order-summary caption, .order-summary tbody { display: block; }
+  .order-summary thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .order-summary tr { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); padding: var(--space-3) 0; border-bottom: 1px solid currentColor; }
+  .order-summary td { display: block; border: 0; min-width: 0 !important; max-width: none !important; padding: var(--space-2) 0; }
+  .order-summary td:first-child, .order-summary td:nth-child(2) { grid-column: 1 / -1; }
+  .order-summary td::before { content: attr(data-label); display: block; font-size: 0.8rem; font-weight: 600; }
+}
+
 /* ===== PRINT STYLES ===== */
 @media print {
+  .planner-page .hero,
+  .planner-page .breadcrumbs,
+  .planner-page .content-article,
+  .planner-page .calculator-header,
+  .planner-page .project-items,
+  .planner-page .adsbygoogle,
+  .planner-page ins,
+  .planner-page iframe { display: none !important; }
+  .planner-page .order-summary-scroll { overflow: visible; }
+  .planner-page .order-summary tr { break-inside: avoid; }
+  .project-transfer-link { display: none; }
   .site-header,
   .site-footer,
   .feedback-fab,

@@ -7,20 +7,13 @@
 - Shared logic: `js/calculators.js` and `js/ui.js`.
 - Shared presentation: `css/styles.css`.
 - Core pages: homepage plus slab, post-hole, footing, column, circular-slab, and bags-vs-ready-mix tools.
-- Long-tail definitions: `scripts/long-tail-data.json`.
-- Long-tail renderer: `scripts/generate-long-tail.js`.
+- Legacy redirect map: `scripts/long-tail-data.json`.
+- Redirect generator: `scripts/generate-long-tail.js`; `--check` validates exact output without writing.
+- Planner: `js/project-planner.js`; shared transfer encoding in `js/ui.js`. Post-hole rows reuse the existing post-hole formula with zero item allowance. Apply allowance once to the project.
 
-## Generator hazard
+## Legacy routes
 
-Generated HTML has received manual SEO edits after generation. The renderer is therefore not automatically the current source of truth. Running it can overwrite good copy and stamp every sitemap URL with today's date.
-
-When changing generated pages:
-
-1. Identify whether the page is represented in `long-tail-data.json`.
-2. Preserve the current page's intentional metadata, copy, schema, and links in the data/template or explain why the output should change.
-3. Generate only in an isolated worktree or snapshot when practical.
-4. Review every generated HTML and sitemap diff before accepting it.
-5. Revert unrelated regeneration churn; never present it as fresh content.
+The 28 former worked examples are now instant HTML redirects to relevant tools. GitHub Pages cannot configure HTTP 301 rules; Google treats zero-delay meta refresh as permanent. Keep fallback links and destination canonicals, omit all scripts and tags, and exclude these routes from the sitemap. The generator cannot restore articles or change sitemap dates. Review every mapping change for relevance and avoid redirect chains.
 
 ## SEO contract
 

@@ -40,7 +40,7 @@
     </header>
     <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><ol class="breadcrumb-list"><li><a href="/">Home</a></li><li>Calculation Methodology & Sources</li></ol></nav></div>
     <section class="hero"><div class="container"><h1>Calculation Methodology & Sources</h1><p>The formulas, assumptions, rounding rules and sources behind every ConcreteCalc result.</p></div></section>
-    <main class="main-content"><div class="container"><article class="content-article privacy-content"><p><strong>Last reviewed:</strong> 17 September 2026</p>
+    <main class="main-content"><div class="container"><article class="content-article privacy-content"><p><strong>Last reviewed:</strong> 5 October 2026</p>
     <h2>Unit conversion</h2>
     <p>All calculations use metres internally. Millimetres are divided by 1,000. The resulting volume is shown in cubic metres (m³), where 1m³ equals 1,000 litres.</p>
     <h2>Geometric formulas</h2>
@@ -48,6 +48,7 @@
     <p>Repeated identical items multiply the single-item volume by the count. Different sizes should be calculated separately and added.</p>
     <h2>Multi-pour project totals</h2>
     <p>The <a href="/project-planner/">project planner</a> calculates each rectangular or circular item independently, multiplies repeated identical items by their quantity, and sums those measured volumes. It then applies one user-selected allowance to the combined volume. The planner does not add a hidden allowance to individual rows.</p>
+    <p>Post-hole rows reuse the post-hole calculator's subtraction of post volume. “Add to project” transfers measurements in metres, the shape and quantity before allowance. The first imported pour sets the allowance for a new project; adding to an existing draft keeps that draft's allowance. The summary lists measured volumes separately from the project allowance, so nothing is counted twice.</p>
     <h2>Allowance</h2>
     <p>The selected allowance is applied as volume × (1 + allowance ÷ 100). Ten per cent is the interface default, not a mandatory construction rule. Set it to zero when no allowance is wanted, or choose a value appropriate to the accuracy of the measurements and excavation.</p>
     <h2>20kg bag conversion and rounding</h2>

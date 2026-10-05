@@ -32,12 +32,12 @@ MONETISED_PAGES = {
     "column-calculator/index.html",
     "circular-slab-calculator/index.html",
     "bags-vs-readymix/index.html",
+    "project-planner/index.html",
 }
 AD_FREE_INDEXED_PAGES = {
     "about/index.html",
     "contact/index.html",
     "methodology/index.html",
-    "project-planner/index.html",
     PRIVACY_PAGE,
 }
 PRIVACY_FORBIDDEN_MARKERS = (
@@ -66,6 +66,7 @@ class PageParser(HTMLParser):
         self.descriptions: list[str] = []
         self.canonicals: list[str] = []
         self.robots: list[str] = []
+        self.refreshes: list[str] = []
         self.links: list[str] = []
         self.json_ld: list[str] = []
         self._in_head = False
@@ -88,6 +89,8 @@ class PageParser(HTMLParser):
             self.descriptions.append(values.get("content", "").strip())
         elif tag == "meta" and values.get("name", "").lower() == "robots":
             self.robots.append(values.get("content", "").strip().lower())
+        elif tag == "meta" and values.get("http-equiv", "").lower() == "refresh":
+            self.refreshes.append(values.get("content", ""))
         elif tag == "link" and "canonical" in values.get("rel", "").lower().split():
             self.canonicals.append(values.get("href", "").strip())
         elif tag == "script" and values.get("type", "").lower() == "application/ld+json":
@@ -181,6 +184,11 @@ def main() -> int:
     title_to_pages: dict[str, list[str]] = defaultdict(list)
     indexable_canonicals: set[str] = set()
     noindex_canonicals: set[str] = set()
+    redirects = json.loads((root / "scripts/long-tail-data.json").read_text())
+    redirect_files = {slug + "/index.html": target for slug, target in redirects.items()}
+    for relative in redirect_files:
+        if not (root / relative).is_file():
+            errors.append(f"{relative}: missing legacy redirect")
 
     for page in pages:
         relative = page.relative_to(root).as_posix()
@@ -188,6 +196,25 @@ def main() -> int:
         source_lower = source.lower()
         parser = PageParser()
         parser.feed(source)
+
+        if relative in redirect_files:
+            target = redirect_files[relative]
+            if parser.refreshes != ["0; url=" + DOMAIN + target]:
+                errors.append(f"{relative}: expected instant redirect to {target}")
+            if parser.canonicals != [DOMAIN + target.split("?")[0]]:
+                errors.append(f"{relative}: redirect canonical must match destination")
+            if "<script" in source_lower or GA_ID in source or ADSENSE_ID in source:
+                errors.append(f"{relative}: redirect must be script-, tracking- and ad-free")
+            if parser.robots:
+                errors.append(f"{relative}: do not mix noindex with permanent redirect signals")
+            destination = local_target(root, page, target)
+            if destination is None or not destination.exists() or destination.relative_to(root).as_posix() in redirect_files:
+                errors.append(f"{relative}: destination missing or creates a redirect chain")
+            if target not in parser.links:
+                errors.append(f"{relative}: missing fallback link")
+            continue
+        elif parser.refreshes:
+            errors.append(f"{relative}: unexpected redirect on a maintained page")
 
         feedback_count = source.count(FEEDBACK_LINK)
         if feedback_count != 1:

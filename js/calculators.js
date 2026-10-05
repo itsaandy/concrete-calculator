@@ -624,7 +624,7 @@ function compareBagsVsReadymix({ volume, state = null, bagPrice = null }) {
  * @param {Object} item - Project item values in metres
  * @returns {Object} Calculation result
  */
-function calculateProjectItem({ shape, length = 0, width = 0, diameter = 0, depth = 0, quantity = 1 }) {
+function calculateProjectItem({ shape, length = 0, width = 0, diameter = 0, depth = 0, quantity = 1, postWidth = 0, postShape = 'square' }) {
   const count = Number(quantity);
   const itemDepth = Number(depth);
 
@@ -636,12 +636,24 @@ function calculateProjectItem({ shape, length = 0, width = 0, diameter = 0, dept
   }
 
   let volumeEach;
-  if (shape === 'circular') {
+  if (shape === 'circular' || shape === 'post-hole') {
     const itemDiameter = Number(diameter);
     if (!Number.isFinite(itemDiameter) || itemDiameter <= 0) {
       return { valid: false, error: 'Enter a positive diameter.' };
     }
     volumeEach = CONSTANTS.PI * Math.pow(itemDiameter / 2, 2) * itemDepth;
+    if (shape === 'post-hole') {
+      const size = Number(postWidth);
+      if (!Number.isFinite(size) || size < 0 || !['round', 'square'].includes(postShape) ||
+          size * (postShape === 'square' ? Math.SQRT2 : 1) >= itemDiameter) {
+        return { valid: false, error: 'Enter a post size that fits inside the hole (or zero for no post).' };
+      }
+      // Reuse the single-pour calculator, with no allowance at item level.
+      volumeEach = calculatePostHole({
+        holeDiameter: itemDiameter, holeDepth: itemDepth,
+        postWidth: size, postShape, postCount: 1, wastage: 0
+      }).results.baseVolume;
+    }
   } else if (shape === 'rectangular') {
     const itemLength = Number(length);
     const itemWidth = Number(width);
@@ -654,6 +666,9 @@ function calculateProjectItem({ shape, length = 0, width = 0, diameter = 0, dept
     return { valid: false, error: 'Choose a supported pour shape.' };
   }
 
+  if (!Number.isFinite(volumeEach * count) || volumeEach * count <= 0) {
+    return { valid: false, error: 'Enter measurements that produce a finite positive volume.' };
+  }
   return {
     valid: true,
     volumeEach,
@@ -690,6 +705,9 @@ function calculateProjectTotal(items, wastage = CONSTANTS.DEFAULT_WASTAGE) {
   const baseVolume = calculatedItems.reduce((sum, result) => sum + result.baseVolume, 0);
   const totalVolume = applyWastage(baseVolume, allowance);
 
+  if (!Number.isFinite(totalVolume) || !Number.isFinite(calculateBags(totalVolume))) {
+    return { valid: false, error: 'The project total is too large. Check the measurements.' };
+  }
   return {
     valid: true,
     calculatedItems,

@@ -2,6 +2,7 @@
   'use strict';
 
   const STORAGE_KEY = 'concretecalc-project-planner-v1';
+  const DRAFT_KEY = 'concretecalc-project-draft-v1';
   const MAX_ITEMS = 20;
   const list = document.getElementById('project-items');
   const template = document.getElementById('project-item-template');
@@ -11,7 +12,7 @@
 
   if (!list || !template || !allowance || !projectName || !status) return;
 
-  const fields = ['label', 'shape', 'length', 'width', 'diameter', 'depth', 'quantity'];
+  const fields = ['label', 'shape', 'length', 'width', 'diameter', 'depth', 'quantity', 'postWidth', 'postShape'];
 
   function blankItem() {
     return {
@@ -21,7 +22,9 @@
       width: '',
       diameter: '',
       depth: '',
-      quantity: '1'
+      quantity: '1',
+      postWidth: '0',
+      postShape: 'square'
     };
   }
 
@@ -30,7 +33,8 @@
     fields.forEach(field => {
       if (item && item[field] !== undefined) clean[field] = String(item[field]).slice(0, 80);
     });
-    clean.shape = clean.shape === 'circular' ? 'circular' : 'rectangular';
+    clean.shape = ['circular', 'post-hole'].includes(clean.shape) ? clean.shape : 'rectangular';
+    clean.postShape = clean.postShape === 'round' ? 'round' : 'square';
     return clean;
   }
 
@@ -42,7 +46,8 @@
   function updateShapeFields(row) {
     const shape = row.querySelector('[data-field="shape"]').value;
     row.querySelector('[data-fields="rectangular"]').hidden = shape !== 'rectangular';
-    row.querySelector('[data-fields="circular"]').hidden = shape !== 'circular';
+    row.querySelector('[data-fields="circular"]').hidden = shape === 'rectangular';
+    row.querySelector('[data-fields="post-hole"]').hidden = shape !== 'post-hole';
   }
 
   function addItem(item = blankItem(), focus = false) {
@@ -97,7 +102,9 @@
       width: Number(item.width),
       diameter: Number(item.diameter),
       depth: Number(item.depth),
-      quantity: Number(item.quantity)
+      quantity: Number(item.quantity),
+      postWidth: Number(item.postWidth),
+      postShape: item.postShape
     }));
   }
 
@@ -110,7 +117,13 @@
 
   function updateResults() {
     const items = readItems();
-    const result = calculateProjectTotal(calculationItems(items), Number(allowance.value));
+    try {
+      sessionStorage.setItem(DRAFT_KEY, JSON.stringify(plannerState()));
+    } catch (_) { /* Explicit save and share remain available if tab storage is blocked. */ }
+    if (new URLSearchParams(location.hash.slice(1)).has('project')) {
+      history.replaceState(null, '', '#project=' + encodedState());
+    }
+    const result = calculateProjectTotal(calculationItems(items), allowance.value === '' ? NaN : Number(allowance.value));
     recordCalculatorCompletion(result);
     const output = document.getElementById('project-results');
     const empty = document.getElementById('project-results-empty');
@@ -141,6 +154,7 @@
     document.getElementById('project-result-allowance').textContent = allowance.value;
     document.getElementById('project-compare-link').href =
       `/bags-vs-readymix/?v=${encodeURIComponent(result.totalVolume.toFixed(3))}`;
+    renderOrderSummary(items, result);
     empty.hidden = true;
     output.hidden = false;
     return result;
@@ -150,36 +164,98 @@
     list.replaceChildren();
     projectName.value = state && state.name ? String(state.name).slice(0, 80) : '';
     const allowanceValue = state && Number(state.allowance);
-    allowance.value = [0, 5, 10, 15, 20].includes(allowanceValue) ? String(allowanceValue) : '10';
+    allowance.value = Number.isFinite(allowanceValue) && allowanceValue >= 0 && allowanceValue <= 30 ? String(allowanceValue) : '10';
     const items = state && Array.isArray(state.items) ? state.items.slice(0, MAX_ITEMS) : [];
     (items.length ? items : [blankItem()]).forEach(item => addItem(item));
     updateResults();
   }
 
   function encodedState() {
-    const json = JSON.stringify(plannerState());
-    const bytes = new TextEncoder().encode(json);
-    let binary = '';
-    bytes.forEach(byte => { binary += String.fromCharCode(byte); });
-    return btoa(binary).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+    return encodeProjectState(plannerState());
   }
 
-  function decodedState(value) {
-    const base64 = value.replace(/-/g, '+').replace(/_/g, '/');
-    const binary = atob(base64.padEnd(Math.ceil(base64.length / 4) * 4, '='));
-    const bytes = Uint8Array.from(binary, character => character.charCodeAt(0));
-    return JSON.parse(new TextDecoder().decode(bytes));
+  function dimensionsText(item) {
+    if (item.shape === 'rectangular') return `${item.length} × ${item.width} × ${item.depth} m`;
+    const hole = `Ø ${item.diameter} × ${item.depth} m deep`;
+    return item.shape === 'post-hole'
+      ? `${hole}; subtract ${item.postWidth} m ${item.postShape} post`
+      : hole;
+  }
+
+  function renderOrderSummary(items, result) {
+    document.getElementById('order-project-name').textContent = projectName.value.trim() || 'Concrete project';
+    const rows = document.getElementById('order-summary-rows');
+    rows.replaceChildren();
+    items.forEach((item, index) => {
+      const row = document.createElement('tr');
+      [item.label || `Pour ${index + 1}`, dimensionsText(item), item.quantity,
+        `${formatVolume(result.calculatedItems[index].baseVolume)} m³`].forEach((value, column) => {
+        const cell = document.createElement('td');
+        cell.dataset.label = ['Pour', 'Measurements', 'Quantity', 'Volume'][column];
+        cell.textContent = value;
+        row.appendChild(cell);
+      });
+      rows.appendChild(row);
+    });
+  }
+
+  function orderSummaryText(result) {
+    const items = readItems();
+    return [
+      projectName.value.trim() || 'Concrete project',
+      ...items.map((item, index) => `${item.label || 'Pour ' + (index + 1)}: ${dimensionsText(item)} × ${item.quantity} = ${formatVolume(result.calculatedItems[index].baseVolume)} m³`),
+      `Measured volume: ${formatVolume(result.baseVolume)} m³`,
+      `Allowance (${allowance.value}%): ${formatVolume(result.wastageVolume)} m³`,
+      `Planning quantity: ${formatVolume(result.totalVolume)} m³`,
+      `Estimated 20 kg bags: ${result.bags} (108 bags/m³; check product yield)`,
+      'For a supplier quote: confirm concrete specification, delivery date, access, minimum load, delivery/pump charges and final quantity.',
+      'Quantity estimate only; not an order or structural design. https://concretecalc.com.au/methodology/'
+    ].join('\n');
+  }
+
+  function tabDraft() {
+    try { return JSON.parse(sessionStorage.getItem(DRAFT_KEY)); }
+    catch (_) { return null; }
   }
 
   function loadInitialState() {
-    const hash = new URLSearchParams(window.location.hash.slice(1)).get('project');
-    if (!hash) return renderState(null);
+    const params = new URLSearchParams(window.location.hash.slice(1));
+    const hash = params.get('project');
     try {
-      renderState(decodedState(hash));
-      setStatus('Shared project loaded. Review every measurement before ordering.', false);
+      if (params.has('add')) {
+        const incoming = decodeProjectState(params.get('add'));
+        if (!incoming.item || !calculateProjectItem(incoming.item).valid) throw new Error('Invalid pour');
+        const draft = tabDraft();
+        const items = draft && Array.isArray(draft.items) ? draft.items : [];
+        // Discard only the untouched blank row, never an incomplete user pour.
+        const empty = items.length === 1 && !items[0].label &&
+          !items[0].length && !items[0].width && !items[0].diameter && !items[0].depth;
+        const existing = empty ? [] : items;
+        if (existing.length >= MAX_ITEMS) {
+          renderState(draft);
+          history.replaceState(null, '', '#project=' + encodedState());
+          setStatus('This project already has 20 pours. Remove one, then return to the calculator to add this pour.', true);
+          return;
+        }
+        renderState({
+          name: draft && draft.name,
+          allowance: existing.length ? draft.allowance : incoming.allowance,
+          items: [...existing, incoming.item]
+        });
+        // Replace the add action with a snapshot so refresh cannot duplicate it.
+        history.replaceState(null, '', '#project=' + encodedState());
+        setStatus('Calculation added. The project allowance is applied once to the combined measured volume. Save to keep this project beyond this tab.', false);
+      } else if (hash) {
+        renderState(decodeProjectState(hash));
+        setStatus('Shared project loaded. Review every measurement before ordering.', false);
+      } else {
+        const draft = tabDraft();
+        renderState(draft);
+        if (draft) setStatus('Resumed your draft in this tab. Save on this device to keep it for later.', false);
+      }
     } catch (error) {
-      renderState(null);
-      setStatus('The shared project link could not be read, so a blank project was opened.', true);
+      renderState(tabDraft());
+      setStatus('The project link could not be read. Your existing tab draft has been kept if available.', true);
     }
   }
 
@@ -196,7 +272,15 @@
     updateResults();
   });
 
+  allowance.addEventListener('input', updateResults);
   allowance.addEventListener('change', updateResults);
+  projectName.addEventListener('input', updateResults);
+  document.getElementById('new-project').addEventListener('click', () => {
+    if (!window.confirm('Clear this tab’s draft and start a new project? Your saved project will remain available.')) return;
+    history.replaceState(null, '', window.location.pathname);
+    renderState(null);
+    setStatus('New project started.', false);
+  });
   document.getElementById('add-project-item').addEventListener('click', () => {
     addItem(blankItem(), true);
     updateResults();
@@ -252,5 +336,17 @@
     trackCalculatorEvent('project_print');
   });
 
+  document.getElementById('copy-project-summary').addEventListener('click', async () => {
+    const result = updateResults();
+    if (!result) return setStatus('Complete every pour before copying the summary.', true);
+    if (await copyToClipboard(orderSummaryText(result), 'Project summary copied')) {
+      setStatus('Summary copied. Paste it into an email or message to your supplier.', false);
+      trackCalculatorEvent('calculator_copy');
+    } else {
+      setStatus('Copy was blocked by this browser. Use Print summary instead.', true);
+    }
+  });
+
+  window.addEventListener('hashchange', loadInitialState);
   loadInitialState();
 })();
