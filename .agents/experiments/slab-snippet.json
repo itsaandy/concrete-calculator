@@ -1,0 +1,58 @@
+{
+  "status": "prepared_not_applied",
+  "prepared_on": "2026-10-20",
+  "route": "/concrete-slab-calculator/",
+  "source_commit": "34710a44d3b1c6de2beb4014a17f33daf7e43be1",
+  "patch": ".agents/experiments/slab-snippet.patch",
+  "earliest_rollout": "2026-11-03",
+  "suggested_review_from": "2026-11-05",
+  "timing": "The 5 October calculator-to-planner change needs its 28-day observation window through 2 November. Review finalized GSC data through 2 November before deciding to apply this proposal. No rollout or reminder is scheduled.",
+  "hypothesis": "Explicit m³ and 20kg bag outputs, with a clear bag-material-only cost description, may improve search intent matching. Current metadata already describes dimensions and bags, so improvement is unproven.",
+  "scope": "Title, meta description, matching Open Graph fields, visible introduction and WebApplication description. This is a combined snippet/content test, not an isolated title experiment. No formulas, prices, yields, canonicals, H1 or tracking changes.",
+  "evidence": {
+    "source": "Finalized Google Search Console web search, page dimension; GA4 event report",
+    "gsc_previous": {
+      "start": "2026-08-23",
+      "end": "2026-09-19",
+      "clicks": 8,
+      "impressions": 1785,
+      "average_position_rounded": 12.11
+    },
+    "gsc_latest": {
+      "start": "2026-09-20",
+      "end": "2026-10-17",
+      "clicks": 7,
+      "impressions": 2698,
+      "average_position_rounded": 9.04
+    },
+    "ga4": {
+      "start": "2026-10-02",
+      "end": "2026-10-17",
+      "distinct_calculator_users": 60,
+      "calculator_complete_events": 361,
+      "page_users": 87
+    },
+    "limitations": "Click counts are small; average position and query mix changed. Event counts are repeated interactions, not people. Initial evidence is a hypothesis, not a causal diagnosis."
+  },
+  "apply_after_review": [
+    "Follow AGENTS.md and the site growth skill; start clean and current on main.",
+    "Refresh the finalized 28-day baseline, recent changes and indexing evidence. Keep this unapplied if evidence no longer supports it.",
+    "Run: git apply --check .agents/experiments/slab-snippet.patch",
+    "Run: git apply .agents/experiments/slab-snippet.patch",
+    "Update only the slab URL's sitemap lastmod to the actual rollout date.",
+    "Run every required validation command and desktop/mobile slab and privacy checks before committing and pushing.",
+    "Record the actual deployment date and mark this proposal applied in the same commit."
+  ],
+  "evaluation": [
+    "Record the first observed Google recrawl after deployment; Google may rewrite titles and snippets.",
+    "Compare 28 complete post-recrawl days with the refreshed 28-day baseline. Allow GSC finalization delay.",
+    "Review clicks, impressions, CTR and average position together; use comparable query/device/country slices only where rows and sample sizes are sufficient.",
+    "Check organic landing sessions, distinct calculation users and sessions with calculator_complete rather than treating raw events as conversions.",
+    "Avoid retuning during the observation window except for a correctness, indexing, accessibility or clear regression fix.",
+    "Treat inconclusive results as inconclusive; this before/after comparison is not a randomized experiment."
+  ],
+  "sources": [
+    "https://developers.google.com/search/docs/appearance/title-link",
+    "https://developers.google.com/search/docs/appearance/snippet"
+  ]
+}

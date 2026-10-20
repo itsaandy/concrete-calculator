@@ -1,0 +1,45 @@
+--- a/concrete-slab-calculator/index.html
++++ b/concrete-slab-calculator/index.html
+@@ -16,12 +16,12 @@
+     gtag('config', 'G-XNWWCK3HP0');
+   </script>
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+-  <meta name="description" content="Free concrete slab calculator for Australia. Enter length, width and thickness to estimate cubic metres, 20kg bags and cost for your slab.">
++  <meta name="description" content="Enter length, width and thickness for slab volume in m³, 20kg bag count and estimated bag material cost. Excludes labour and installation costs.">
+   <meta name="keywords" content="concrete slab calculator, concrete calculator Australia, shed slab calculator, driveway concrete calculator, patio slab calculator">
+   <meta name="author" content="Concrete Calculator Australia">
+   <meta name="robots" content="index, follow">
+
+-  <title>Concrete Slab Calculator Australia | Volume, Bags &amp; Cost</title>
++  <title>Concrete Slab Calculator Australia | m³ &amp; 20kg Bags</title>
+
+   <!-- Canonical -->
+   <link rel="canonical" href="https://concretecalc.com.au/concrete-slab-calculator/">
+@@ -29,8 +29,8 @@
+   <link rel="alternate" hreflang="x-default" href="https://concretecalc.com.au/concrete-slab-calculator/">
+
+   <!-- Open Graph -->
+-  <meta property="og:title" content="Concrete Slab Calculator Australia | Volume, Bags &amp; Cost">
+-  <meta property="og:description" content="Enter length, width and thickness to estimate cubic metres, 20kg bags and cost for your concrete slab.">
++  <meta property="og:title" content="Concrete Slab Calculator Australia | m³ &amp; 20kg Bags">
++  <meta property="og:description" content="Enter length, width and thickness for slab volume in m³, 20kg bag count and estimated bag material cost. Excludes labour and installation costs.">
+   <meta property="og:type" content="website">
+   <meta property="og:url" content="https://concretecalc.com.au/concrete-slab-calculator/">
+   <meta property="og:locale" content="en_AU">
+@@ -55,7 +55,7 @@
+     "@context": "https://schema.org",
+     "@type": "WebApplication",
+     "name": "Concrete Slab Calculator",
+-    "description": "Calculate concrete volume, bags, and costs for rectangular slabs including sheds, driveways, patios, and garages.",
++    "description": "Estimate concrete volume, 20kg bags and bag material cost for rectangular slabs.",
+     "url": "https://concretecalc.com.au/concrete-slab-calculator/",
+     "applicationCategory": "UtilityApplication",
+     "operatingSystem": "Any",
+@@ -157,6 +157,6 @@
+     <section class="hero">
+       <div class="container">
+         <h1>Concrete Slab Calculator</h1>
+-        <p>Calculate exactly how much concrete you need for sheds, driveways, patios, garages, and paths. Get instant results with cost estimates.</p>
++        <p>Enter the length, width and thickness of your slab to estimate concrete volume in cubic metres, 20kg bags and bag material cost. Labour and installation costs are excluded.</p>
+       </div>
+     </section>
