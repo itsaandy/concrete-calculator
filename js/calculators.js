@@ -217,11 +217,18 @@ function calculatePostHole({
   wastage = CONSTANTS.DEFAULT_WASTAGE
 }) {
   // Validate inputs
-  if (!holeDiameter || !holeDepth || holeDiameter <= 0 || holeDepth <= 0 || postCount < 1) {
+  if (![holeDiameter, holeDepth, postWidth, postCount, wastage].every(Number.isFinite) ||
+      holeDiameter <= 0 || holeDepth <= 0 || postWidth < 0 ||
+      !Number.isInteger(postCount) || postCount < 1 || wastage < 0 || wastage > 30) {
     return {
       valid: false,
-      error: 'Please enter valid positive dimensions'
+      error: 'Enter positive hole dimensions, a non-negative post size, a whole-number count of at least one and an allowance from 0% to 30%.'
     };
+  }
+
+  if (!['round', 'square'].includes(postShape) ||
+      postWidth * (postShape === 'square' ? Math.SQRT2 : 1) >= holeDiameter) {
+    return { valid: false, error: 'The post must fit inside the hole. Check its width or diameter.' };
   }
 
   const holeRadius = holeDiameter / 2;
@@ -251,6 +258,9 @@ function calculatePostHole({
   const totalVolume = applyWastage(baseVolume, wastage);
 
   // Calculate bags and costs
+  if (!Number.isFinite(totalVolume) || !Number.isSafeInteger(Math.ceil(totalVolume * CONSTANTS.BAGS_PER_CUBIC_METRE))) {
+    return { valid: false, error: 'The result is too large. Check the measurements and number of posts.' };
+  }
   const bags = calculateBags(totalVolume);
   const bagCost = calculateBagCost(bags);
   const readymixCost = calculateReadymixCost(totalVolume);

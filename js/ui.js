@@ -318,6 +318,18 @@ function recordCalculatorCompletion(result) {
 function renderResults(result, elements) {
   recordCalculatorCompletion(result);
   updatePlannerTransfer(result);
+  const panel = elements.volume && $(elements.volume) && $(elements.volume).closest('.results-panel');
+  if (panel) {
+    let message = panel.querySelector('.calculation-error');
+    if (!message) {
+      message = document.createElement('p');
+      message.className = 'calculation-error';
+      message.setAttribute('role', 'status');
+      panel.prepend(message);
+    }
+    message.hidden = Boolean(result && result.valid);
+    message.textContent = result && !result.valid ? result.error || 'Check the measurements above.' : '';
+  }
   if (!result || !result.valid) {
     // Show placeholders
     Object.values(elements).forEach(id => {
@@ -370,7 +382,11 @@ function renderResults(result, elements) {
  */
 function renderFormula(result, containerId) {
   const container = $(containerId);
-  if (!container || !result || !result.valid) return;
+  if (!container) return;
+  if (!result || !result.valid) {
+    container.replaceChildren();
+    return;
+  }
 
   const { formula } = result;
   let html = `<div class="formula-box"><strong>${formula.description}</strong></div>`;

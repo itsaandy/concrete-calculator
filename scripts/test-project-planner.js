@@ -65,3 +65,14 @@ for (const bad of [
 ]) assert.equal(calculateProjectItem(bad).valid, false);
 assert.equal(calculateProjectTotal([{shape: 'circular', diameter: 1, depth: 1}], NaN).valid, false);
 console.log('PASS: project totals, post displacement, allowance and invalid inputs');
+
+for (const invalid of [
+  {postWidth: 0.4}, {postWidth: 0.25}, {postWidth: -0.1},
+  {postCount: 0}, {postCount: 1.5}, {holeDiameter: Infinity}, {wastage: NaN}
+]) {
+  assert.equal(calculatePostHole({
+    holeDiameter: 0.3, holeDepth: 0.6, postWidth: 0.09, postCount: 6,
+    postShape: 'square', wastage: 10, ...invalid
+  }).valid, false);
+}
+console.log('PASS: post-hole inputs cannot produce negative or non-finite results');

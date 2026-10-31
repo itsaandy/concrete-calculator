@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XNWWCK3HP0"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XNWWCK3HP0');</script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Work through an L-shaped concrete quantity: split non-overlapping rectangles, convert thickness, add volumes and apply one allowance. Open the example in the planner.">
+  <meta name="author" content="Andy P">
+  <meta name="robots" content="index, follow">
+  <title>Combine Concrete Pours Without Double-Counting | ConcreteCalc</title>
+  <meta property="og:title" content="Combine Concrete Pours Without Double-Counting | ConcreteCalc">
+  <meta property="og:description" content="Work through an L-shaped concrete quantity: split non-overlapping rectangles, convert thickness, add volumes and apply one allowance. Open the example in the planner.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://concretecalc.com.au/guides/multi-pour-concrete-volume/">
+  <meta property="og:locale" content="en_AU">
+  <meta property="og:image" content="https://concretecalc.com.au/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <link rel="canonical" href="https://concretecalc.com.au/guides/multi-pour-concrete-volume/">
+  <link rel="alternate" hreflang="en-AU" href="https://concretecalc.com.au/guides/multi-pour-concrete-volume/">
+  <link rel="alternate" hreflang="x-default" href="https://concretecalc.com.au/guides/multi-pour-concrete-volume/">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/manifest.json">
+  <link rel="stylesheet" href="/css/styles.css">
+
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Combine concrete pours without double-counting","name":"Combine concrete pours without double-counting","url":"https://concretecalc.com.au/guides/multi-pour-concrete-volume/","description":"Work through an L-shaped concrete quantity: split non-overlapping rectangles, convert thickness, add volumes and apply one allowance. Open the example in the planner.","inLanguage":"en-AU","datePublished":"2026-10-31","dateModified":"2026-10-31","author":{"@type":"Person","name":"Andy P","url":"https://concretecalc.com.au/about/"}}</script>
+</head>
+<body>
+  <div class="page-wrapper">
+    <header class="site-header">
+      <div class="header-inner">
+        <a href="/" class="site-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="12" width="20" height="10" rx="1"/><path d="M4 12V6a2 2 0 0 1 2-2h4"/><path d="M14 4h4a2 2 0 0 1 2 2v6"/></svg><span>Concrete Calculator</span></a>
+        <nav class="main-nav" aria-label="Main navigation"><ul class="nav-list"><li><a href="/concrete-slab-calculator/">Slab Calculator</a></li><li><a href="/post-hole-calculator/">Post Holes</a></li><li><a href="/footing-calculator/">Footings</a></li><li><a href="/column-calculator/">Columns</a></li><li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li></ul></nav>
+        <button class="nav-toggle" aria-expanded="false" aria-controls="mobile-nav" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile navigation"><ul class="mobile-nav-list"><li><a href="/concrete-slab-calculator/">Slab Calculator</a></li><li><a href="/post-hole-calculator/">Post Hole Calculator</a></li><li><a href="/footing-calculator/">Footing Calculator</a></li><li><a href="/column-calculator/">Column Calculator</a></li><li><a href="/circular-slab-calculator/">Circular Slab Calculator</a></li><li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li></ul></nav>
+    </header>
+    <div class="container"><nav class="breadcrumbs" aria-label="Breadcrumb"><ol class="breadcrumb-list"><li><a href="/">Home</a></li><li><a href="/guides/">Guides</a></li><li>Combine concrete pours without double-counting</li></ol></nav></div>
+    <section class="hero"><div class="container"><h1>Combine concrete pours without double-counting</h1><p>A worked measurement exercise for a job with more than one rectangle or depth.</p></div></section>
+    <main class="main-content"><div class="container"><article class="content-article guide-article"><p class="guide-byline">By <a href="/about/">Andy P, creator and maintainer</a> · Checked <time datetime="2026-10-31">31 October 2026</time></p>
+<p>For an irregular outline, calculate separate pieces that do not overlap, add their measured volumes and apply one selected allowance to the total. The outline below can be calculated as two rectangles or as a large rectangle minus a cut-out. Both methods should give the same answer.</p>
+<p class="guide-note"><strong>Hypothetical example:</strong> every dimension and the 10% allowance below is chosen to demonstrate arithmetic. They do not specify a suitable slab thickness, footing design or construction method.</p>
+<nav class="guide-contents" aria-label="On this page"><a href="#split">Split the outline</a><a href="#working">Check the working</a><a href="#depth">Different depths</a><a href="#use">Use the result</a></nav>
+<h2 id="split">Split the outline at a shared edge</h2>
+<figure class="guide-figure">
+<svg viewBox="0 0 400 430" role="img" aria-labelledby="pour-diagram-title pour-diagram-desc" xmlns="http://www.w3.org/2000/svg">
+<title id="pour-diagram-title">An L-shaped area split into two non-overlapping rectangles</title>
+<desc id="pour-diagram-desc">Rectangle A is four metres wide and three metres long. Rectangle B is two metres wide and two metres long, adjoining the lower-left edge of A. Their areas are twelve and four square metres. Both use the example thickness of one hundred millimetres.</desc>
+<path d="M60 50H300V230H180V350H60Z" fill="#fef3c7" stroke="#334155" stroke-width="3"/>
+<path d="M60 230H180" stroke="#334155" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="180" y="128" text-anchor="middle">A · 4 m × 3 m</text><text x="180" y="158" text-anchor="middle">12 m²</text>
+<text x="120" y="264" text-anchor="middle">B</text><text x="120" y="294" text-anchor="middle">2 m × 2 m</text><text x="120" y="324" text-anchor="middle">4 m²</text>
+<path d="M60 26H300M60 18V34M300 18V34" stroke="#334155" stroke-width="2"/><text x="180" y="18" text-anchor="middle">4 m</text>
+<path d="M325 50V230M317 50H333M317 230H333" stroke="#334155" stroke-width="2"/><text x="344" y="146">3 m</text>
+<path d="M60 373H180M60 365V381M180 365V381" stroke="#334155" stroke-width="2"/><text x="120" y="401" text-anchor="middle">2 m</text>
+<path d="M33 230V350M25 230H41M25 350H41" stroke="#334155" stroke-width="2"/><text x="22" y="295" text-anchor="middle" transform="rotate(-90 22 295)">2 m</text>
+</svg>
+<figcaption>A and B meet at an edge; neither includes any of the other's area. This is a quantity diagram, not a construction drawing.</figcaption></figure>
+<p>Record the main rectangle as 4 m × 3 m and the extension as 2 m × 2 m. A common mistake is to enter a full 4 m × 5 m rectangle and then add the extension again. The full rectangle already includes that space and also includes the empty cut-out.</p>
+<h2 id="working">Convert thickness before multiplying</h2>
+<p>For this exercise, 100 mm ÷ 1,000 = 0.1 m. Area is measured in square metres; multiply it by thickness in metres to obtain cubic metres. Do not enter “100” into a field labelled metres.</p>
+<div class="guide-table-wrap" role="region" aria-label="Example volume calculations" tabindex="0"><table>
+<caption>Separate pieces, then one project allowance</caption><thead><tr><th scope="col">Item</th><th scope="col">Working</th><th scope="col">Volume</th></tr></thead><tbody>
+<tr><th scope="row">Rectangle A</th><td>4 × 3 × 0.1</td><td>1.200 m³</td></tr>
+<tr><th scope="row">Rectangle B</th><td>2 × 2 × 0.1</td><td>0.400 m³</td></tr>
+<tr><th scope="row">Measured total</th><td>1.2 + 0.4</td><td>1.600 m³</td></tr>
+<tr><th scope="row">Selected 10% allowance</th><td>1.6 × 0.10</td><td>0.160 m³</td></tr>
+<tr><th scope="row">Planning quantity</th><td>1.6 + 0.16</td><td>1.760 m³</td></tr>
+</tbody></table></div>
+<p>Check by subtraction: the enclosing 4 m × 5 m rectangle has an area of 20 m². Remove the empty 2 m × 2 m corner: 20 − 4 = 16 m². At the same 0.1 m thickness, 16 × 0.1 = 1.6 m³ before allowance.</p>
+<p>At ConcreteCalc's cited Boral reference of 108 × 20 kg bags per cubic metre, the final bag count is round up(1.76 × 108) = <strong>191 bags</strong>. That conversion applies to the referenced product, not to every bag with a 20 kg label.</p>
+<p><a class="guide-action" target="_blank" rel="noopener" href="/project-planner/#project=eyJuYW1lIjoiTC1zaGFwZWQgcG91ciBleGFtcGxlIiwiYWxsb3dhbmNlIjoiMTAiLCJpdGVtcyI6W3sibGFiZWwiOiJNYWluIHJlY3RhbmdsZSIsInNoYXBlIjoicmVjdGFuZ3VsYXIiLCJsZW5ndGgiOiI0Iiwid2lkdGgiOiIzIiwiZGVwdGgiOiIwLjEiLCJxdWFudGl0eSI6IjEifSx7ImxhYmVsIjoiU2lkZSBleHRlbnNpb24iLCJzaGFwZSI6InJlY3Rhbmd1bGFyIiwibGVuZ3RoIjoiMiIsIndpZHRoIjoiMiIsImRlcHRoIjoiMC4xIiwicXVhbnRpdHkiOiIxIn1dfQ">Open these pours in a new planner tab</a></p>
+<p>The example opens in a new tab so it does not replace an existing planner draft. Change each dimension to match your own measured job. The planner shows each base volume separately from the allowance and can copy or print the complete summary.</p>
+<h2 id="depth">Treat different depths as separate volumes</h2>
+<p>Adding areas first only works here because both pieces use the same thickness. If the extension in this arithmetic exercise were 0.15 m thick instead, calculate 4 × 3 × 0.1 + 2 × 2 × 0.15 = 1.8 m³ before allowance. Applying the same selected 10% gives 1.98 m³. This comparison demonstrates the effect of an input; it does not recommend changing a design.</p>
+<p>For a beam below a slab, avoid entering both the full slab and the beam's full depth if that counts their shared volume twice. Establish whether the design's beam depth includes the slab thickness, then count only non-overlapping volumes. Ask the designer to clarify ambiguous measurements rather than guessing.</p>
+<h2 id="use">Take a checked quantity to the supplier</h2>
+<p>The calculator totals geometry; it cannot determine the actual shape of an excavation or decide your structural requirements. Confirm dimensions from the relevant plans or qualified professional. A planning allowance is editable and should reflect your measurements and circumstances.</p>
+<p>Carry the measured total, the separate allowance and the planning quantity into your quote enquiry. Confirm the product specification and the supplier's ordering increments, minimum load and fees. If the supplier rounds a quantity, record that separately so the same allowance is not applied again.</p>
+<h2>Sources and checking</h2>
+<p>The diagram and arithmetic are original worked examples by ConcreteCalc. Reproduce the two rectangles in the planner to check the result. Volume formulas, conversion and rounding are documented in our <a href="/methodology/">methodology</a>. The bag conversion is from <a href="https://www.boral.com.au/product-data-sheet/concrete-mix-product-data-sheet">Boral's Concrete Mix product data sheet</a>, checked 31 October 2026.</p>
+<p>Next: <a href="/guides/concrete-bag-yield-and-quotes/">compare bag yield with a ready-mix quote</a>, or <a href="/contact/">report an issue with this example</a>.</p></article></div></main>
+    <a class="feedback-fab" href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a>
+    <footer class="site-footer"><div class="container"><div class="footer-grid"><div class="footer-brand"><a href="/" class="footer-logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="12" width="20" height="10" rx="1"/><path d="M4 12V6a2 2 0 0 1 2-2h4"/><path d="M14 4h4a2 2 0 0 1 2 2v6"/></svg><span>Concrete Calculator</span></a><p>Transparent concrete quantity calculators for Australian DIYers and tradies.</p></div><nav class="footer-nav"><h4>Calculators</h4><ul><li><a href="/concrete-slab-calculator/">Slab Calculator</a></li><li><a href="/post-hole-calculator/">Post Hole Calculator</a></li><li><a href="/footing-calculator/">Footing Calculator</a></li><li><a href="/column-calculator/">Column Calculator</a></li><li><a href="/circular-slab-calculator/">Circular Slab</a></li></ul></nav><nav class="footer-nav"><h4>Resources</h4><ul><li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li><li><a href="/guides/">Worked Guides</a></li><li><a href="/methodology/">Methodology &amp; Sources</a></li><li><a href="/about/">About</a></li><li><a href="/contact/">Contact</a></li><li><a href="/privacy/">Privacy Policy</a></li><li><a href="https://docs.google.com/forms/d/e/1FAIpQLScxyUrVePNMWdyJCDl1hrzjDwCQ-Joa4It31sBDZK63A17-kw/viewform?usp=pp_url&amp;entry.364081786=concretecalc.com.au" target="_blank" rel="noopener noreferrer">Feedback</a></li></ul></nav></div><div class="footer-bottom"><p>&copy; 2026 Concrete Calculator Australia · <a href="/about/">Maintained by Andy P</a></p><p class="disclaimer"><strong>Disclaimer:</strong> Quantity and cost results are planning estimates, not structural or engineering advice. Check the selected product's stated yield and obtain local prices or quotes before ordering. See our <a href="/methodology/">methodology and sources</a>.</p></div></div></footer>
+  </div>
+  <script src="/js/ui.js"></script>
+</body>
+</html>

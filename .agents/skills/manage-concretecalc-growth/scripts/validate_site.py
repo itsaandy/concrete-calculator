@@ -35,6 +35,9 @@ MONETISED_PAGES = {
     "project-planner/index.html",
 }
 AD_FREE_INDEXED_PAGES = {
+    "guides/index.html",
+    "guides/multi-pour-concrete-volume/index.html",
+    "guides/concrete-bag-yield-and-quotes/index.html",
     "about/index.html",
     "contact/index.html",
     "methodology/index.html",

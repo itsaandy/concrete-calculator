@@ -228,6 +228,11 @@
                     <div class="input-wrapper"><input type="number" id="bag-price" class="form-input form-input--with-suffix" step="0.01" min="0" inputmode="decimal" placeholder="e.g. 9.50"><span class="input-suffix">$</span></div>
                   </div>
                   <div class="form-group">
+                    <label class="form-label" for="bag-yield">Labelled yield per 20 kg bag <span class="form-label-hint">(litres, optional)</span></label>
+                    <div class="input-wrapper"><input type="number" id="bag-yield" class="form-input form-input--with-suffix" step="any" min="0" inputmode="decimal" placeholder="Use the product label" aria-describedby="bag-yield-help"><span class="input-suffix">L</span></div>
+                    <p class="form-help" id="bag-yield-help">Leave blank to use Boral's reference of 108 bags per cubic metre. Enter mixed-concrete yield, not bag weight or mixing water.</p>
+                  </div>
+                  <div class="form-group">
                     <label class="form-label" for="readymix-rate">Your ready-mix quote <span class="form-label-hint">($/m³)</span></label>
                     <div class="input-wrapper"><input type="number" id="readymix-rate" class="form-input form-input--with-suffix" step="0.01" min="0" inputmode="decimal" placeholder="Optional"><span class="input-suffix">$</span></div>
                   </div>
@@ -237,6 +242,7 @@
                   </div>
                 </div>
               </form>
+              <p class="calculation-error" id="comparison-error" role="status" hidden></p>
 
               <div class="comparison-section">
                 <div class="comparison-wrapper">
@@ -272,7 +278,8 @@
           <p>Have several pours? Build a <a href="/project-planner/">project quantity and supplier summary</a> first, then bring the combined volume here to compare quotes.</p>
 
           <h3>Bag calculation</h3>
-          <p>The bag count is volume × 108, rounded up to a whole 20kg bag. The total dry bag weight is the rounded bag count × 20kg. Bag cost is calculated only when you enter a shelf price.</p>
+          <p>With the yield field blank, the bag count is volume × 108, rounded up, using Boral's reference for its 20 kg Concrete Mix. If you enter the mixed-concrete yield from a product label, bags = volume × 1,000 ÷ litres per bag, rounded up. Dry bag weight is bags × 20 kg. Bag cost is calculated only when you enter a shelf price.</p>
+          <p>Follow the <a href="/guides/concrete-bag-yield-and-quotes/">worked bag-yield and quote comparison</a> to see how rounding, labelled yield and quoted fees affect the result.</p>
 
           <h3>Ready-mix calculation</h3>
           <p>The ready-mix total is volume × your quoted price per cubic metre, plus the delivery and other quoted fees you enter. Suppliers may apply minimum loads, waiting time, distance, strength-grade, small-load, after-hours or pump charges. Enter the supplier's complete quote rather than relying on a national average.</p>
@@ -356,7 +363,7 @@
             <h4>Resources</h4>
             <ul>
               <li><a href="/bags-vs-readymix/">Bags vs Ready-Mix</a></li>
-              <li><a href="/methodology/">Methodology &amp; Sources</a></li>
+              <li><a href="/guides/">Worked Guides</a></li><li><a href="/methodology/">Methodology &amp; Sources</a></li>
               <li><a href="/about/">About</a></li>
               <li><a href="/contact/">Contact</a></li>
               <li><a href="/privacy/">Privacy Policy</a></li>
@@ -366,7 +373,7 @@
         </div>
 
         <div class="footer-bottom">
-          <p>&copy; 2026 Concrete Calculator Australia</p>
+          <p>&copy; 2026 Concrete Calculator Australia · <a href="/about/">Maintained by Andy P</a></p>
           <p class="disclaimer">
             <strong>Disclaimer:</strong> Quantity and cost results are planning estimates, not structural or engineering advice. Check the selected product's stated yield and obtain local prices or quotes before ordering. See our <a href="/methodology/">methodology and sources</a>.
           </p>
@@ -380,7 +387,7 @@
   <script src="/js/ui.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      const fields = ['volume', 'bag-price', 'readymix-rate', 'delivery-fee'];
+      const fields = ['volume', 'bag-price', 'bag-yield', 'readymix-rate', 'delivery-fee'];
 
       function money(value) {
         return new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD' }).format(value);
@@ -390,9 +397,16 @@
         const volume = parseFloat($('volume').value);
         const bagPrice = parseFloat($('bag-price').value);
         const readymixRate = parseFloat($('readymix-rate').value);
-        const deliveryFee = parseFloat($('delivery-fee').value) || 0;
+        const deliveryFee = $('delivery-fee').value === '' ? 0 : Number($('delivery-fee').value);
+        const yieldLitres = $('bag-yield').value === '' ? null : Number($('bag-yield').value);
+        const invalidYield = yieldLitres !== null && (!Number.isFinite(yieldLitres) || yieldLitres <= 0);
+        const bags = yieldLitres === null ? Math.ceil(volume * 108) : Math.ceil(volume * 1000 / yieldLitres);
+        const error = $('comparison-error');
+        error.hidden = true;
 
-        if (!volume || volume <= 0) {
+        if (!Number.isFinite(volume) || volume <= 0 || invalidYield || !Number.isSafeInteger(bags)) {
+          error.hidden = false;
+          error.textContent = invalidYield ? 'Enter a positive mixed-concrete yield in litres, or leave it blank for the Boral reference.' : 'Enter a positive concrete volume within a practical numeric range.';
           recordCalculatorCompletion({ valid: false });
           $('bags-quantity').textContent = '--';
           $('bags-weight').textContent = '--';
@@ -402,22 +416,27 @@
           return;
         }
 
-        const bags = Math.ceil(volume * 108);
         $('bags-quantity').textContent = bags + ' bags';
         $('bags-weight').textContent = (bags * 20).toLocaleString('en-AU') + ' kg';
-        $('bags-cost').textContent = bagPrice >= 0 ? money(bags * bagPrice) : 'Enter bag price';
+        $('bags-cost').textContent = Number.isFinite(bagPrice) && bagPrice >= 0 ? money(bags * bagPrice) : 'Enter bag price';
         $('readymix-volume').textContent = volume.toFixed(2) + ' m³';
-        $('readymix-cost').textContent = readymixRate >= 0 ? money(volume * readymixRate + deliveryFee) : 'Enter quote';
+        $('readymix-cost').textContent = Number.isFinite(readymixRate) && readymixRate >= 0 &&
+          Number.isFinite(deliveryFee) && deliveryFee >= 0 ? money(volume * readymixRate + deliveryFee) : 'Enter a valid quote and fees';
         recordCalculatorCompletion({
           valid: [volume, bagPrice, readymixRate, deliveryFee].every(Number.isFinite) &&
             bagPrice >= 0 && readymixRate >= 0 && deliveryFee >= 0,
-          results: { totalVolume: volume, bagPrice, readymixRate, deliveryFee }
+          results: { totalVolume: volume, bagPrice, readymixRate, deliveryFee, yieldLitres }
         });
       }
 
       fields.forEach(id => $(id).addEventListener('input', debounce(calculate, 100)));
       const params = getUrlParams();
       if (params.v) $('volume').value = params.v;
+      if (params.yield) $('bag-yield').value = params.yield;
+      if (params.bp) $('bag-price').value = params.bp;
+      if (params.rate) $('readymix-rate').value = params.rate;
+      if (params.fee) $('delivery-fee').value = params.fee;
+      $('comparison-form').addEventListener('submit', event => event.preventDefault());
       calculate();
     });  </script>
 </body>

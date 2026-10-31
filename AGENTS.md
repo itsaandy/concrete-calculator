@@ -40,6 +40,7 @@ Do not alter tracking IDs or credentials unless the owner explicitly requests it
 ## Approval-readiness and trust invariants
 
 - Keep `/about/`, `/contact/`, `/methodology/`, and `/privacy/` indexable but AdSense-free. `/privacy/` remains the only page that must also omit Analytics and all consent-dependent remote assets.
+- Keep `/guides/` and its two maintained worked guides indexable and AdSense-free. Label illustrative inputs and prices, cite current primary product sources, and make linked examples reproduce the published results. Andy P is the creator and maintainer; do not imply professional engineering review or real project experience without evidence.
 - Monetise only the homepage, six maintained calculator/resource routes and `/project-planner/`, as listed in the validator. Do not put ads on redirect or trust screens.
 - The 28 legacy worked-example URLs permanently redirect using instant meta refresh (GitHub Pages has no configurable HTTP 301 rules). Keep destination canonicals, fallback links, no scripts/tracking/ads, and no sitemap entries; do not mix `noindex` into redirect signals or restore the old articles.
 - Calculator-to-planner transfers must preserve metre dimensions, shape, quantity and post displacement. Transfer pre-allowance inputs and apply the project allowance once. Preserve tab drafts and explicit local saves; a refresh must never append the same incoming pour twice.
