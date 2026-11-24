@@ -1587,6 +1587,53 @@ body.feedback-dialog-open {
   margin-left: auto;
 }
 
+.owner-profile {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-6);
+  margin-bottom: var(--space-6);
+}
+
+.owner-profile__photo {
+  display: block;
+  flex: 0 0 auto;
+  width: 144px;
+  height: 192px;
+  object-fit: cover;
+  border-radius: var(--space-2);
+}
+
+.owner-profile__details {
+  min-width: 0;
+}
+
+.privacy-content .owner-profile__details a {
+  color: #92400e;
+  overflow-wrap: anywhere;
+}
+
+.privacy-content .owner-profile__details a:hover {
+  color: #78350f;
+}
+
+.privacy-content .owner-profile__details a:focus-visible {
+  outline: 2px solid currentColor;
+  outline-offset: 3px;
+}
+
+@media (max-width: 540px) {
+  .owner-profile {
+    flex-direction: column;
+    gap: var(--space-4);
+  }
+
+  .owner-about .feedback-fab {
+    position: static;
+    align-self: center;
+    margin: 0 auto var(--space-6);
+  }
+}
+
 .privacy-content a {
   color: var(--color-primary-dark);
   text-decoration: underline;
