@@ -12,12 +12,13 @@ Run a closed-loop workflow: measure, choose one material opportunity, implement 
 1. Read [references/data-access.md](references/data-access.md) before querying Search Console or Analytics.
 2. Read [references/site-architecture.md](references/site-architecture.md) before editing HTML, JavaScript, the generator, or the sitemap.
 3. Read the repository `AGENTS.md` and honor any user changes already in the worktree.
+4. For AdSense work, read and maintain the shared progress report using the location and protocol in `AGENTS.md`; keep proposed, implemented and live-verified changes distinct.
 
 ## Select the operating mode
 
-- **Monitor:** Query data, compare periods, inspect meaningful changes, and report. Do not edit the repository.
+- **Monitor:** Query data, compare periods, inspect meaningful changes, and report. Do not edit this site repository. Only the shared progress-report persistence described in `AGENTS.md` is permitted.
 - **Optimize:** Query data first, implement justified changes, validate, commit, and push.
-- **Diagnose:** Investigate a reported ranking, indexing, analytics, or calculator problem. Do not implement unless the request includes a fix.
+- **Diagnose:** Investigate a reported ranking, indexing, analytics, or calculator problem. Do not implement unless the request includes a fix; the same progress-report exception applies.
 
 ## Measure before changing
 
@@ -51,7 +52,7 @@ Avoid mass page creation, near-duplicates, keyword stuffing, cosmetic date chang
 ## Validate and ship
 
 1. Run `python3 .agents/skills/manage-concretecalc-growth/scripts/validate_site.py`.
-2. Run the JavaScript syntax and `git diff --check` commands in `AGENTS.md`.
+2. Run every other required command in `AGENTS.md`, including JavaScript syntax, generator parity, planner and example-preset tests, and `git diff --check`.
 3. Serve locally over HTTP and test changed calculator paths on desktop and mobile, including valid and invalid inputs and console errors.
 4. Review the complete diff. If checks pass, commit and push directly to `main`; this repository is explicitly authorized for autonomous direct-to-main operation.
 5. If evidence supports no change, report a no-op. If validation or conflict resolution is uncertain, do not push.

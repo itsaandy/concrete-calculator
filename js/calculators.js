@@ -728,33 +728,34 @@ function calculateProjectTotal(items, wastage = CONSTANTS.DEFAULT_WASTAGE) {
   };
 }
 
-// ===== PRESET CONFIGURATIONS =====
+// ===== ILLUSTRATIVE INPUTS (NOT STRUCTURAL DESIGN RECOMMENDATIONS) =====
+// Legacy keys remain stable; labels disclose every dimension the example fills.
 const PRESETS = {
   slab: {
-    shed: { length: 3, width: 3, depth: 0.1, label: 'Shed Base (3×3m)' },
-    driveway: { length: 5, width: 3, depth: 0.125, label: 'Driveway (5×3m)' },
-    patio: { length: 4, width: 4, depth: 0.1, label: 'Patio (4×4m)' },
-    path: { length: 6, width: 1, depth: 0.075, label: 'Garden Path (6×1m)' },
-    garage: { length: 6, width: 3, depth: 0.1, label: 'Single Garage (6×3m)' }
+    shed: { length: 3, width: 3, depth: 0.1, label: '3 m × 3 m × 100 mm' },
+    driveway: { length: 5, width: 3, depth: 0.125, label: '5 m × 3 m × 125 mm' },
+    patio: { length: 4, width: 4, depth: 0.1, label: '4 m × 4 m × 100 mm' },
+    path: { length: 6, width: 1, depth: 0.075, label: '6 m × 1 m × 75 mm' },
+    garage: { length: 6, width: 3, depth: 0.1, label: '6 m × 3 m × 100 mm' }
   },
   postHole: {
-    fence: { holeDiameter: 0.3, holeDepth: 0.6, postWidth: 0.1, label: 'Fence Post (300mm hole)' },
-    deck: { holeDiameter: 0.45, holeDepth: 0.6, postWidth: 0.1, label: 'Deck Post (450mm hole)' },
-    pergola: { holeDiameter: 0.4, holeDepth: 0.5, postWidth: 0.09, label: 'Pergola Post (400mm hole)' }
+    fence: { holeDiameter: 0.3, holeDepth: 0.6, postWidth: 0.1, label: '300 mm hole · 600 mm deep · 100 mm post' },
+    deck: { holeDiameter: 0.45, holeDepth: 0.6, postWidth: 0.1, label: '450 mm hole · 600 mm deep · 100 mm post' },
+    pergola: { holeDiameter: 0.4, holeDepth: 0.5, postWidth: 0.09, label: '400 mm hole · 500 mm deep · 90 mm post' }
   },
   footing: {
-    shed: { length: 0.4, width: 0.4, depth: 0.3, label: 'Shed Footing (400×400mm)' },
-    deck: { length: 0.45, width: 0.45, depth: 0.35, label: 'Deck Footing (450×450mm)' },
-    retaining: { length: 2, width: 0.4, depth: 0.3, label: 'Strip Footing (2m)' }
+    shed: { length: 0.4, width: 0.4, depth: 0.3, label: '400 mm × 400 mm × 300 mm' },
+    deck: { length: 0.45, width: 0.45, depth: 0.35, label: '450 mm × 450 mm × 350 mm' },
+    retaining: { length: 2, width: 0.4, depth: 0.3, label: '2 m × 400 mm × 300 mm' }
   },
   column: {
-    veranda: { diameter: 0.3, height: 2.4, label: 'Veranda Column (300mm)' },
-    carport: { diameter: 0.35, height: 2.7, label: 'Carport Column (350mm)' }
+    veranda: { diameter: 0.3, height: 2.4, label: '300 mm diameter × 2.4 m high' },
+    carport: { diameter: 0.35, height: 2.7, label: '350 mm diameter × 2.7 m high' }
   },
   circularSlab: {
-    firePit: { diameter: 1.2, thickness: 0.1, label: 'Fire Pit Base (1.2m)' },
-    birdbath: { diameter: 0.6, thickness: 0.075, label: 'Birdbath Base (600mm)' },
-    roundPatio: { diameter: 3, thickness: 0.1, label: 'Round Patio (3m)' }
+    firePit: { diameter: 1.2, thickness: 0.1, label: '1.2 m diameter × 100 mm thick' },
+    birdbath: { diameter: 0.6, thickness: 0.075, label: '600 mm diameter × 75 mm thick' },
+    roundPatio: { diameter: 3, thickness: 0.1, label: '3 m diameter × 100 mm thick' }
   }
 };
 

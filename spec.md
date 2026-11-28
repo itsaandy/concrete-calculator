@@ -1,5 +1,7 @@
 # Australian Concrete & Construction Calculator Website — Project Spec
 
+> Historical planning document, superseded by `AGENTS.md`, the growth skill and the current implementation. Its proposed “recommended” dimensions, job-labelled presets, supplier/yield claims and prices are not verified current requirements. Do not restore them from this document. As of 28 November 2026, dimension buttons are explicitly illustrative arithmetic inputs with all filled dimensions visible; they do not recommend a project design.
+
 ## Project Overview
 
 Build a static, frontend-only website targeting Australian DIYers and tradies who need to calculate how much concrete (and other building materials) they need for their projects. The site uses **metric measurements only** (metres, millimetres, m³, kg), calculates volume, number of 20kg bags, and estimated cost in AUD. No backend required — pure HTML/CSS/JS.

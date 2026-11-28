@@ -674,6 +674,12 @@ ul, ol {
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-medium);
   color: var(--color-grey-600);
+  margin-bottom: var(--space-2);
+}
+
+.presets-hint {
+  font-size: var(--font-size-sm);
+  color: var(--color-grey-700);
   margin-bottom: var(--space-3);
 }
 
@@ -684,6 +690,7 @@ ul, ol {
 }
 
 .preset-btn {
+  min-height: 44px;
   padding: var(--space-2) var(--space-3);
   background: var(--color-white);
   border: 1px solid var(--color-grey-300);

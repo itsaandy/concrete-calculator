@@ -26,3 +26,5 @@ The 28 former worked examples are now instant HTML redirects to relevant tools. 
 ## Calculation contract
 
 The browser calculators are the product. Validate formulas and rounding whenever touching logic. `108` 20 kg bags per cubic metre is a central current assumption, but yields and costs can vary. Keep the visible explanation, calculator code, generator, and disclaimers consistent. Structural dimensions and construction advice must not be presented as engineered approval.
+
+The five dimension-calculator pages use illustrative input buttons, not project design recommendations. Labels must expose all dimensions that `PRESETS` fills, and adjacent guidance must explain preserved settings or an explicit shape switch. Preserve legacy preset keys for compatibility. `node scripts/test-example-presets.js` checks the visible labels against stored dimensions; browser tests must also check actual field updates and results.

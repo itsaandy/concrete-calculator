@@ -6,6 +6,8 @@ Operate https://concretecalc.com.au as an experimental, evidence-led SEO product
 
 Use `$manage-concretecalc-growth` for Search Console or Analytics reviews, SEO work, content expansion, calculator UX changes, and recurring growth runs.
 
+For AdSense-related work, first read the shared progress report at `/root/code/bulk-websites/docs/adsense-progress.md`. Before finishing, maintain it under the parent workspace `AGENTS.md` protocol, including dated new findings, changes, validation/deployment outcomes and owner-reported review decisions. The report-only persistence exception also applies to Monitor/Diagnose; it does not permit site edits or Google writes in those modes. Do not create a duplicate report here. If this checkout is standalone or the control plane is unavailable, return the pending entry in the handoff.
+
 ## Repository shape
 
 - Pure static GitHub Pages site; there is no package manager, build step, backend, or automated deployment workflow.
@@ -46,6 +48,7 @@ Do not alter tracking IDs or credentials unless the owner explicitly requests it
 - Calculator-to-planner transfers must preserve metre dimensions, shape, quantity and post displacement. Transfer pre-allowance inputs and apply the project allowance once. Preserve tab drafts and explicit local saves; a refresh must never append the same incoming pour twice.
 - Keep `/methodology/` aligned with calculator formulas, rounding, yield assumptions, displayed price ranges, source links, and review dates. Cite primary manufacturer information for product yield and dated retailer information for variable prices.
 - Do not state that a default allowance, dimension, thickness, strength, reinforcement detail, timing, cost threshold, permit rule, or construction method is universally standard. Source the claim and qualify its scope, or omit it.
+- Keep dimension presets explicitly illustrative: display every dimension they fill, including thickness/depth, without project-suitability labels such as “shed base” or “deck footing”. Keep button labels aligned with `PRESETS`, and explain which shape, quantity and allowance settings remain unchanged. These examples are arithmetic inputs, not structural recommendations.
 
 ## Before editing
 
@@ -66,6 +69,7 @@ node --check scripts/generate-long-tail.js
 node scripts/generate-long-tail.js --check
 node --check js/project-planner.js
 node scripts/test-project-planner.js
+node scripts/test-example-presets.js
 python3 .agents/skills/manage-concretecalc-growth/scripts/validate_site.py
 git diff --check
 ```
